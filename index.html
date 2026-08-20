@@ -1,0 +1,3908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#009c9d" />
+<meta name="description" content="Plan del Proyecto de Aplicación Profesional - Programa de Diseño de Interiores - IDC" />
+<title>Plan PAP · Diseño de Interiores · IDC</title>
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Tipografías -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+<style>
+:root{
+  /* Paleta institucional IDC */
+  --turquesa: #009c9d;
+  --turquesa-dark: #006b6c;
+  --turquesa-light: #b6e5e5;
+  --azul: #0072b9;
+  --azul-dark: #004f80;
+  --azul-light: #cfe6f5;
+  --naranja: #f3a100;
+  --naranja-dark: #c47d00;
+  --gris: #555553;
+  --gris-claro: #f4f4f2;
+  --gris-medio: #d8d8d4;
+  --crema: #fbfaf6;
+  --blanco: #ffffff;
+
+  /* Tipografía */
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Sistema */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.10);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,.18);
+  --shadow-turquesa: 0 12px 40px rgba(0,156,157,.28);
+  --shadow-azul: 0 12px 40px rgba(0,114,185,.28);
+  --shadow-naranja: 0 12px 40px rgba(243,161,0,.32);
+  --transition: cubic-bezier(.4,0,.2,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family: var(--font-body);
+  color: var(--gris);
+  background: var(--crema);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Tipografía display */
+h1,h2,h3,h4,h5,h6,.display-font{
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  color: var(--azul-dark);
+}
+.display-1, .display-2, .display-3, .display-4{
+  font-family: var(--font-display);
+  letter-spacing: -.035em;
+  font-weight: 800;
+}
+.mono{font-family: var(--font-mono); font-size:.85em;}
+
+/* === HEADER STICKY === */
+.header-idc{
+  background: var(--blanco);
+  border-bottom: 1px solid var(--gris-medio);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,.92);
+}
+.header-logo{
+  height: 48px;
+  width: auto;
+  filter: invert(1) brightness(0);
+  transition: transform .3s var(--transition);
+}
+.header-logo:hover{transform: scale(1.04);}
+.header-divider{
+  width: 1px;
+  height: 36px;
+  background: var(--gris-medio);
+}
+.header-title{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--azul-dark);
+  margin: 0;
+  line-height: 1.1;
+}
+.header-subtitle{
+  font-size: .78rem;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin: 0;
+}
+
+/* Nav pills */
+.nav-pills-idc{
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.nav-pill-idc{
+  font-size: .78rem;
+  font-weight: 600;
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  color: var(--gris);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all .25s var(--transition);
+  white-space: nowrap;
+}
+.nav-pill-idc:hover{
+  background: var(--turquesa);
+  color: white;
+  border-color: var(--turquesa);
+}
+
+/* === HERO === */
+.hero-idc{
+  background: linear-gradient(135deg, var(--turquesa) 0%, var(--turquesa-dark) 60%, var(--azul-dark) 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 6rem;
+}
+.hero-idc::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(243,161,0,.18) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(0,114,185,.35) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-idc::after{
+  content:"";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+.hero-content{position: relative; z-index: 2;}
+.hero-eyebrow{
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: .5rem 1rem;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  color: white;
+}
+.hero-title{
+  color: white;
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  margin: 1.4rem 0 1.2rem;
+  line-height: .98;
+}
+.hero-title .accent{
+  color: var(--naranja);
+  font-style: italic;
+  font-weight: 700;
+}
+.hero-lead{
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  max-width: 760px;
+  color: rgba(255,255,255,.86);
+  line-height: 1.55;
+}
+.hero-stats{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2.8rem;
+}
+.hero-stat-num{
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.6rem;
+  color: var(--naranja);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+.hero-stat-label{
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.7);
+  margin-top: .35rem;
+}
+
+/* === SECCIONES === */
+.section{padding: 5rem 0;}
+.section-eyebrow{
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--turquesa);
+  font-weight: 600;
+  margin-bottom: .8rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+.section-eyebrow::before{
+  content:"";
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  background: var(--turquesa);
+}
+.section-title{
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -.035em;
+  margin-bottom: 1.2rem;
+  color: var(--azul-dark);
+}
+.section-title .accent{color: var(--naranja);}
+.section-lead{
+  font-size: 1.1rem;
+  max-width: 760px;
+  color: var(--gris);
+  margin-bottom: 3rem;
+}
+
+/* === TARJETAS GENERALES === */
+.idc-card{
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gris-medio);
+  transition: all .35s var(--transition);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.idc-card:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--turquesa);
+}
+.idc-card-num{
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.4rem;
+  color: var(--turquesa);
+  line-height: 1;
+  margin-bottom: .8rem;
+  letter-spacing: -.03em;
+}
+.idc-card-title{
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: .6rem;
+  color: var(--azul-dark);
+}
+.idc-card-text{
+  font-size: .94rem;
+  color: var(--gris);
+  line-height: 1.55;
+}
+
+/* TARJETAS HOLOGRÁFICAS (parámetros de formato) */
+.param-card{
+  position: relative;
+  background: linear-gradient(140deg, white 0%, var(--gris-claro) 100%);
+  border-radius: var(--radius-md);
+  padding: 1.6rem;
+  border: 1px solid var(--gris-medio);
+  overflow: hidden;
+  transition: transform .4s var(--transition), box-shadow .4s var(--transition);
+  height: 100%;
+  cursor: default;
+}
+.param-card::before{
+  content:"";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(125deg,
+    transparent 30%,
+    rgba(0,156,157,.5) 45%,
+    rgba(243,161,0,.5) 55%,
+    transparent 70%);
+  border-radius: var(--radius-md);
+  opacity: 0;
+  transition: opacity .5s var(--transition), transform .8s var(--transition);
+  transform: translateY(100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.param-card::after{
+  content:"";
+  position: absolute;
+  inset: 1.5px;
+  background: linear-gradient(140deg, rgba(255,255,255,.95) 0%, rgba(244,244,242,.95) 100%);
+  border-radius: calc(var(--radius-md) - 2px);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+}
+.param-card > *{position: relative; z-index: 2;}
+.param-card:hover{
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.param-card:hover::before{
+  opacity: 1;
+  transform: translateY(0);
+}
+.param-card-label{
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--turquesa);
+  font-weight: 600;
+  margin-bottom: .4rem;
+}
+.param-card-value{
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--azul-dark);
+  line-height: 1.15;
+}
+.param-card-detail{
+  font-size: .82rem;
+  color: var(--gris);
+  margin-top: .5rem;
+}
+
+/* === LÍNEAS TRANSVERSALES === */
+.linea-trans{
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.4rem;
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gris-medio);
+  transition: all .3s var(--transition);
+  height: 100%;
+}
+.linea-trans:hover{
+  border-color: var(--turquesa);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+.linea-num{
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--turquesa), var(--azul));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+.linea-text{
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--azul-dark);
+  line-height: 1.35;
+}
+
+/* === FICHAS DI === */
+.ficha-di{
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+  border: 1px solid var(--gris-medio);
+  transition: all .35s var(--transition);
+}
+.ficha-di:hover{
+  box-shadow: var(--shadow-md);
+  border-color: var(--turquesa);
+}
+.ficha-di-head{
+  background: linear-gradient(135deg, var(--turquesa) 0%, var(--azul) 100%);
+  color: white;
+  padding: 2rem 2rem 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+.ficha-di-head::before{
+  content:"";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(243,161,0,.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ficha-di-code{
+  font-family: var(--font-mono);
+  font-size: .85rem;
+  letter-spacing: .15em;
+  background: rgba(255,255,255,.18);
+  padding: .35rem .8rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: .8rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.25);
+}
+.ficha-di-title{
+  color: white;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+  margin-bottom: .4rem;
+}
+.ficha-di-subsec{
+  font-size: .92rem;
+  color: rgba(255,255,255,.86);
+  margin: 0;
+}
+.ficha-di-body{padding: 2rem;}
+.ficha-di-block{margin-bottom: 1.8rem;}
+.ficha-di-block:last-child{margin-bottom: 0;}
+.ficha-di-block-title{
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--turquesa);
+  font-weight: 700;
+  margin-bottom: .9rem;
+  padding-bottom: .55rem;
+  border-bottom: 2px solid var(--turquesa-light);
+}
+.ficha-di-objetivo{
+  background: var(--gris-claro);
+  padding: 1.2rem 1.4rem;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--naranja);
+  font-size: .96rem;
+  line-height: 1.55;
+  color: var(--azul-dark);
+}
+.ficha-di-oe{
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed var(--gris-medio);
+}
+.ficha-di-oe:last-child{border-bottom:none;}
+.ficha-di-oe-tag{
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  background: var(--azul);
+  color: white;
+  padding: .25rem .55rem;
+  border-radius: 6px;
+  height: fit-content;
+  letter-spacing: .05em;
+}
+.ficha-di-oe-text{
+  font-size: .92rem;
+  color: var(--gris);
+  margin: 0;
+  line-height: 1.55;
+}
+.elem-table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: .9rem;
+}
+.elem-table thead th{
+  background: var(--azul-dark);
+  color: white;
+  padding: .8rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .03em;
+}
+.elem-table thead th:first-child{border-top-left-radius: var(--radius-sm);}
+.elem-table thead th:last-child{border-top-right-radius: var(--radius-sm);}
+.elem-table tbody td{
+  padding: .8rem 1rem;
+  border-bottom: 1px solid var(--gris-medio);
+  vertical-align: top;
+}
+.elem-table tbody tr:hover td{background: var(--gris-claro);}
+.elem-table tbody tr:last-child td:first-child{border-bottom-left-radius: var(--radius-sm);}
+.elem-table tbody tr:last-child td:last-child{border-bottom-right-radius: var(--radius-sm);}
+.elem-table tbody td:first-child{
+  font-weight: 600;
+  color: var(--azul-dark);
+  width: 35%;
+}
+.tipos-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.tipo-chip{
+  padding: .4rem .85rem;
+  background: var(--turquesa-light);
+  color: var(--turquesa-dark);
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 500;
+  transition: all .25s var(--transition);
+}
+.tipo-chip:hover{
+  background: var(--turquesa);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* === ESQUEMA SECCIONES PAP === */
+.esquema-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.esquema-item{
+  position: relative;
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  border: 1px solid var(--gris-medio);
+  border-top: 4px solid var(--turquesa);
+  transition: all .35s var(--transition);
+}
+.esquema-item:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.esquema-item:nth-child(4n+2){border-top-color: var(--azul);}
+.esquema-item:nth-child(4n+3){border-top-color: var(--naranja);}
+.esquema-item:nth-child(4n+4){border-top-color: var(--turquesa-dark);}
+.esquema-num{
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .2em;
+  color: var(--gris);
+  margin-bottom: .4rem;
+}
+.esquema-titulo{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--azul-dark);
+  margin-bottom: .5rem;
+  line-height: 1.2;
+}
+.esquema-desc{
+  font-size: .85rem;
+  color: var(--gris);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* === COMPARATIVA PLAN VS INFORME === */
+.comp-table-wrap{
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gris-medio);
+}
+.comp-table{width:100%;}
+.comp-table th, .comp-table td{
+  padding: 1rem 1.4rem;
+  text-align: left;
+  border-bottom: 1px solid var(--gris-medio);
+}
+.comp-table th{
+  background: var(--gris-claro);
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--azul-dark);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.comp-table th:nth-child(2){background: var(--turquesa); color: white;}
+.comp-table th:nth-child(3){background: var(--azul); color: white;}
+.comp-table tbody tr:last-child td{border-bottom: none;}
+.comp-table tbody td:first-child{
+  font-weight: 700;
+  color: var(--azul-dark);
+  background: var(--gris-claro);
+}
+
+/* === VERBOS (TAXONOMÍA) === */
+.verbos-acc{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.verbo-grupo{
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  border: 1px solid var(--gris-medio);
+  transition: all .3s var(--transition);
+}
+.verbo-grupo:hover{
+  border-color: var(--turquesa);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.verbo-nivel{
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1rem;
+  padding-bottom: .8rem;
+  border-bottom: 2px solid var(--gris-claro);
+}
+.verbo-icono{
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--turquesa-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--turquesa-dark);
+  flex-shrink: 0;
+}
+.verbo-titulo{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--azul-dark);
+  margin: 0;
+}
+.verbo-lista{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+.verbo-tag{
+  padding: .3rem .7rem;
+  background: var(--gris-claro);
+  border-radius: 6px;
+  font-size: .82rem;
+  color: var(--gris);
+  font-weight: 500;
+  transition: all .2s var(--transition);
+}
+.verbo-tag:hover{
+  background: var(--naranja);
+  color: white;
+}
+
+/* === CRITERIOS JUSTIFICACIÓN === */
+.criterio-card{
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.6rem;
+  border: 1px solid var(--gris-medio);
+  border-bottom: 4px solid var(--naranja);
+  height: 100%;
+  transition: all .3s var(--transition);
+}
+.criterio-card:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.criterio-icon{
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--turquesa), var(--azul));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+.criterio-titulo{
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--azul-dark);
+  margin-bottom: .5rem;
+}
+.criterio-pregunta{
+  font-style: italic;
+  color: var(--turquesa-dark);
+  font-size: .92rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* === APÉNDICES 3D FLIP === */
+.apend-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+  perspective: 1200px;
+}
+.apend-card{
+  position: relative;
+  height: 200px;
+  cursor: pointer;
+  transition: transform .8s var(--transition);
+  transform-style: preserve-3d;
+}
+.apend-card:hover, .apend-card.flipped{transform: rotateY(180deg);}
+.apend-face{
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+.apend-face-front{
+  background: linear-gradient(135deg, var(--azul-dark) 0%, var(--turquesa-dark) 100%);
+  color: white;
+}
+.apend-face-back{
+  background: white;
+  color: var(--gris);
+  border: 1px solid var(--turquesa);
+  transform: rotateY(180deg);
+}
+.apend-letra{
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
+.apend-front-titulo{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.apend-back-titulo{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--azul-dark);
+  margin-bottom: .5rem;
+  line-height: 1.2;
+}
+.apend-back-desc{
+  font-size: .85rem;
+  line-height: 1.45;
+}
+.apend-tag{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .15em;
+  padding: .25rem .55rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.3);
+  text-transform: uppercase;
+}
+.apend-face-back .apend-tag{
+  background: var(--naranja);
+  color: white;
+  border-color: var(--naranja);
+}
+
+/* === GRÁFICOS === */
+
+/* === FORMULARIO PLAN PAP === */
+.form-section{
+  background: linear-gradient(160deg, var(--azul-dark) 0%, var(--turquesa-dark) 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.form-section::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(243,161,0,.15) 0%, transparent 35%),
+    radial-gradient(circle at 85% 75%, rgba(0,156,157,.3) 0%, transparent 45%);
+  pointer-events: none;
+}
+.form-section .section-title,
+.form-section .section-lead{color: white;}
+.form-section .section-eyebrow{color: var(--naranja);}
+.form-section .section-eyebrow::before{background: var(--naranja);}
+.form-section .section-lead{color: rgba(255,255,255,.85);}
+
+.form-card{
+  position: relative;
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 2.4rem;
+  color: var(--gris);
+  box-shadow: var(--shadow-lg);
+  z-index: 2;
+}
+.form-card-header{
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 2px solid var(--gris-claro);
+}
+.form-card-logo{
+  height: 64px;
+  background: linear-gradient(135deg, var(--azul-dark) 0%, var(--turquesa-dark) 100%);
+  padding: .5rem 1rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+}
+.form-card-logo img{height: 100%; width: auto;}
+.form-card-title{
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--azul-dark);
+  margin: 0;
+  line-height: 1.1;
+}
+.form-card-subtitle{
+  font-size: .9rem;
+  color: var(--gris);
+  margin: .2rem 0 0;
+}
+.form-step-label{
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--turquesa);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: .55rem;
+  border-bottom: 2px dashed var(--gris-medio);
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+.form-step-label .step-num{
+  width: 26px;
+  height: 26px;
+  background: var(--turquesa);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .78rem;
+  letter-spacing: 0;
+}
+.form-label-idc{
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--azul-dark);
+  margin-bottom: .35rem;
+  display: block;
+}
+.form-label-idc .req{color: var(--naranja); margin-left: 3px;}
+.form-control-idc{
+  width: 100%;
+  padding: .7rem .9rem;
+  font-family: var(--font-body);
+  font-size: .95rem;
+  background: var(--gris-claro);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--azul-dark);
+  transition: all .25s var(--transition);
+}
+.form-control-idc:focus{
+  outline: none;
+  background: white;
+  border-color: var(--turquesa);
+  box-shadow: 0 0 0 4px rgba(0,156,157,.15);
+}
+.form-control-idc.is-locked{
+  background: linear-gradient(135deg, var(--turquesa-light) 0%, var(--azul-light) 100%);
+  cursor: not-allowed;
+  font-weight: 600;
+  color: var(--azul-dark);
+  border-color: transparent;
+}
+.form-help-tip{
+  font-size: .75rem;
+  color: var(--gris);
+  margin-top: .3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: .3rem;
+}
+.form-help-tip.warn{color: var(--naranja-dark); font-weight: 600;}
+.form-counter{
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--gris);
+  text-align: right;
+  margin-top: .25rem;
+}
+.form-counter.warn{color: var(--naranja-dark);}
+
+/* Integrantes dinámicos */
+.integrante-row{
+  background: var(--gris-claro);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: .8rem;
+  position: relative;
+  border: 1px solid transparent;
+  transition: border-color .25s;
+}
+.integrante-row:hover{border-color: var(--turquesa);}
+.integrante-num{
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--turquesa);
+  font-size: .85rem;
+  margin-bottom: .4rem;
+}
+.btn-remove-int{
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+  background: transparent;
+  border: none;
+  color: var(--gris);
+  cursor: pointer;
+  padding: .2rem;
+  border-radius: 6px;
+  transition: all .2s;
+}
+.btn-remove-int:hover{
+  background: var(--naranja);
+  color: white;
+}
+.btn-add-int{
+  background: white;
+  color: var(--turquesa-dark);
+  border: 2px dashed var(--turquesa);
+  padding: .7rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: .9rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all .25s var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+.btn-add-int:hover{
+  background: var(--turquesa);
+  color: white;
+  border-style: solid;
+}
+.btn-add-int:disabled{
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+/* BOTÓN GENERAR (Morfo líquido) */
+.btn-generar{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  padding: 1.05rem 2.4rem;
+  background: var(--azul-dark);
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .4s var(--transition), border-radius .4s var(--transition), box-shadow .4s var(--transition);
+}
+.btn-generar::before{
+  content:"";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg,
+    var(--turquesa) 0%,
+    var(--azul) 25%,
+    var(--azul-dark) 50%,
+    var(--turquesa-dark) 75%,
+    var(--turquesa) 100%);
+  z-index: -1;
+  animation: spinFluid 6s linear infinite paused;
+  opacity: 0;
+  transition: opacity .4s var(--transition);
+}
+.btn-generar:hover{
+  transform: rotate(-2deg) scale(1.02);
+  border-radius: 14px;
+  box-shadow: var(--shadow-azul);
+}
+.btn-generar:hover::before{
+  opacity: 1;
+  animation-play-state: running;
+}
+.btn-generar:active{transform: rotate(-2deg) scale(.98);}
+@keyframes spinFluid{
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);}
+}
+.btn-generar-icon{
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+}
+
+/* Mensaje de éxito */
+.success-msg{
+  background: linear-gradient(135deg, var(--turquesa) 0%, var(--azul) 100%);
+  color: white;
+  padding: 1.2rem 1.4rem;
+  border-radius: var(--radius-md);
+  margin-top: 1.2rem;
+  font-weight: 600;
+  display: none;
+  align-items: center;
+  gap: .8rem;
+  animation: slideUp .4s var(--transition);
+}
+.success-msg.show{display: flex;}
+@keyframes slideUp{
+  from{opacity: 0; transform: translateY(10px);}
+  to{opacity: 1; transform: translateY(0);}
+}
+.error-msg{
+  background: var(--naranja);
+  color: white;
+  padding: .9rem 1.2rem;
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+  font-size: .9rem;
+  display: none;
+  align-items: center;
+  gap: .6rem;
+}
+.error-msg.show{display: flex; animation: slideUp .3s var(--transition);}
+
+/* === FOOTER === */
+.footer-idc{
+  background: #0a1929;
+  color: rgba(255,255,255,.7);
+  padding: 4rem 0 1.5rem;
+}
+.footer-firmas{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.firma{
+  text-align: left;
+}
+.firma-rol{
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--naranja);
+  margin-bottom: .6rem;
+}
+.firma-nombre{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: white;
+  margin-bottom: .2rem;
+  line-height: 1.2;
+}
+.firma-cargo{
+  font-size: .85rem;
+  color: rgba(255,255,255,.65);
+  margin: 0;
+}
+.footer-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .78rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo-wrap img{
+  height: 36px;
+  width: auto;
+}
+.footer-brand-mark{
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .2em;
+  color: var(--turquesa);
+}
+
+/* TABLA NORMATIVA */
+.norm-table-wrap{
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--gris-medio);
+  box-shadow: var(--shadow-sm);
+}
+.norm-row{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  padding: 1.2rem 1.6rem;
+  border-bottom: 1px solid var(--gris-medio);
+  transition: background .25s var(--transition);
+}
+.norm-row:last-child{border-bottom: none;}
+.norm-row:hover{background: var(--gris-claro);}
+.norm-name{
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--azul-dark);
+  font-size: .96rem;
+  line-height: 1.35;
+}
+.norm-scope{
+  color: var(--gris);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+/* === ACCESIBILIDAD === */
+.sr-only{
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+:focus-visible{
+  outline: 3px solid var(--naranja);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scroll indicators */
+.scroll-progress{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--turquesa), var(--azul), var(--naranja));
+  z-index: 2000;
+  transition: width .1s linear;
+}
+
+/* PWA install button */
+.btn-install{
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--naranja);
+  color: white;
+  border: none;
+  padding: .85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: .9rem;
+  box-shadow: var(--shadow-naranja);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  gap: .5rem;
+  z-index: 999;
+  animation: slideUp .5s var(--transition);
+  transition: transform .25s;
+}
+.btn-install:hover{transform: scale(1.05);}
+.btn-install.show{display: flex;}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px){
+  .section{padding: 3.5rem 0;}
+  .hero-idc{padding: 3.5rem 0 4.5rem;}
+  .hero-stats{gap: 1.4rem;}
+  .hero-stat-num{font-size: 2rem;}
+  .form-card{padding: 1.5rem;}
+  .form-card-header{flex-direction: column; align-items: flex-start;}
+  .header-pills-mobile{display: none;}
+  .ficha-di-body{padding: 1.5rem;}
+  .ficha-di-head{padding: 1.5rem;}
+  .elem-table{font-size: .82rem;}
+  .elem-table thead th, .elem-table tbody td{padding: .6rem .8rem;}
+  .elem-table tbody td:first-child{width: 40%;}
+  .apend-card{height: 180px;}
+  .norm-row{grid-template-columns: 1fr; gap: .5rem;}
+}
+
+@media (max-width: 480px){
+  .hero-title{font-size: 2.2rem;}
+  .form-card{padding: 1.2rem;}
+  .footer-bottom{flex-direction: column; text-align: center;}
+}
+
+/* Print */
+@media print{
+  .header-idc, .form-section, .btn-install, .scroll-progress{display: none !important;}
+}
+
+/* === ACCORDION / COLLAPSIBLE PANELS === */
+.collapse-panel{max-height:0;overflow:hidden;transition:max-height .4s var(--transition);}
+.collapse-panel.open{max-height:3000px;}
+.accordion-btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1rem 1.5rem;
+  background:linear-gradient(135deg, var(--azul-dark) 0%, var(--azul) 100%);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1rem;
+  cursor:pointer;
+  transition:all .25s var(--transition);
+  margin-bottom:.5rem;
+  box-shadow:var(--shadow-card);
+}
+.accordion-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-turquesa);}
+.accordion-btn svg.chevron{transition:transform .3s var(--transition);flex-shrink:0;}
+.accordion-btn.open svg.chevron{transform:rotate(180deg);}
+.accordion-btn .acc-label{display:flex;align-items:center;gap:.75rem;}
+.accordion-btn .acc-num{
+  width:32px;height:32px;
+  border-radius:50%;
+  background:rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:800;
+  flex-shrink:0;
+}
+.ficha-di-head{cursor:pointer;user-select:none;display:flex;align-items:center;}
+.ficha-di-head .di-chevron{
+  margin-left:auto;
+  transition:transform .3s var(--transition);
+  flex-shrink:0;
+}
+.ficha-di-head.open .di-chevron{transform:rotate(180deg);}
+.ficha-di-head:focus-visible{outline:3px solid var(--naranja);outline-offset:4px;border-radius:8px;}
+.accordion-btn:focus-visible{outline:3px solid var(--naranja);outline-offset:3px;}
+
+/* === Chart wrappers (gráficos comparativos) === */
+.chart-wrap{
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1px solid var(--gris-medio);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+.chart-title{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--azul-dark);
+  margin-bottom: .4rem;
+}
+.chart-subtitle{
+  font-size: .85rem;
+  color: var(--gris);
+  margin-bottom: 1.4rem;
+}
+.chart-canvas-box{position: relative; height: 320px;}
+
+/* === Toast: avisos de borrador / éxito === */
+.toast-idc{
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  background: var(--azul-dark);
+  color: white;
+  padding: .9rem 1.4rem;
+  border-radius: 999px;
+  font-size: .88rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  transition: transform .35s var(--transition);
+  pointer-events: none;
+  max-width: 92vw;
+}
+.toast-idc.show{transform: translateX(-50%) translateY(0);}
+.toast-idc.success{background: var(--turquesa);}
+.toast-idc.warn{background: var(--naranja-dark);}
+
+/* === Botón secundario "Limpiar formulario" === */
+.btn-clear{
+  background: transparent;
+  color: var(--gris);
+  border: 1.5px solid var(--gris-medio);
+  padding: .7rem 1.4rem;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .25s var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.btn-clear:hover{
+  border-color: var(--naranja);
+  color: var(--naranja-dark);
+  background: rgba(243,161,0,.05);
+}
+
+/* === Spinner del botón generar === */
+.btn-generar.loading{pointer-events: none; opacity: .8;}
+.btn-generar.loading .btn-generar-icon{animation: spin 1s linear infinite;}
+@keyframes spin{from{transform: rotate(0)} to{transform: rotate(360deg)}}
+
+/* === Print stylesheet ampliado === */
+@media print{
+  .hero-idc{padding: 2rem 0; background: white !important; color: var(--azul-dark) !important;}
+  .hero-idc::before, .hero-idc::after{display: none;}
+  .hero-title, .hero-eyebrow, .hero-lead, .hero-stat-num, .hero-stat-label{color: var(--azul-dark) !important;}
+  .section{padding: 1.5rem 0; page-break-inside: avoid;}
+  .nav-pills-idc, .toast-idc, .btn-install, .scroll-progress, .form-section, .header-pills-mobile, .accordion-btn{display: none !important;}
+  .collapse-panel{max-height: none !important; overflow: visible !important;}
+  .ficha-di-body{max-height: none !important; overflow: visible !important;}
+  body{background: white !important;}
+  .chart-canvas-box{height: 240px;}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="header-idc" role="banner">
+  <div class="container-fluid px-3 px-md-5 py-2">
+    <div class="d-flex align-items-center justify-content-between gap-3">
+      <div class="d-flex align-items-center gap-3">
+        <img src="Logo_IDC - copia.jpg" width="221" height="83" alt=""/>
+        <div class="header-divider d-none d-md-block"></div>
+        <div class="d-none d-md-block">
+          <p class="header-title">Plan del PAP</p>
+          <p class="header-subtitle">Diseño de Interiores · 2026</p>
+        </div>
+      </div>
+      <nav class="nav-pills-idc header-pills-mobile" aria-label="Navegación principal">
+        <a href="#presentacion" class="nav-pill-idc">Presentación</a>
+        <a href="#normativa" class="nav-pill-idc">Normativa</a>
+        <a href="#fichas" class="nav-pill-idc">Fichas DI</a>
+        <a href="#formato" class="nav-pill-idc">Formato</a>
+        <a href="#formulario" class="nav-pill-idc" style="background:var(--naranja);color:white;">Generar Plan</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero-idc" id="presentacion">
+  <div class="container hero-content">
+    <span class="hero-eyebrow">Memorando Múltiple Nº 05 / JUI / IDC / 2025-II</span>
+    <h1 class="hero-title">Plan del Proyecto de <span class="accent">Aplicación Profesional</span></h1>
+    <p class="hero-lead"> Guía oficial para la formulación del PAP en el Programa de Estudios de Diseño de Interiores del Instituto de Educación Superior Público "Diseño y Comunicación" (IDC). Articula la Ley Nº 30512, las Condiciones Básicas de Calidad y las cinco líneas de investigación aprobadas para la carrera. </p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Líneas de investigación</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-label">Líneas transversales</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10</div>
+        <div class="hero-stat-label">Secciones del plan</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">50<span style="font-size:1.4rem;">+</span></div>
+        <div class="hero-stat-label">Hojas en informe final</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRESENTACIÓN INSTITUCIONAL ===== -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <div class="row align-items-start g-5">
+      <div class="col-lg-5">
+        <p class="section-eyebrow">01 · Presentación institucional</p>
+        <h2>Es el segundo instrumento para titularse.</h2>
+      </div>
+      <div class="col-lg-7">
+        <p class="section-lead">
+          El Proyecto de Aplicación Profesional (PAP) es la modalidad de titulación establecida en la Ley Nº 30512, orientada a dar solución técnica a problemáticas reales del sector creativo-cultural peruano dentro de la economía naranja.
+        </p>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="idc-card">
+              <div class="idc-card-num">01</div>
+              <h3 class="idc-card-title">Plan del PAP</h3>
+              <p class="idc-card-text">Perfil o esquema previo que requiere aprobación institucional al inicio del ciclo de titulación.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="idc-card">
+              <div class="idc-card-num">02</div>
+              <h3 class="idc-card-title">Informe del PAP</h3>
+              <p class="idc-card-text">Documento completo que se presenta para sustentación y titulación, con un mínimo de 50 hojas.</p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="idc-card" style="border-left:4px solid var(--naranja);">
+              <h3 class="idc-card-title" style="font-size:.95rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:.4rem; color:var(--naranja-dark);">Modalidades de trabajo</h3>
+              <p class="idc-card-text">Individual, en grupos de hasta cuatro estudiantes en proyectos multidisciplinarios, o hasta dos estudiantes del mismo programa de estudios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARCO NORMATIVO ===== -->
+<section class="section" id="normativa" style="background:var(--gris-claro);">
+  <div class="container">
+    <p class="section-eyebrow">02 · Marco normativo</p>
+    <h2 class="section-title">Seis instrumentos que <span class="accent">rigen</span> el proceso.</h2>
+    <p class="section-lead">Cada Plan e Informe debe responder a la totalidad del cuerpo normativo vigente del MINEDU y a las directrices internas del IDC.</p>
+
+    <div class="norm-table-wrap">
+      <div class="norm-row">
+        <div class="norm-name">Ley Nº 30512 — Ley de Institutos y Escuelas de Educación Superior</div>
+        <div class="norm-scope">Art. 21: investigación aplicada e innovación como modalidad de titulación.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">D.S. Nº 010-2017-MINEDU</div>
+        <div class="norm-scope">Reglamento de la Ley Nº 30512 y sus modificatorias.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">Resolución Viceministerial Nº 103-2022-MINEDU</div>
+        <div class="norm-scope">Condiciones Básicas de Calidad (CBC) para los Institutos de Educación Superior Tecnológicos.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">Lineamientos Académicos Generales para los IES</div>
+        <div class="norm-scope">Organización curricular, perfiles de egreso y titulación.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">Normas APA, 7.ª edición</div>
+        <div class="norm-scope">Citación y referencias bibliográficas en todo el informe.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">Memorando Múltiple Nº 05/JUI/IDC/2025-II</div>
+        <div class="norm-scope">Aprobación de las veinte líneas de investigación institucionales.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LÍNEAS TRANSVERSALES ===== -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <p class="section-eyebrow">03 · Líneas transversales institucionales</p>
+    <h2 class="section-title">Seis ejes <span class="accent">obligatorios</span> en cada proyecto.</h2>
+    <p class="section-lead">Cada proyecto del PAP debe indicar a cuál o cuáles de estas líneas se adscribe. Constituyen la columna ética y temática de la investigación aplicada del IDC.</p>
+
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-4"><div class="linea-trans"><div class="linea-num">1</div><div class="linea-text">Sostenibilidad ambiental y cambio climático</div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="linea-trans"><div class="linea-num">2</div><div class="linea-text">Transformación digital e innovación tecnológica</div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="linea-trans"><div class="linea-num">3</div><div class="linea-text">Identidad cultural e interculturalidad</div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="linea-trans"><div class="linea-num">4</div><div class="linea-text">Emprendimiento y gestión de proyectos creativos</div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="linea-trans"><div class="linea-num">5</div><div class="linea-text">Educación, comunicación y cambio social</div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="linea-trans"><div class="linea-num">6</div><div class="linea-text">Inclusión, accesibilidad y bienestar social</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ESTRUCTURA GENERAL DEL PAP ===== -->
+<section class="section" style="background:var(--gris-claro);">
+  <div class="container">
+    <p class="section-eyebrow">04 · Estructura general del PAP</p>
+    <h2 class="section-title">Cuatro secciones <span class="accent">articuladas.</span></h2>
+    <p class="section-lead">Toda ficha de esta guía responde al esquema siguiente, adaptado a cada carrera y línea de investigación.</p>
+
+    <div class="esquema-grid">
+      <div class="esquema-item">
+        <div class="esquema-num">SECCIÓN I</div>
+        <div class="esquema-titulo">Información general</div>
+        <p class="esquema-desc">Título, área estratégica, actividad económica, localización y resumen ejecutivo del proyecto.</p>
+      </div>
+      <div class="esquema-item">
+        <div class="esquema-num">SECCIÓN II</div>
+        <div class="esquema-titulo">Descripción de la innovación</div>
+        <p class="esquema-desc">Objetivos, justificación y marco referencial: antecedentes, bases teóricas y metodología.</p>
+      </div>
+      <div class="esquema-item">
+        <div class="esquema-num">SECCIÓN III</div>
+        <div class="esquema-titulo">Estimación del costo</div>
+        <p class="esquema-desc">Presupuesto desagregado por fases del proyecto, con valorizaciones por partidas.</p>
+      </div>
+      <div class="esquema-item">
+        <div class="esquema-num">SECCIÓN IV</div>
+        <div class="esquema-titulo">Sustento del mercado</div>
+        <p class="esquema-desc">Alcance, mercado objetivo, demanda potencial (TAM/SAM/SOM) y modelo de negocio Canvas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARTE I — ESQUEMA DEL PLAN ===== -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <p class="section-eyebrow">05 · Parte I — Plan del PAP</p>
+    <h2 class="section-title">Diez secciones del <span class="accent">documento inicial</span> de registro.</h2>
+    <p class="section-lead">El Plan se presenta al inicio del ciclo de titulación para obtener la conformidad del asesor y la Jefatura de Unidad de Investigación. Al final deben constar las firmas con DNI de todos los integrantes y del asesor.</p>
+
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 1</div><div class="esquema-titulo">Título del trabajo</div><p class="esquema-desc">Máximo 25 palabras. Estructura: verbo de acción + objeto + línea temática + lugar + año.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 2</div><div class="esquema-titulo">Programa de estudios</div><p class="esquema-desc">Nombre completo de la carrera y semestre o año de egreso.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 3</div><div class="esquema-titulo">Integrantes</div><p class="esquema-desc">Nº de matrícula, apellidos y nombres, teléfono y correo electrónico de cada integrante.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 4</div><div class="esquema-titulo">Formulación del problema</div><p class="esquema-desc">Problema general (pregunta central) y problemas específicos desagregados del general.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 5</div><div class="esquema-titulo">Objetivos</div><p class="esquema-desc">Objetivo general y específicos redactados con verbo en infinitivo: qué, en qué, dónde y cuándo.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 6</div><div class="esquema-titulo">Justificación</div><p class="esquema-desc">Trascendencia, magnitud, vulnerabilidad y factibilidad del problema identificado.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 7</div><div class="esquema-titulo">Descripción técnica</div><p class="esquema-desc">Exposición breve del contenido y resultados esperados. Extensión máxima de 300 palabras.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 8</div><div class="esquema-titulo">Cronograma de actividades</div><p class="esquema-desc">Diagrama de Gantt por semestre. Se recomienda usar MS Project o Microsoft Excel.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 9</div><div class="esquema-titulo">Presupuesto y recursos</div><p class="esquema-desc">Aportes financieros, laboratorios, equipos y otros recursos materiales o humanos.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 10</div><div class="esquema-titulo">Referencias bibliográficas</div><p class="esquema-desc">En orden alfabético según las normas APA, versión 7.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VERBOS DE BLOOM ===== -->
+<section class="section" style="background:var(--gris-claro);">
+  <div class="container">
+    <p class="section-eyebrow">06 · Taxonomía de objetivos</p>
+    <h2 class="section-title">Verbos sugeridos para <span class="accent">redactar</span> los objetivos.</h2>
+    <p class="section-lead">Cada objetivo del Plan se construye con un verbo en infinitivo que corresponde a un nivel cognitivo de Bloom. Elige el nivel adecuado a la profundidad de tu intervención.</p>
+
+    <button type="button" class="accordion-btn" id="btnBloom" onclick="toggleAccordion('panelBloom', 'btnBloom')">
+      <span class="acc-label"><span class="acc-num">06</span>Verbos sugeridos para redactar los objetivos según Bloom</span>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="collapse-panel" id="panelBloom">
+    <div class="verbos-acc">
+      <div class="verbo-grupo">
+        <div class="verbo-nivel">
+          <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <h3 class="verbo-titulo">Conocimiento</h3>
+        </div>
+        <div class="verbo-lista">
+          <span class="verbo-tag">Identificar</span><span class="verbo-tag">Describir</span><span class="verbo-tag">Enumerar</span><span class="verbo-tag">Registrar</span><span class="verbo-tag">Reconocer</span>
+        </div>
+      </div>
+      <div class="verbo-grupo">
+        <div class="verbo-nivel">
+          <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3 class="verbo-titulo">Comprensión</h3>
+        </div>
+        <div class="verbo-lista">
+          <span class="verbo-tag">Explicar</span><span class="verbo-tag">Interpretar</span><span class="verbo-tag">Relacionar</span><span class="verbo-tag">Comparar</span><span class="verbo-tag">Organizar</span>
+        </div>
+      </div>
+      <div class="verbo-grupo">
+        <div class="verbo-nivel">
+          <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <h3 class="verbo-titulo">Aplicación</h3>
+        </div>
+        <div class="verbo-lista">
+          <span class="verbo-tag">Diseñar</span><span class="verbo-tag">Ejecutar</span><span class="verbo-tag">Construir</span><span class="verbo-tag">Programar</span><span class="verbo-tag">Desarrollar</span>
+        </div>
+      </div>
+      <div class="verbo-grupo">
+        <div class="verbo-nivel">
+          <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M14 14h7v7h-7z"/><path d="M3 14h7v7H3z"/></svg></div>
+          <h3 class="verbo-titulo">Análisis</h3>
+        </div>
+        <div class="verbo-lista">
+          <span class="verbo-tag">Analizar</span><span class="verbo-tag">Clasificar</span><span class="verbo-tag">Diferenciar</span><span class="verbo-tag">Descomponer</span><span class="verbo-tag">Desglosar</span>
+        </div>
+      </div>
+      <div class="verbo-grupo">
+        <div class="verbo-nivel">
+          <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L4 7l8 5 8-5-8-5z"/><path d="M4 12l8 5 8-5"/></svg></div>
+          <h3 class="verbo-titulo">Síntesis</h3>
+        </div>
+        <div class="verbo-lista">
+          <span class="verbo-tag">Proponer</span><span class="verbo-tag">Formular</span><span class="verbo-tag">Integrar</span><span class="verbo-tag">Planear</span><span class="verbo-tag">Sintetizar</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CRITERIOS DE JUSTIFICACIÓN ===== -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <p class="section-eyebrow">07 · Justificación del proyecto</p>
+    <h2 class="section-title">Cuatro criterios para <span class="accent">defender</span> tu propuesta.</h2>
+    <p class="section-lead">Toda justificación dentro del PAP debe responder a estas cuatro preguntas guía. El asesor las usará como rúbrica de evaluación durante la aprobación del Plan.</p>
+
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-3">
+        <div class="criterio-card">
+          <div class="criterio-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div class="criterio-titulo">Trascendencia</div>
+          <p class="criterio-pregunta">¿A quién beneficia? ¿Qué impacto social, cultural o económico tiene en el sector?</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="criterio-card">
+          <div class="criterio-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+          <div class="criterio-titulo">Magnitud</div>
+          <p class="criterio-pregunta">¿Qué tan grande o urgente es la necesidad o problema identificado?</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="criterio-card">
+          <div class="criterio-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s-8-4.5-8-12V5l8-3 8 3v5c0 7.5-8 12-8 12z"/></svg></div>
+          <div class="criterio-titulo">Vulnerabilidad</div>
+          <p class="criterio-pregunta">¿Es posible resolverlo desde las competencias del programa de estudios?</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="criterio-card">
+          <div class="criterio-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="criterio-titulo">Factibilidad</div>
+          <p class="criterio-pregunta">¿Con qué recursos técnicos, financieros y humanos se cuenta para realizarlo?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPARATIVA PLAN vs INFORME ===== -->
+<section class="section" style="background:var(--gris-claro);">
+  <div class="container">
+    <p class="section-eyebrow">08 · Plan versus informe</p>
+    <h2 class="section-title">Dos documentos, <span class="accent">una titulación.</span></h2>
+    <p class="section-lead">Diferencias clave entre el Plan inicial y el Informe final del Proyecto de Aplicación Profesional.</p>
+
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Aspecto</th>
+            <th>Plan (perfil)</th>
+            <th>Informe final</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Propósito</td><td>Aprobación del proyecto</td><td>Titulación profesional</td></tr>
+          <tr><td>Extensión</td><td>Variable, documento breve</td><td>Mínimo 50 hojas</td></tr>
+          <tr><td>Temporalidad</td><td>Prospectiva — tiempo futuro</td><td>Retrospectiva — tiempo pasado</td></tr>
+          <tr><td>Capítulo central</td><td>Descripción técnica (Sección 7)</td><td>Desarrollo completo (Capítulo III)</td></tr>
+          <tr><td>Resultados</td><td>Esperados</td><td>Obtenidos y discutidos</td></tr>
+          <tr><td>Apéndices</td><td>No obligatorios</td><td>A, B y C requeridos (A–J recomendados)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row g-4 mt-4">
+      <div class="col-lg-6">
+        <div class="chart-wrap">
+          <h3 class="chart-title">Distribución del esfuerzo por capítulo</h3>
+          <p class="chart-subtitle">Aporte porcentual de cada capítulo a la extensión total del informe final (50 hojas mínimo).</p>
+          <div class="chart-canvas-box"><canvas id="chartCapitulos" aria-label="Gráfico circular de distribución de capítulos"></canvas></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="chart-wrap">
+          <h3 class="chart-title">Indicadores de calidad de la investigación</h3>
+          <p class="chart-subtitle">Comparativa entre un PAP estándar y un PAP de excelencia que aplica investigación aplicada e innovación tecnológica.</p>
+          <div class="chart-canvas-box"><canvas id="chartCalidad" aria-label="Gráfico radar comparando PAP estándar y de excelencia"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FICHAS DE DISEÑO DE INTERIORES ===== -->
+<section class="section" id="fichas" style="background:white;">
+  <div class="container">
+    <p class="section-eyebrow">09 · Programa de estudios — Diseño de Interiores</p>
+    <h2 class="section-title">Cinco líneas de <span class="accent">investigación.</span></h2>
+    <p class="section-lead">Sector de la economía naranja: creaciones funcionales — diseño de interiores y arquitectura; artes y patrimonio. Cada línea propone un producto principal, un objetivo modelo, elementos técnicos, tipologías y una metodología específica.</p>
+
+    <!-- DI-L1 -->
+    <article class="ficha-di">
+      <div class="ficha-di-head" onclick="toggleFicha(this)">
+        <div style="flex:1">
+        <span class="ficha-di-code">DI-L1</span>
+        <h3 class="ficha-di-title">Sostenibilidad en el diseño de interiores</h3>
+        <p class="ficha-di-subsec">Subsector: consultoría de diseño sostenible, arquitectura e interiorismo, industria de la construcción verde.</p>
+      </div>
+        <svg class="di-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--naranja)"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="ficha-di-body collapse-panel">
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivo general modelo</div>
+          <div class="ficha-di-objetivo">Diseñar una propuesta de interior sostenible para [espacio] en [lugar] que reduzca el impacto ambiental y mejore la calidad de vida de los usuarios, mediante el uso de materiales ecoamigables y estrategias bioclimáticas, durante el año [año].</div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivos específicos modelo</div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 1</span><p class="ficha-di-oe-text">Diagnosticar las condiciones ambientales, materiales y de habitabilidad actuales del espacio mediante inspección técnica y encuesta a usuarios.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 2</span><p class="ficha-di-oe-text">Elaborar la propuesta de diseño aplicando criterios de sostenibilidad: materiales reciclados o certificados, iluminación natural, ventilación cruzada y eficiencia energética.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 3</span><p class="ficha-di-oe-text">Validar la propuesta con usuarios y especialistas midiendo la percepción de bienestar, funcionalidad y sostenibilidad percibida.</p></div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Elementos técnicos y conceptuales</div>
+          <table class="elem-table">
+            <thead><tr><th>Elemento</th><th>Descripción y orientación</th></tr></thead>
+            <tbody>
+              <tr><td>Concepto de diseño</td><td>Narrativa conceptual, referentes estéticos y paleta de materiales sostenibles.</td></tr>
+              <tr><td>Distribución y zonificación</td><td>Planos de planta, diagramas de circulación y zoning del espacio.</td></tr>
+              <tr><td>Selección de materiales</td><td>Fichas técnicas de materiales ecoamigables con certificaciones FSC, Cradle to Cradle y LEED.</td></tr>
+              <tr><td>Iluminación</td><td>Natural (orientación solar, lucernarios) y artificial (LED y sistemas domóticos).</td></tr>
+              <tr><td>Mobiliario y equipamiento</td><td>Especificaciones técnicas con criterios ergonómicos y de bienestar.</td></tr>
+              <tr><td>Renders e infografías</td><td>Visualizaciones tridimensionales fotorrealistas del proyecto.</td></tr>
+              <tr><td>Presupuesto de obra</td><td>Metrado y valorización detallada por partidas.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Tipos y categorías</div>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <p class="form-label-idc">Tipos de espacios</p>
+              <div class="tipos-chips"><span class="tipo-chip">Residencial</span><span class="tipo-chip">Comercial</span><span class="tipo-chip">Institucional</span><span class="tipo-chip">Hospitalario</span><span class="tipo-chip">Educativo</span></div>
+            </div>
+            <div class="col-md-4">
+              <p class="form-label-idc">Niveles de intervención</p>
+              <div class="tipos-chips"><span class="tipo-chip">Remodelación</span><span class="tipo-chip">Rehabilitación</span><span class="tipo-chip">Obra nueva</span><span class="tipo-chip">Ambientación temporal</span></div>
+            </div>
+            <div class="col-md-4">
+              <p class="form-label-idc">Certificaciones sostenibles</p>
+              <div class="tipos-chips"><span class="tipo-chip">LEED</span><span class="tipo-chip">BREEAM</span><span class="tipo-chip">EDGE</span><span class="tipo-chip">Passivhaus</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Metodología del proyecto</div>
+          <table class="elem-table">
+            <thead><tr><th>Fase</th><th>Técnicas e instrumentos</th><th>Enfoque</th></tr></thead>
+            <tbody>
+              <tr><td>Diagnóstico</td><td>Inspección técnica, levantamiento arquitectónico, encuesta a usuarios.</td><td>Mixto</td></tr>
+              <tr><td>Diseño</td><td>Programación arquitectónica, conceptualización, propuesta gráfica.</td><td>Cualitativo</td></tr>
+              <tr><td>Validación</td><td>Encuesta de percepción, juicio de expertos, simulación energética.</td><td>Mixto</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <!-- DI-L2 -->
+    <article class="ficha-di">
+      <div class="ficha-di-head" onclick="toggleFicha(this)">
+        <div style="flex:1">
+        <span class="ficha-di-code">DI-L2</span>
+        <h3 class="ficha-di-title">Diseño de interiores para espacios reducidos</h3>
+        <p class="ficha-di-subsec">Subsector: inmobiliaria y construcción de vivienda social, alojamiento turístico tipo hostel o tiny house, coworking.</p>
+      </div>
+        <svg class="di-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--naranja)"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="ficha-di-body collapse-panel">
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivo general modelo</div>
+          <div class="ficha-di-objetivo">Desarrollar una propuesta de diseño de interiores para [tipo de espacio reducido] en [lugar] que optimice el uso del espacio y mejore la habitabilidad mediante soluciones multifuncionales y mobiliario adaptable, durante [año].</div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivos específicos modelo</div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 1</span><p class="ficha-di-oe-text">Analizar las necesidades de uso, ergonomía y comportamiento espacial de los usuarios del espacio reducido.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 2</span><p class="ficha-di-oe-text">Diseñar soluciones espaciales con mobiliario transformable, almacenamiento integrado y estrategias ópticas de ampliación visual.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 3</span><p class="ficha-di-oe-text">Evaluar la propuesta mediante maqueta o renderizado tridimensional con feedback de usuarios y expertos.</p></div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Elementos técnicos y conceptuales</div>
+          <table class="elem-table">
+            <thead><tr><th>Elemento</th><th>Descripción y orientación</th></tr></thead>
+            <tbody>
+              <tr><td>Análisis ergonómico</td><td>Dimensiones mínimas, alcances funcionales y normas técnicas (RNE, Neufert).</td></tr>
+              <tr><td>Mobiliario multifuncional</td><td>Camas abatibles, mesas extensibles y módulos de almacenamiento vertical.</td></tr>
+              <tr><td>Estrategias visuales</td><td>Espejos, paletas claras, continuidad visual e ilusiones de amplitud.</td></tr>
+              <tr><td>Planos técnicos</td><td>Planta, elevaciones, cortes y detalles constructivos.</td></tr>
+              <tr><td>Maqueta o modelo 3D</td><td>Representación física o digital del espacio terminado.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Tipos y categorías</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <p class="form-label-idc">Tipos de espacio</p>
+              <div class="tipos-chips"><span class="tipo-chip">Micro-departamento (menor a 50 m²)</span><span class="tipo-chip">Studio</span><span class="tipo-chip">Tiny house</span><span class="tipo-chip">Habitación de hotel</span><span class="tipo-chip">Hostel</span></div>
+            </div>
+            <div class="col-md-6">
+              <p class="form-label-idc">Estrategias de diseño</p>
+              <div class="tipos-chips"><span class="tipo-chip">Planta libre</span><span class="tipo-chip">Tabiques móviles</span><span class="tipo-chip">Mezzanines</span><span class="tipo-chip">Loft</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- DI-L3 -->
+    <article class="ficha-di">
+      <div class="ficha-di-head" onclick="toggleFicha(this)">
+        <div style="flex:1">
+        <span class="ficha-di-code">DI-L3</span>
+        <h3 class="ficha-di-title">Tecnología y domótica en el diseño de interiores</h3>
+        <p class="ficha-di-subsec">Subsector: sector inmobiliario premium, hoteles inteligentes, edificios corporativos, residencias smart.</p>
+      </div>
+        <svg class="di-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--naranja)"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="ficha-di-body collapse-panel">
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivo general modelo</div>
+          <div class="ficha-di-objetivo">Diseñar una propuesta de interior inteligente para [espacio] en [lugar] integrando sistemas domóticos de control de iluminación, climatización y seguridad, durante [año].</div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivos específicos modelo</div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 1</span><p class="ficha-di-oe-text">Identificar las necesidades tecnológicas y de automatización del espacio intervenido.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 2</span><p class="ficha-di-oe-text">Elaborar la propuesta con integración de sistemas KNX, Z-Wave o Zigbee.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 3</span><p class="ficha-di-oe-text">Validar el prototipo o maqueta tecnológica con expertos en domótica y usuarios finales.</p></div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Elementos técnicos y conceptuales</div>
+          <table class="elem-table">
+            <thead><tr><th>Elemento</th><th>Descripción y orientación</th></tr></thead>
+            <tbody>
+              <tr><td>Sistemas domóticos</td><td>Control de iluminación, climatización (HVAC), persianas, seguridad y entretenimiento.</td></tr>
+              <tr><td>Protocolos de comunicación</td><td>KNX, Z-Wave, Zigbee, Wi-Fi y Matter.</td></tr>
+              <tr><td>Interfaz de usuario</td><td>Aplicación móvil, panel de control y asistente de voz (Alexa, Google Home).</td></tr>
+              <tr><td>Eficiencia energética</td><td>Sensores de presencia, paneles solares integrados y baterías de almacenamiento.</td></tr>
+              <tr><td>Planos de instalación</td><td>Diagramas eléctricos, cableado estructurado y esquemas de red.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Tipos y categorías</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <p class="form-label-idc">Niveles de automatización</p>
+              <div class="tipos-chips"><span class="tipo-chip">Básico</span><span class="tipo-chip">Intermedio</span><span class="tipo-chip">Avanzado con IA predictiva</span></div>
+            </div>
+            <div class="col-md-6">
+              <p class="form-label-idc">Tipos de espacios inteligentes</p>
+              <div class="tipos-chips"><span class="tipo-chip">Residencial</span><span class="tipo-chip">Hotelero</span><span class="tipo-chip">Corporativo</span><span class="tipo-chip">Hospitalario</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- DI-L4 -->
+    <article class="ficha-di">
+      <div class="ficha-di-head" onclick="toggleFicha(this)">
+        <div style="flex:1">
+        <span class="ficha-di-code">DI-L4</span>
+        <h3 class="ficha-di-title">Diseño inclusivo y accesible</h3>
+        <p class="ficha-di-subsec">Subsector: sector salud, educativo, transporte, espacios públicos y gobierno (CONADIS, municipalidades).</p>
+      </div>
+        <svg class="di-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--naranja)"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="ficha-di-body collapse-panel">
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivo general modelo</div>
+          <div class="ficha-di-objetivo">Diseñar una propuesta de interior accesible e inclusivo para [espacio] en [lugar], aplicando la Norma Técnica A.120 del RNE y los principios de Diseño Universal, durante [año].</div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivos específicos modelo</div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 1</span><p class="ficha-di-oe-text">Diagnosticar las barreras arquitectónicas y de accesibilidad presentes en el espacio.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 2</span><p class="ficha-di-oe-text">Diseñar soluciones accesibles: rampas, señalética inclusiva, mobiliario adaptado y circulaciones libres.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 3</span><p class="ficha-di-oe-text">Validar la propuesta con usuarios con discapacidad y especialistas del sector.</p></div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Elementos técnicos y conceptuales</div>
+          <table class="elem-table">
+            <thead><tr><th>Elemento</th><th>Descripción y orientación</th></tr></thead>
+            <tbody>
+              <tr><td>Normativa de accesibilidad</td><td>RNE Norma A.120, ISO 21542, ADA (referencia internacional) y CONADIS.</td></tr>
+              <tr><td>Circulaciones accesibles</td><td>Anchos mínimos, radios de giro para silla de ruedas y superficies antideslizantes.</td></tr>
+              <tr><td>Señalética inclusiva</td><td>Braille, alto relieve, pictogramas y señalización lumínica y sonora.</td></tr>
+              <tr><td>Mobiliario adaptado</td><td>Alturas ajustables, espacios de aproximación, asideros y barras de apoyo.</td></tr>
+              <tr><td>Diseño sensorial</td><td>Iluminación diferenciada, contraste cromático y textura de pisos guía.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Tipos y categorías</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <p class="form-label-idc">Modelos de discapacidad</p>
+              <div class="tipos-chips"><span class="tipo-chip">Física o motora</span><span class="tipo-chip">Visual</span><span class="tipo-chip">Auditiva</span><span class="tipo-chip">Cognitiva</span><span class="tipo-chip">Psicosocial</span></div>
+            </div>
+            <div class="col-md-6">
+              <p class="form-label-idc">Principios del Diseño Universal</p>
+              <div class="tipos-chips"><span class="tipo-chip">Uso equitativo</span><span class="tipo-chip">Flexibilidad</span><span class="tipo-chip">Uso simple e intuitivo</span><span class="tipo-chip">Información perceptible</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- DI-L5 -->
+    <article class="ficha-di">
+      <div class="ficha-di-head" onclick="toggleFicha(this)">
+        <div style="flex:1">
+        <span class="ficha-di-code">DI-L5</span>
+        <h3 class="ficha-di-title">Bienestar y ergonomía en espacios comerciales</h3>
+        <p class="ficha-di-subsec">Subsector: retail, restaurantes, oficinas corporativas, centros comerciales, spas y centros de bienestar.</p>
+      </div>
+        <svg class="di-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--naranja)"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="ficha-di-body collapse-panel">
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivo general modelo</div>
+          <div class="ficha-di-objetivo">Diseñar una propuesta de espacio comercial para [empresa] en [lugar] que optimice la experiencia del cliente y el bienestar de los trabajadores mediante criterios ergonómicos, biofílicos y de neuroarquitectura, durante [año].</div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Objetivos específicos modelo</div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 1</span><p class="ficha-di-oe-text">Analizar las necesidades ergonómicas, flujos de trabajo y experiencia de usuario del establecimiento.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 2</span><p class="ficha-di-oe-text">Diseñar la propuesta integrando principios de ergonomía (ISO 9241), biofilia y neuroarquitectura.</p></div>
+          <div class="ficha-di-oe"><span class="ficha-di-oe-tag">OE 3</span><p class="ficha-di-oe-text">Evaluar la propuesta midiendo satisfacción, productividad percibida y bienestar de usuarios.</p></div>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Elementos técnicos y conceptuales</div>
+          <table class="elem-table">
+            <thead><tr><th>Elemento</th><th>Descripción y orientación</th></tr></thead>
+            <tbody>
+              <tr><td>Ergonomía del puesto</td><td>Alturas de trabajo, postura e iluminación (luxes recomendados por área).</td></tr>
+              <tr><td>Diseño biofílico</td><td>Vegetación interior, materiales naturales, vistas al exterior y elementos de agua.</td></tr>
+              <tr><td>Neuroarquitectura</td><td>Proporciones espaciales, temperatura de color y estimulación sensorial moderada.</td></tr>
+              <tr><td>Customer journey</td><td>Mapa de experiencia del cliente: acceso, recorrido, punto de venta y zona de descanso.</td></tr>
+              <tr><td>Señalética comercial</td><td>Wayfinding, zonificación cromática y señalización de precios y productos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Tipos y categorías</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <p class="form-label-idc">Tipos de espacio comercial</p>
+              <div class="tipos-chips"><span class="tipo-chip">Tienda retail</span><span class="tipo-chip">Restaurante</span><span class="tipo-chip">Oficina cowork</span><span class="tipo-chip">Spa</span><span class="tipo-chip">Clínica estética</span></div>
+            </div>
+            <div class="col-md-6">
+              <p class="form-label-idc">Modelos de experiencia</p>
+              <div class="tipos-chips"><span class="tipo-chip">Experience Economy (Pine y Gilmore)</span><span class="tipo-chip">Retail marketing</span><span class="tipo-chip">Escaparatismo</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== FORMATO Y APA ===== -->
+<section class="section" id="formato" style="background:var(--gris-claro);">
+  <div class="container">
+    <p class="section-eyebrow">10 · Especificaciones de formato</p>
+    <h2 class="section-title">Parámetros <span class="accent">inamovibles</span> APA 7.</h2>
+    <p class="section-lead">Pasa el cursor sobre cada parámetro para descubrir su detalle institucional. El formulario de generación los aplica automáticamente al documento WORD de salida.</p>
+
+    <button type="button" class="accordion-btn" id="btnFormato" onclick="toggleAccordion('panelFormato', 'btnFormato')">
+      <span class="acc-label"><span class="acc-num">10</span>Parámetros inamovibles APA 7</span>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="collapse-panel" id="panelFormato">
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Tipo de letra</div><div class="param-card-value">Times New Roman</div><div class="param-card-detail">Establecido para plan e informe.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Tamaño</div><div class="param-card-value">12 puntos</div><div class="param-card-detail">Cuerpo del texto principal.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Interlineado</div><div class="param-card-value">1.5 líneas</div><div class="param-card-detail">Excepto en notas al pie.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Alineación</div><div class="param-card-value">Justificada</div><div class="param-card-detail">En todos los párrafos.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Sangría</div><div class="param-card-value">Tabulador</div><div class="param-card-detail">Equivalente a 5 espacios o 35.4 puntos.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Papel (informe)</div><div class="param-card-value">Bond A4 · 80 g</div><div class="param-card-detail">Para entrega física empastada.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Margen izquierdo</div><div class="param-card-value">30–35 mm</div><div class="param-card-detail">Mayor por el empaste.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Margen derecho</div><div class="param-card-value">15–20 mm</div><div class="param-card-detail">Margen estándar de lectura.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Márgenes sup. e inf.</div><div class="param-card-value">25 mm</div><div class="param-card-detail">Para encabezados y pie de página.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Numeración preliminar</div><div class="param-card-value">i, ii, iii</div><div class="param-card-detail">Desde dedicatoria hasta introducción.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Numeración cuerpo</div><div class="param-card-value">1, 2, 3</div><div class="param-card-detail">Desde el Capítulo I hasta las referencias.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Citación</div><div class="param-card-value">APA 7.ª ed.</div><div class="param-card-detail">Para citas, paráfrasis y referencias.</div></div></div>
+    </div>
+
+    <!-- Jerarquía APA -->
+    <h3 class="display-font mt-5 mb-3" style="font-size:1.6rem;">Jerarquía de encabezados APA</h3>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead><tr><th style="width:18%;">Nivel</th><th>Formato</th></tr></thead>
+        <tbody>
+          <tr><td>Nivel 1</td><td>Centrado, negrita, mayúsculas y minúsculas.</td></tr>
+          <tr><td>Nivel 2</td><td>Alineado a la izquierda, negrita, mayúsculas y minúsculas.</td></tr>
+          <tr><td>Nivel 3</td><td>Con sangría, negrita, mayúscula inicial y punto final.</td></tr>
+          <tr><td>Nivel 4</td><td>Con sangría, negrita, cursiva, mayúscula inicial y punto final.</td></tr>
+          <tr><td>Nivel 5</td><td>Con sangría, cursiva, mayúscula inicial y punto final.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+</section>
+
+<!-- ===== APÉNDICES (TARJETAS FLIP 3D) ===== -->
+<section class="section" style="background:white;">
+  <div class="container">
+    <p class="section-eyebrow">11 · Apéndices recomendados</p>
+    <h2 class="section-title">Diez tarjetas para <span class="accent">documentar</span> el proceso.</h2>
+    <p class="section-lead">Las tarjetas se voltean al pasar el cursor o al pulsar. A, B y C son obligatorios en el Informe final; los restantes se recomiendan según el alcance del proyecto.</p>
+
+    <div class="apend-grid">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice A: Cronograma">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Obligatorio</span>
+          <div class="apend-letra">A</div>
+          <div class="apend-front-titulo">Cronograma de actividades</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">A</span>
+          <div class="apend-back-titulo">Diagrama de Gantt</div>
+          <p class="apend-back-desc">Cronograma detallado por semanas o meses del semestre académico.</p>
+        </div>
+      </div>
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice B: Presupuesto">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Obligatorio</span>
+          <div class="apend-letra">B</div>
+          <div class="apend-front-titulo">Cronograma de presupuesto</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">B</span>
+          <div class="apend-back-titulo">Presupuesto valorizado</div>
+          <p class="apend-back-desc">Desagregado por partidas y fases del proyecto, con valorización mensual.</p>
+        </div>
+      </div>
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice C: Planos y técnicos">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Obligatorio</span>
+          <div class="apend-letra">C</div>
+          <div class="apend-front-titulo">Planos y materiales técnicos</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">C</span>
+          <div class="apend-back-titulo">Documentación técnica</div>
+          <p class="apend-back-desc">Planos, esquemas, storyboards, moodboards u otros materiales técnicos.</p>
+        </div>
+      </div>
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice D: Instrumentos">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Recomendado</span>
+          <div class="apend-letra">D</div>
+          <div class="apend-front-titulo">Instrumentos de recolección</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">D</span>
+          <div class="apend-back-titulo">Encuestas y guías</div>
+          <p class="apend-back-desc">Encuestas, guías de entrevista, fichas de observación e instrumentos aplicados.</p>
+        </div>
+      </div>
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice E: Consentimientos">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Recomendado</span>
+          <div class="apend-letra">E</div>
+          <div class="apend-front-titulo">Consentimientos informados</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">E</span>
+          <div class="apend-back-titulo">Documentos éticos</div>
+          <p class="apend-back-desc">Consentimientos informados de los participantes de la investigación.</p>
+        </div>
+      </div>
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice F: Registro">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Recomendado</span>
+          <div class="apend-letra">F</div>
+          <div class="apend-front-titulo">Registro fotográfico</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">F</span>
+          <div class="apend-back-titulo">Evidencia visual</div>
+          <p class="apend-back-desc">Fotografías del proceso de diagnóstico, diseño y validación.</p>
+        </div>
+      </div>
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice G: Fichas">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Recomendado</span>
+          <div class="apend-letra">G</div>
+          <div class="apend-front-titulo">Fichas técnicas</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">G</span>
+          <div class="apend-back-titulo">Materiales y equipos</div>
+          <p class="apend-back-desc">Especificaciones técnicas de materiales o equipos utilizados.</p>
+        </div>
+      </div>
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice H: Brief">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Recomendado</span>
+          <div class="apend-letra">H</div>
+          <div class="apend-front-titulo">Brief creativo</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">H</span>
+          <div class="apend-back-titulo">Documento de cliente</div>
+          <p class="apend-back-desc">Brief creativo o brief del cliente cuando el proyecto sea por encargo.</p>
+        </div>
+      </div>
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice I: Validación">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Recomendado</span>
+          <div class="apend-letra">I</div>
+          <div class="apend-front-titulo">Validación de expertos</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">I</span>
+          <div class="apend-back-titulo">Juicio especializado</div>
+          <p class="apend-back-desc">Fichas de validación firmadas por especialistas del sector intervenido.</p>
+        </div>
+      </div>
+      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice J: Otros">
+        <div class="apend-face apend-face-front">
+          <span class="apend-tag">Recomendado</span>
+          <div class="apend-letra">J</div>
+          <div class="apend-front-titulo">Otros materiales</div>
+        </div>
+        <div class="apend-face apend-face-back">
+          <span class="apend-tag">J</span>
+          <div class="apend-back-titulo">Complementos</div>
+          <p class="apend-back-desc">Otros materiales complementarios relevantes para la sustentación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMULARIO PLAN PAP - GENERA WORD ===== -->
+<section class="section form-section" id="formulario">
+  <div class="container">
+    <div class="text-center mb-5" style="position:relative; z-index:2;">
+      <p class="section-eyebrow justify-content-center" style="justify-content:center;">12 · Generador del Plan</p>
+      <h2 class="section-title">Plan del PAP · <span style="color:var(--naranja);">Diseño de Interiores</span></h2>
+      <p class="section-lead mx-auto">Complete los datos y el sistema validará el formato según los parámetros institucionales. Al terminar, descargue el documento Word listo para presentar a la Coordinación del Programa.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-10">
+        <form class="form-card" id="planForm" novalidate>
+
+          <!-- Cabecera del formulario -->
+          <div class="form-card-header">
+            <div class="form-card-logo">
+              <img src="Logo_IDC.png" width="2218" height="834" alt=""/>
+            </div>
+            <div>
+              <h3 class="form-card-title">Formulario oficial · Plan PAP</h3>
+              <p class="form-card-subtitle">Instituto de Educación Superior Público "Diseño y Comunicación" (IDC) · Programa Estudio de Diseño de Interiores</p>
+            </div>
+          </div>
+
+          <!-- 1. Título del trabajo -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">1</span>Título del trabajo</div>
+            <label for="titulo" class="form-label-idc">Título completo del proyecto <span class="req">*</span></label>
+            <textarea id="titulo" class="form-control-idc" rows="2" maxlength="250" required placeholder="Verbo de acción + objeto + línea temática + lugar + año (máximo 25 palabras)"></textarea>
+            <div class="form-help-tip"><span>Ejemplo: Diseñar una propuesta de interior sostenible para el comedor popular de San Juan de Lurigancho durante el 2026.</span></div>
+            <div class="form-counter" id="counterTitulo">0 / 25 palabras</div>
+          </div>
+
+          <!-- 2. Programa y línea -->
+          <div class="row mb-4 g-3">
+            <div class="col-md-6">
+              <div class="form-step-label"><span class="step-num">2</span>Programa de estudios</div>
+              <label class="form-label-idc">Carrera</label>
+              <input type="text" class="form-control-idc is-locked" id="programa" value="Diseño de Interiores" readonly />
+              <div class="form-help-tip">Programa fijado institucionalmente.</div>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label-idc">Año de egreso <span class="req">*</span></label>
+              <input type="text" id="semestre" class="form-control-idc" required placeholder="Ej: 2025" />
+              <div class="form-help-tip">Ingrese el año manualmente.</div>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label-idc">Año de presentación</label>
+              <input type="number" class="form-control-idc" id="anio" value="2026" min="2025" max="2030" required />
+            </div>
+          </div>
+
+          <!-- Línea de investigación -->
+          <div class="mb-4">
+            <label class="form-label-idc">Línea de investigación DI <span class="req">*</span></label>
+            <select id="lineaDI" class="form-control-idc" required>
+              <option value="">Seleccione la línea del proyecto</option>
+              <option value="DI-L1|Sostenibilidad en el diseño de interiores">DI-L1 · Sostenibilidad en el diseño de interiores</option>
+              <option value="DI-L2|Diseño de interiores para espacios reducidos">DI-L2 · Diseño de interiores para espacios reducidos</option>
+              <option value="DI-L3|Tecnología y domótica en el diseño de interiores">DI-L3 · Tecnología y domótica en el diseño de interiores</option>
+              <option value="DI-L4|Diseño inclusivo y accesible">DI-L4 · Diseño inclusivo y accesible</option>
+              <option value="DI-L5|Bienestar y ergonomía en espacios comerciales">DI-L5 · Bienestar y ergonomía en espacios comerciales</option>
+            </select>
+          </div>
+
+          <!-- Línea transversal -->
+          <div class="mb-4">
+            <label class="form-label-idc">Línea transversal institucional <span class="req">*</span></label>
+            <select id="lineaTrans" class="form-control-idc" required>
+              <option value="">Seleccione una o varias líneas</option>
+              <option>Sostenibilidad ambiental y cambio climático</option>
+              <option>Transformación digital e innovación tecnológica</option>
+              <option>Identidad cultural e interculturalidad</option>
+              <option>Emprendimiento y gestión de proyectos creativos</option>
+              <option>Educación, comunicación y cambio social</option>
+              <option>Inclusión, accesibilidad y bienestar social</option>
+            </select>
+          </div>
+
+          <!-- 3. Integrantes -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">3</span>Integrantes</div>
+            <p class="form-help-tip">Hasta 2 integrantes del mismo programa de estudios, o hasta 4 si el proyecto es multidisciplinario.</p>
+            <div id="integrantesWrap">
+              <!-- Se inyectan dinámicamente -->
+            </div>
+            <button type="button" class="btn-add-int" id="btnAddInt">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Añadir integrante
+            </button>
+          </div>
+
+          <!-- Asesor del proyecto -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">3.5</span>Asesor del proyecto</div>
+            <label class="form-label-idc">Nombre completo del asesor <span class="req">*</span></label>
+            <input type="text" id="asesorNombre" class="form-control-idc" required placeholder="Nombre y apellidos del asesor" />
+            <div class="form-help-tip">Coordinadora del Programa de Estudios: Dis. María Quintana.</div>
+          </div>
+
+          <!-- 4. Formulación del problema -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">4</span>Formulación del problema</div>
+            <label class="form-label-idc">Problema general (pregunta central) <span class="req">*</span></label>
+            <textarea id="probGeneral" class="form-control-idc" rows="2" required placeholder="¿De qué manera...?"></textarea>
+            <label class="form-label-idc mt-3">Problemas específicos (uno por línea)</label>
+            <textarea id="probEspecificos" class="form-control-idc" rows="4" placeholder="¿Cuál es el estado actual de...?&#10;¿Qué soluciones pueden...?&#10;¿Cómo validar que...?"></textarea>
+          </div>
+
+          <!-- 5. Objetivos -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">5</span>Objetivos</div>
+            <label class="form-label-idc">Objetivo general <span class="req">*</span></label>
+            <textarea id="objGeneral" class="form-control-idc" rows="2" required placeholder="Verbo en infinitivo en futuro: diseñar, desarrollar, proponer..."></textarea>
+            <div class="form-help-tip" id="tipObjFuturo">El Plan se redacta en tiempo futuro o prospectivo: usa verbos como se diseñará, se implementará, se validará.</div>
+            <label class="form-label-idc mt-3">Objetivos específicos (uno por línea)</label>
+            <textarea id="objEspecificos" class="form-control-idc" rows="4" placeholder="OE1: Diagnosticar...&#10;OE2: Diseñar...&#10;OE3: Validar..."></textarea>
+          </div>
+
+          <!-- 6. Justificación -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">6</span>Justificación del proyecto</div>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label-idc">Trascendencia</label>
+                <textarea id="justTrasc" class="form-control-idc" rows="3" placeholder="¿A quién beneficia? ¿Qué impacto tiene?"></textarea>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-idc">Magnitud</label>
+                <textarea id="justMagn" class="form-control-idc" rows="3" placeholder="¿Qué tan grande o urgente es el problema?"></textarea>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-idc">Vulnerabilidad</label>
+                <textarea id="justVuln" class="form-control-idc" rows="3" placeholder="¿Se resuelve desde el programa de estudios?"></textarea>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-idc">Factibilidad</label>
+                <textarea id="justFact" class="form-control-idc" rows="3" placeholder="¿Con qué recursos cuenta el equipo?"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Descripción técnica -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">7</span>Descripción técnica</div>
+            <label class="form-label-idc">Contenido y resultados esperados <span class="req">*</span></label>
+            <textarea id="descripTec" class="form-control-idc" rows="5" maxlength="2500" required placeholder="Resuma el contenido y los resultados esperados del proyecto. Máximo 300 palabras, redactado en tiempo futuro."></textarea>
+            <div class="form-counter" id="counterDescrip">0 / 300 palabras</div>
+          </div>
+
+          <!-- 8. Cronograma -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">8</span>Cronograma de actividades</div>
+            <label class="form-label-idc">Resumen del cronograma del proyecto</label>
+            <textarea id="cronograma" class="form-control-idc" rows="3" placeholder="Indique las fases principales y su duración estimada. Se adjuntará Diagrama de Gantt como Apéndice A."></textarea>
+          </div>
+
+          <!-- 9. Presupuesto y recursos -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">9</span>Presupuesto, medios y materiales</div>
+            <label class="form-label-idc">Recursos del proyecto</label>
+            <textarea id="presupuesto" class="form-control-idc" rows="3" placeholder="Aportes financieros, laboratorios, equipos y otros recursos."></textarea>
+          </div>
+
+          <!-- 10. Referencias -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">10</span>Referencias bibliográficas</div>
+            <label class="form-label-idc">Referencias en formato APA, 7.ª edición (una por línea)</label>
+            <textarea id="referencias" class="form-control-idc" rows="5" placeholder="Apellido, A. (año). Título en cursiva. Editorial.&#10;Apellido, B., y Apellido, C. (año). Título del artículo. Revista, vol(núm), pp."></textarea>
+            <div style="margin-top:.75rem;padding:.75rem 1rem;background:#eaf4ff;border:1px solid #aed4f5;border-radius:8px;font-size:.85rem;line-height:1.5;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0072b9" stroke-width="2" style="vertical-align:middle;margin-right:.35rem;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <strong style="color:#005a99;">Construir citas APA 7.ª ed.:</strong>
+              <a href="https://mario55666.github.io/REGLA_IA_2026/" target="_blank" rel="noopener" style="color:#009c9d;font-weight:600;text-decoration:underline;">Generador de referencias APA ↗</a>
+              &mdash; cree cada referencia en el generador y péguela aquí, una por línea.
+            </div>
+          </div>
+
+
+          <!-- Destinatario -->
+          <div class="mb-4" style="background:var(--beige); border:1px solid var(--naranja); border-radius:12px; padding:1rem 1.5rem;">
+            <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.5rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--naranja)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <strong style="color:var(--azul-dark);">Destinatario del formulario</strong>
+            </div>
+            <p style="margin:0; font-size:.85rem; color:var(--gris);">Este formulario será enviado a la <strong>Coordinación del Programa de Estudios de Diseño de Interiores</strong>, atención: <strong>Dis. María Quintana </strong>(<a href="interioresjefatura@idc.edu.pe" target="new">interioresjefatura@idc.edu.pe)</a></div>.</p>
+         
+
+          <!-- Botón generar -->
+          <div class="text-center pt-3" style="display:flex; flex-direction:column; gap:0.75rem; align-items:center;">
+            <button type="button" class="btn-generar" id="btnDemo" style="background:var(--azul-dark);" onclick="cargarDemo()">
+              <span class="btn-generar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </span>
+              Cargar datos de DEMO
+            </button>
+            <button type="submit" class="btn-generar" id="btnGenerar">
+              <span class="btn-generar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </span>
+              Generar documento en Word
+            </button>
+            <button type="button" class="btn-generar" id="btnPlantilla" style="background:var(--naranja);" onclick="generarPlantilla()">
+              <span class="btn-generar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </span>
+              Solo la Plantilla (en blanco)
+            </button>
+            <button type="button" class="btn-clear" id="btnLimpiar" onclick="limpiarFormulario()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+              Limpiar formulario
+            </button>
+            <div class="error-msg" id="errorMsg" role="alert"></div>
+            <div class="success-msg" id="successMsg" role="status">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Documento generado con éxito · revise sus descargas
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer-idc" role="contentinfo">
+  <div class="container">
+    <div class="footer-firmas">
+      <div class="firma">
+        <div class="firma-rol">Coordinación del Programa de Estudios</div>
+        <div class="firma-nombre">Dis. María Quintana Vera Tudela</div>
+        <p class="firma-cargo">Coordinación del  Programa de Estudios de Diseño de Interiores</p>
+      </div>
+      <div class="firma">
+        <div class="firma-rol">Jefatura de la Unidad de Investigación</div>
+        <div class="firma-nombre">Mg. Mario Quiroz Martinez</div>
+        <p class="firma-cargo">Jefatura de la Unidad de Investigación · IDC</p>
+      </div>
+      <div class="firma">
+        <div class="firma-rol">Marco normativo</div>
+        <div class="firma-nombre" style="font-size:.9rem;">Memorando Múltiple Nº 05/JUI/IDC/2025-II</div>
+        <p class="firma-cargo">Ley Nº 30512 · D.S. Nº 010-2017-MINEDU · APA 7</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="d-flex align-items-center gap-3">
+        <div class="footer-logo-wrap">
+          <img src="Logo_IDC.png" width="2218" height="834" alt=""/>
+        </div>
+        <div>
+          <div style="color:white; font-weight:600; font-size:.95rem;">Instituto de Educación Superior Público "Diseño y Comunicación"</div>
+          <div>Lima, Perú · 2026 · Todos los derechos reservados</div>
+        </div>
+      </div>
+      <div class="footer-brand-mark">Jefatura de la Unidad de Investigación</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Botón instalar PWA -->
+<button class="btn-install" id="btnInstall" type="button" aria-label="Instalar aplicación">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  Instalar app
+</button>
+
+<script>
+/* ================================================================
+   PLAN PAP · DISEÑO DE INTERIORES · IDC
+   Lógica completa: UX, validación, generación Word, PWA
+   ================================================================ */
+
+/* ---------- Scroll progress ---------- */
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const winH = window.innerHeight;
+  const docH = document.documentElement.scrollHeight - winH;
+  const sc = (window.scrollY / docH) * 100;
+  scrollProgress.style.width = sc + '%';
+}, {passive: true});
+
+/* ---------- Tarjetas apéndices: soporte teclado/click ---------- */
+document.querySelectorAll('.apend-card').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+  card.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      card.classList.toggle('flipped');
+    }
+  });
+});
+
+/* ---------- ACORDEONES: toggle de paneles colapsables ---------- */
+function toggleAccordion(panelId, btnId){
+  const panel = document.getElementById(panelId);
+  const btn = document.getElementById(btnId);
+  if(!panel || !btn) return;
+  const isOpen = panel.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+/* ---------- FICHAS DI: toggle de fichas plegables ---------- */
+function toggleFicha(headerEl){
+  if(!headerEl) return;
+  const ficha = headerEl.closest('.ficha-di');
+  if(!ficha) return;
+  const body = ficha.querySelector('.ficha-di-body');
+  if(!body) return;
+  const isOpen = body.classList.toggle('open');
+  headerEl.classList.toggle('open', isOpen);
+  headerEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+/* Soporte teclado para fichas: Enter/Space abren/cierran */
+document.querySelectorAll('.ficha-di-head').forEach(head => {
+  head.setAttribute('tabindex', '0');
+  head.setAttribute('role', 'button');
+  head.setAttribute('aria-expanded', 'false');
+  head.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      toggleFicha(head);
+    }
+  });
+});
+
+/* Inicializar aria-expanded en botones de acordeón */
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+  btn.setAttribute('aria-expanded', 'false');
+});
+
+
+const colorIDC = {
+  turquesa: '#009c9d',
+  azul: '#0072b9',
+  naranja: '#f3a100',
+  azulDark: '#004f80',
+  gris: '#555553'
+};
+
+/* ---------- INTEGRANTES (gestión dinámica) ---------- */
+const integWrap = document.getElementById('integrantesWrap');
+const btnAddInt = document.getElementById('btnAddInt');
+const MAX_INTEGRANTES = 4;
+let integranteCount = 0;
+
+function buildIntegrante(idx){
+  const row = document.createElement('div');
+  row.className = 'integrante-row';
+  row.dataset.idx = idx;
+  row.innerHTML = `
+    <div class="integrante-num">Integrante Nº ${idx}</div>
+    ${idx > 1 ? `<button type="button" class="btn-remove-int" aria-label="Eliminar integrante ${idx}">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>` : ''}
+    <div class="row g-2">
+      <div class="col-md-3"><label class="form-label-idc" style="font-size:.78rem;">Nº matrícula</label><input type="text" class="form-control-idc int-mat" placeholder="2026XXX" /></div>
+      <div class="col-md-5"><label class="form-label-idc" style="font-size:.78rem;">Nombres y apellidos</label><input type="text" class="form-control-idc int-nom" placeholder="Nombre(s) Apellido Apellido" /></div>
+      <div class="col-md-2"><label class="form-label-idc" style="font-size:.78rem;">Teléfono</label><input type="tel" class="form-control-idc int-tel" placeholder="9XX XXX XXX" /></div>
+      <div class="col-md-2"><label class="form-label-idc" style="font-size:.78rem;">Correo</label><input type="email" class="form-control-idc int-mail" placeholder="correo@idc.edu.pe" /></div>
+    </div>
+    <div class="row g-2 mt-2">
+      <div class="col-md-6">
+        <label class="form-label-idc" style="font-size:.78rem;">Foto del estudiante (opcional)</label>
+        <input type="file" class="form-control-idc int-foto" accept="image/*" style="font-size:.75rem; padding:.4rem .6rem;" />
+      </div>
+    </div>`;
+  integWrap.appendChild(row);
+  // Listener eliminar
+  const btnDel = row.querySelector('.btn-remove-int');
+  if(btnDel){
+    btnDel.addEventListener('click', () => {
+      row.remove();
+      renumerarIntegrantes();
+      btnAddInt.disabled = false;
+    });
+  }
+}
+
+function renumerarIntegrantes(){
+  const rows = integWrap.querySelectorAll('.integrante-row');
+  integranteCount = rows.length;
+  rows.forEach((row, i) => {
+    row.dataset.idx = i + 1;
+    row.querySelector('.integrante-num').textContent = `Integrante Nº ${i + 1}`;
+  });
+}
+
+btnAddInt.addEventListener('click', () => {
+  if(integranteCount >= MAX_INTEGRANTES){
+    btnAddInt.disabled = true;
+    return;
+  }
+  integranteCount++;
+  buildIntegrante(integranteCount);
+  if(integranteCount >= MAX_INTEGRANTES) btnAddInt.disabled = true;
+});
+
+// Crear integrante 1 al cargar
+buildIntegrante(1); integranteCount = 1;
+
+/* ---------- CONTADOR DE PALABRAS ---------- */
+function contarPalabras(txt){
+  return txt.trim() ? txt.trim().split(/\s+/).length : 0;
+}
+
+const tituloEl = document.getElementById('titulo');
+const counterTit = document.getElementById('counterTitulo');
+tituloEl.addEventListener('input', () => {
+  const n = contarPalabras(tituloEl.value);
+  counterTit.textContent = `${n} / 25 palabras`;
+  counterTit.classList.toggle('warn', n > 25);
+});
+
+const descEl = document.getElementById('descripTec');
+const counterDesc = document.getElementById('counterDescrip');
+descEl.addEventListener('input', () => {
+  const n = contarPalabras(descEl.value);
+  counterDesc.textContent = `${n} / 300 palabras`;
+  counterDesc.classList.toggle('warn', n > 300);
+});
+
+/* ---------- VALIDACIÓN PROSPECTIVA (verbos en futuro) ---------- */
+const verbosPasado = /\b(diseñ[óé]|implement[óé]|valid[óé]|elabor[óé]|propus[oe]|desarroll[óé]|construy[óé]|analiz[óé]|identif[ii]c[óé]|evalu[óé])\b/i;
+const objGeneralEl = document.getElementById('objGeneral');
+const tipFuturo = document.getElementById('tipObjFuturo');
+objGeneralEl.addEventListener('input', () => {
+  if(verbosPasado.test(objGeneralEl.value)){
+    tipFuturo.classList.add('warn');
+    tipFuturo.textContent = 'Detectamos verbos en tiempo pasado. El Plan se redacta en prospectiva: usa formas como diseñará, implementará, propondrá.';
+  } else {
+    tipFuturo.classList.remove('warn');
+    tipFuturo.textContent = 'El Plan se redacta en tiempo futuro o prospectivo: usa verbos como se diseñará, se implementará, se validará.';
+  }
+});
+
+/* ---------- ESCAPE HTML ---------- */
+function esc(str){
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function parrafosFromTextarea(txt, justify = true){
+  if(!txt || !txt.trim()) return `<p class="texto">[Pendiente de completar]</p>`;
+  return txt.trim().split(/\n+/).map(p =>
+    `<p class="texto">${esc(p.trim())}</p>`
+  ).join('');
+}
+
+function listFromTextarea(txt){
+  if(!txt || !txt.trim()) return `<p class="texto">[Pendiente de completar]</p>`;
+  return txt.trim().split(/\n+/).map(p =>
+    `<p class="texto">• ${esc(p.trim())}</p>`
+  ).join('');
+}
+
+/* ---------- GENERACIÓN DEL DOCUMENTO WORD ---------- */
+// El handler de submit del formulario está más abajo, después de buildDocument().
+// Aquí solo se exponen referencias compartidas si las necesitamos en otras funciones.
+const form = document.getElementById('planForm');
+const errorMsg = document.getElementById('errorMsg');
+const successMsg = document.getElementById('successMsg');
+
+/* ---------- ZIP GENERATOR (pure JS) ---------- */
+const CRC32_TABLE = new Uint32Array(256);
+for(let i = 0; i < 256; i++){
+  let c = i;
+  for(let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+  CRC32_TABLE[i] = c;
+}
+
+/* CRC32 sobre un Uint8Array de bytes reales (no string JS) */
+function crc32Bytes(bytes){
+  let c = ~0 >>> 0;
+  for(let i = 0; i < bytes.length; i++){
+    c = CRC32_TABLE[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+  }
+  return (~c) >>> 0;
+}
+
+/* Escritores LE directos sobre Uint8Array (sin intermediario de strings) */
+function w16(arr, off, n){
+  arr[off]   = n & 0xFF;
+  arr[off+1] = (n >>> 8) & 0xFF;
+}
+function w32(arr, off, n){
+  arr[off]   = n & 0xFF;
+  arr[off+1] = (n >>> 8)  & 0xFF;
+  arr[off+2] = (n >>> 16) & 0xFF;
+  arr[off+3] = (n >>> 24) & 0xFF;
+}
+
+/*
+ * makeZip — construye un ZIP STORE (sin compresión) como Uint8Array.
+ * Codifica nombres y contenidos como UTF-8 para que los CRC, tamaños
+ * y offsets coincidan con los bytes reales que escribirá el Blob.
+ * Marca el flag UTF-8 (0x800) en los headers para compatibilidad con
+ * lectores ZIP modernos (Word incluido).
+ */
+function makeZip(files){
+  const encoder = new TextEncoder();
+  // Pre-encode todos los archivos a bytes UTF-8 y precalcula sus CRC32
+  const items = files.map(function(f){
+    const nameBytes = encoder.encode(f.name);
+    const dataBytes = typeof f.content === 'string'
+      ? encoder.encode(f.content)
+      : f.content; // ya es Uint8Array
+    return {
+      name: nameBytes,
+      data: dataBytes,
+      crc: crc32Bytes(dataBytes),
+      size: dataBytes.length
+    };
+  });
+
+  // Fecha/hora MS-DOS para los headers
+  const dt = new Date();
+  const time = ((dt.getHours()) << 11) | ((dt.getMinutes()) << 5) | (dt.getSeconds() >>> 1);
+  const date = ((dt.getFullYear() - 1980) << 9) | ((dt.getMonth() + 1) << 5) | dt.getDate();
+
+  // Calcula tamaño total: LFH(30) + name + data por archivo, CDH(46) + name por archivo, EOCD(22)
+  let totalSize = 22; // EOCD
+  items.forEach(function(it){
+    totalSize += 30 + it.name.length + it.size;  // local file header + data
+    totalSize += 46 + it.name.length;             // central directory header
+  });
+
+  const out = new Uint8Array(totalSize);
+  const offsets = []; // offset de cada LFH para anotar en el CD
+  let off = 0;
+
+  // 1) Local File Headers + data
+  items.forEach(function(it){
+    offsets.push(off);
+    // Signature PK\x03\x04
+    out[off] = 0x50; out[off+1] = 0x4B; out[off+2] = 0x03; out[off+3] = 0x04;
+    w16(out, off+4,  20);             // version needed to extract
+    w16(out, off+6,  0x0800);         // general purpose bit flag: bit 11 = UTF-8 filenames
+    w16(out, off+8,  0);              // compression method 0 = STORE (sin compresión)
+    w16(out, off+10, time);
+    w16(out, off+12, date);
+    w32(out, off+14, it.crc);
+    w32(out, off+18, it.size);        // compressed size = uncompressed (STORE)
+    w32(out, off+22, it.size);        // uncompressed size
+    w16(out, off+26, it.name.length);
+    w16(out, off+28, 0);              // extra field length
+    off += 30;
+    out.set(it.name, off);  off += it.name.length;
+    out.set(it.data, off);  off += it.size;
+  });
+
+  // 2) Central Directory
+  const cdStart = off;
+  items.forEach(function(it, i){
+    // Signature PK\x01\x02
+    out[off] = 0x50; out[off+1] = 0x4B; out[off+2] = 0x01; out[off+3] = 0x02;
+    w16(out, off+4,  20);             // version made by
+    w16(out, off+6,  20);             // version needed to extract
+    w16(out, off+8,  0x0800);         // flags (UTF-8)
+    w16(out, off+10, 0);              // compression STORE
+    w16(out, off+12, time);
+    w16(out, off+14, date);
+    w32(out, off+16, it.crc);
+    w32(out, off+20, it.size);
+    w32(out, off+24, it.size);
+    w16(out, off+28, it.name.length);
+    w16(out, off+30, 0);              // extra
+    w16(out, off+32, 0);              // file comment length
+    w16(out, off+34, 0);              // disk number start
+    w16(out, off+36, 0);              // internal file attrs
+    w32(out, off+38, 0);              // external file attrs
+    w32(out, off+42, offsets[i]);     // relative offset of LFH
+    off += 46;
+    out.set(it.name, off);  off += it.name.length;
+  });
+  const cdSize = off - cdStart;
+
+  // 3) End of Central Directory record
+  out[off] = 0x50; out[off+1] = 0x4B; out[off+2] = 0x05; out[off+3] = 0x06;
+  w16(out, off+4,  0);                // disk number
+  w16(out, off+6,  0);                // disk with start of CD
+  w16(out, off+8,  items.length);     // entries on this disk
+  w16(out, off+10, items.length);     // total entries in CD
+  w32(out, off+12, cdSize);
+  w32(out, off+16, cdStart);
+  w16(out, off+20, 0);                // .zip comment length
+
+  return out;
+}
+
+function escXML(s){
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+}
+function wp(content, props){
+  const pPr = props || '<w:pPr><w:jc w:val="both"/><w:spacing w:line="360" w:lineRule="auto"/><w:ind w:firstLine="708"/></w:pPr>';
+  return '<w:p>' + pPr + '<w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr><w:t xml:space="preserve">' + escXML(content) + '</w:t></w:r></w:p>';
+}
+function wpc(content){
+  return '<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="360" w:lineRule="auto"/><w:ind w:firstLine="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr><w:t xml:space="preserve">' + escXML(content) + '</w:t></w:r></w:p>';
+}
+function wpb(content){
+  return '<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="360" w:lineRule="auto"/><w:ind w:firstLine="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr><w:t xml:space="preserve">' + escXML(content) + '</w:t></w:r></w:p>';
+}
+function wph(content, level){
+  const styles = {
+    1: '<w:pPr><w:pStyle w:val="Heading1"/></w:pPr>',
+    2: '<w:pPr><w:pStyle w:val="Heading2"/></w:pPr>',
+    3: '<w:pPr><w:pStyle w:val="Heading3"/></w:pPr>'
+  };
+  return '<w:p>' + (styles[level]||styles[1]) + '<w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr><w:t xml:space="preserve">' + escXML(content) + '</w:t></w:r></w:p>';
+}
+function wpi(content){
+  return '<w:p><w:pPr><w:jc w:val="both"/><w:spacing w:line="360" w:lineRule="auto"/><w:ind w:firstLine="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:color w:val="999999"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr><w:t xml:space="preserve">' + escXML(content) + '</w:t></w:r></w:p>';
+}
+function wpbullet(lines){
+  if(!lines || !String(lines).trim()) return '';
+  return String(lines).split('\n').filter(function(l){return l.trim();}).map(function(l){
+    return '<w:p><w:pPr><w:ind w:firstLine="0"/><w:jc w:val="both"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr><w:t xml:space="preserve">• ' + escXML(l.replace(/^-\s*/, '')) + '</w:t></w:r></w:p>';
+  }).join('');
+}
+
+/* ── XML helpers ──────────────────────────────────────────────────────────── */
+function wBox(text,fill,italic){
+  var iTag=italic?'<w:i/>':'';
+  var col=italic?'<w:color w:val="646464"/>' :'';
+  return '<w:tbl><w:tblPr><w:tblW w:w="0" w:type="auto"/>'
+    +'<w:tblBorders>'
+    +'<w:top w:val="single" w:sz="6" w:space="0" w:color="1A5276"/>'
+    +'<w:left w:val="single" w:sz="6" w:space="0" w:color="1A5276"/>'
+    +'<w:bottom w:val="single" w:sz="6" w:space="0" w:color="1A5276"/>'
+    +'<w:right w:val="single" w:sz="6" w:space="0" w:color="1A5276"/>'
+    +'</w:tblBorders></w:tblPr>'
+    +'<w:tblGrid><w:gridCol w:w="8640"/></w:tblGrid>'
+    +'<w:tr><w:tc>'
+    +'<w:tcPr><w:tcW w:w="8640" w:type="dxa"/>'
+    +'<w:shd w:val="clear" w:color="auto" w:fill="'+fill+'"/></w:tcPr>'
+    +'<w:p><w:pPr><w:jc w:val="center"/><w:ind w:firstLine="0"/>'
+    +'<w:spacing w:before="120" w:after="120" w:line="360" w:lineRule="auto"/></w:pPr>'
+    +'<w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>'+iTag+col
+    +'<w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr>'
+    +'<w:t xml:space="preserve">'+escXML(text)+'</w:t></w:r></w:p>'
+    +'</w:tc></w:tr></w:tbl>'
+    +'<w:p><w:pPr><w:spacing w:before="80" w:after="0"/><w:ind w:firstLine="0"/></w:pPr></w:p>';
+}
+function wTable(headers,rows,hFill,altFill,centerCols){
+  var nc=headers.length;
+  var colW=Math.floor(8640/nc);
+  var cc=centerCols||[];
+  var t='<w:tbl><w:tblPr><w:tblW w:w="0" w:type="auto"/>'
+    +'<w:tblBorders>'
+    +'<w:top w:val="single" w:sz="4" w:space="0" w:color="1A5276"/>'
+    +'<w:left w:val="single" w:sz="4" w:space="0" w:color="1A5276"/>'
+    +'<w:bottom w:val="single" w:sz="4" w:space="0" w:color="1A5276"/>'
+    +'<w:right w:val="single" w:sz="4" w:space="0" w:color="1A5276"/>'
+    +'<w:insideH w:val="single" w:sz="4" w:space="0" w:color="1A5276"/>'
+    +'<w:insideV w:val="single" w:sz="4" w:space="0" w:color="1A5276"/>'
+    +'</w:tblBorders></w:tblPr><w:tblGrid>';
+  for(var c=0;c<nc;c++) t+='<w:gridCol w:w="'+colW+'"/>';
+  t+='</w:tblGrid>';
+  // header row
+  if(headers&&headers.length&&headers[0]!==''){
+    t+='<w:tr>';
+    headers.forEach(function(h,ci){
+      var jc=(cc.indexOf(ci)>=0)?'center':'center';
+      t+='<w:tc><w:tcPr><w:tcW w:w="'+colW+'" w:type="dxa"/>'
+        +'<w:shd w:val="clear" w:color="auto" w:fill="'+hFill+'"/></w:tcPr>'
+        +'<w:p><w:pPr><w:jc w:val="'+jc+'"/><w:ind w:firstLine="0"/>'
+        +'<w:spacing w:before="60" w:after="60" w:line="360" w:lineRule="auto"/></w:pPr>'
+        +'<w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>'
+        +'<w:b/><w:color w:val="FFFFFF"/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr>'
+        +'<w:t xml:space="preserve">'+escXML(h)+'</w:t></w:r></w:p></w:tc>';
+    });
+    t+='</w:tr>';
+  }
+  // data rows
+  rows.forEach(function(row,ri){
+    var fill=(ri%2===0)?altFill:'FFFFFF';
+    t+='<w:tr>';
+    for(var ci=0;ci<nc;ci++){
+      var cv=(row&&row[ci]!==undefined)?String(row[ci]):'';
+      var jcv=(cc.indexOf(ci)>=0)?'center':'left';
+      var isGray=(!cv||cv===''||( cv.startsWith('[')&&cv.endsWith(']') ));
+      var rPr='<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>'
+        +(isGray?'<w:i/><w:color w:val="646464"/>':'')
+        +'<w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr>';
+      t+='<w:tc><w:tcPr><w:tcW w:w="'+colW+'" w:type="dxa"/>'
+        +'<w:shd w:val="clear" w:color="auto" w:fill="'+fill+'"/></w:tcPr>'
+        +'<w:p><w:pPr><w:jc w:val="'+jcv+'"/><w:ind w:firstLine="0"/>'
+        +'<w:spacing w:before="60" w:after="60" w:line="360" w:lineRule="auto"/></w:pPr>'
+        +'<w:r>'+rPr
+        +'<w:t xml:space="preserve">'+escXML(cv)+'</w:t></w:r></w:p></w:tc>';
+    }
+    t+='</w:tr>';
+  });
+  t+='</w:tbl>';
+  t+='<w:p><w:pPr><w:spacing w:before="120" w:after="0"/><w:ind w:firstLine="0"/></w:pPr></w:p>';
+  return t;
+}
+
+/* ── main buildDocument ──────────────────────────────────────────────────────── */
+function buildDocument(d){
+  var asesor  =d.asesor   ||'[Nombres y apellidos completos del asesor/tutor — DNI: ___________]';
+  var semestre=d.semestre ||'[Semestre]';
+  var anio    =d.anio     ||'[Año]';
+  var linea   =d.lineaDI  ||[];
+  var lineaCod=linea[0]   ||'';
+  var lineaNom=linea[1]   ||'';
+  var linTrans=d.lineaTrans||'';
+  var body='';
+
+  /* ── helpers locales ─────────────────────────────────────────────── */
+  var RFonts='<w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>';
+
+  function isPh(t){
+    if(!t||!String(t).trim()) return true;
+    var s=String(t).trim(); return s.charAt(0)==='['&&s.charAt(s.length-1)===']';
+  }
+  function rPrData(t,sz,extraTags){
+    var s=sz||24;
+    return '<w:rPr>'+RFonts+(isPh(t)?'<w:i/><w:color w:val="646464"/>':'')+(extraTags||'')
+      +'<w:sz w:val="'+s+'"/><w:szCs w:val="'+s+'"/></w:rPr>';
+  }
+
+  // centered paragraph, bold label + optional colored text
+  function pcLabelVal(label,val,labelColor,sz){
+    var s=sz||24;
+    var lc=labelColor?'<w:color w:val="'+labelColor+'"/>':'';
+    return '<w:p><w:pPr><w:spacing w:before="80" w:after="0" w:line="360" w:lineRule="auto"/>'
+      +'<w:jc w:val="center"/><w:ind w:firstLine="0"/></w:pPr>'
+      +'<w:r><w:rPr>'+RFonts+'<w:b/>'+lc+'<w:sz w:val="'+s+'"/><w:szCs w:val="'+s+'"/></w:rPr>'
+      +'<w:t xml:space="preserve">'+escXML(label)+'</w:t></w:r>'
+      +(val?('<w:r>'+rPrData(val,s)+'<w:t xml:space="preserve">'+escXML(val)+'</w:t></w:r>'):'')
+      +'</w:p>';
+  }
+
+  // plain paragraph with auto-detect of placeholder style
+  function pPara(text,ph,jc,spB,spA,indent){
+    var txt=(text&&text.trim())?text.trim():(ph||'');
+    var jcv=jc||'both';
+    var sb=spB!==undefined?spB:0;
+    var sa=spA!==undefined?spA:120;
+    var ind=indent!==undefined?indent:709;
+    return '<w:p><w:pPr><w:spacing w:before="'+sb+'" w:after="'+sa+'" w:line="360" w:lineRule="auto"/>'
+      +'<w:jc w:val="'+jcv+'"/><w:ind w:firstLine="'+ind+'"/></w:pPr>'
+      +'<w:r>'+rPrData(text,24)
+      +'<w:t xml:space="preserve">'+escXML(txt)+'</w:t></w:r></w:p>';
+  }
+
+  // section header (no pageBreak, bold 1A5276)
+  function sec(n,title){
+    return '<w:p><w:pPr><w:spacing w:before="280" w:after="80" w:line="360" w:lineRule="auto"/>'
+      +'<w:ind w:firstLine="0"/></w:pPr>'
+      +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="1A5276"/>'
+      +'<w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>'
+      +'<w:t xml:space="preserve">'+n+'. '+escXML(title)+'</w:t></w:r></w:p>';
+  }
+
+  // subsection header (bold black, ind left=357)
+  function sub(n,title){
+    return '<w:p><w:pPr><w:spacing w:before="120" w:after="60" w:line="360" w:lineRule="auto"/>'
+      +'<w:ind w:left="357" w:firstLine="0"/></w:pPr>'
+      +'<w:r><w:rPr>'+RFonts+'<w:b/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>'
+      +'<w:t xml:space="preserve">'+n+' '+escXML(title)+'</w:t></w:r></w:p>';
+  }
+
+  // inline label (bold) + content in same paragraph (justificación style)
+  function pInline(label,text,ph,spB){
+    var txt=(text&&text.trim())?text.trim():(ph||'');
+    var phMode=isPh(text);
+    var sb=spB!==undefined?spB:80;
+    return '<w:p><w:pPr><w:spacing w:before="'+sb+'" w:after="'+sb+'" w:line="360" w:lineRule="auto"/>'
+      +'<w:jc w:val="both"/><w:ind w:firstLine="709"/></w:pPr>'
+      +'<w:r><w:rPr>'+RFonts+'<w:b/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>'
+      +'<w:t xml:space="preserve">'+escXML(label)+' </w:t></w:r>'
+      +'<w:r><w:rPr>'+RFonts+(phMode?'<w:i/><w:color w:val="646464"/>':'')
+      +'<w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>'
+      +'<w:t xml:space="preserve">'+escXML(txt)+'</w:t></w:r></w:p>';
+  }
+
+  // numbered bullet (PE/OE): label bold + content italic-gray-if-placeholder
+  function pNumBullet(label,lineText,ph){
+    var txt=(lineText&&lineText.trim())?lineText.replace(/^[-–•PE0-9:.OE\s]*/i,'').trim():ph;
+    var phMode=isPh(lineText);
+    return '<w:p><w:pPr><w:spacing w:before="40" w:after="40" w:line="360" w:lineRule="auto"/>'
+      +'<w:ind w:left="357" w:firstLine="0"/></w:pPr>'
+      +'<w:r><w:rPr>'+RFonts+'<w:b/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>'
+      +'<w:t xml:space="preserve">'+escXML(label)+' </w:t></w:r>'
+      +'<w:r><w:rPr>'+RFonts+(phMode?'<w:i/><w:color w:val="646464"/>':'')
+      +'<w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>'
+      +'<w:t xml:space="preserve">'+escXML(txt)+'</w:t></w:r></w:p>';
+  }
+
+  function pBulletBlock(text,prefix,defaults){
+    var lines=(text&&text.trim())
+      ?text.trim().split('\n').filter(function(l){return l.trim();})
+      :[];
+    var result='';
+    for(var i=0;i<defaults.length;i++){
+      result+=pNumBullet(prefix+(i+1)+':',lines[i]||'',defaults[i]);
+    }
+    return result;
+  }
+
+  function pEmpty(spB,spA){
+    return '<w:p><w:pPr><w:spacing w:before="'+(spB||0)+'" w:after="'+(spA||0)+'"/>'
+      +'<w:ind w:firstLine="0"/></w:pPr></w:p>';
+  }
+
+  function pNota(label,note){
+    return '<w:p><w:pPr><w:spacing w:before="60" w:after="60" w:line="360" w:lineRule="auto"/>'
+      +'<w:ind w:left="357" w:firstLine="0"/></w:pPr>'
+      +'<w:r><w:rPr>'+RFonts+'<w:b/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr>'
+      +'<w:t xml:space="preserve">'+escXML(label)+' </w:t></w:r>'
+      +'<w:r><w:rPr>'+RFonts+'<w:i/><w:color w:val="646464"/>'
+      +'<w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr>'
+      +'<w:t xml:space="preserve">'+escXML(note)+'</w:t></w:r></w:p>';
+  }
+
+  /* ══ PORTADA ═══════════════════════════════════════════════════════════════ */
+  // Institution (bold, 1A5276, sz=28, line break inside)
+  body+='<w:p><w:pPr><w:spacing w:before="0" w:after="120" w:line="360" w:lineRule="auto"/>'
+    +'<w:jc w:val="center"/><w:ind w:firstLine="0"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="1A5276"/>'
+    +'<w:sz w:val="28"/><w:szCs w:val="28"/></w:rPr>'
+    +'<w:t>INSTITUTO DE EDUCACIÓN SUPERIOR PÚBLICO</w:t></w:r>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="1A5276"/>'
+    +'<w:sz w:val="28"/><w:szCs w:val="28"/></w:rPr><w:br/></w:r>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="1A5276"/>'
+    +'<w:sz w:val="28"/><w:szCs w:val="28"/></w:rPr>'
+    +'<w:t>“DISEÑO Y COMUNICACIÓN”</w:t></w:r></w:p>';
+
+  body+=pEmpty(480,0);
+  // "PLAN DEL PROYECTO..." title (bold, 1A5276, sz=32)
+  body+='<w:p><w:pPr><w:spacing w:before="0" w:after="160" w:line="360" w:lineRule="auto"/>'
+    +'<w:jc w:val="center"/><w:ind w:firstLine="0"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="1A5276"/>'
+    +'<w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr>'
+    +'<w:t>PLAN DEL PROYECTO DE APLICACIÓN PROFESIONAL</w:t></w:r></w:p>';
+
+  // Title box (shaded D6EAF8)
+  var titleTxt=(d.titulo&&d.titulo.trim())?d.titulo.trim()
+    :'[Ingrese el título del trabajo. Máximo 25 palabras. Debe incluir: tema, especificidad, lugar y temporalidad. Ejemplo: Diseño de un espacio interior con criterios sostenibles para una microempresa comercial en el distrito de Miraflores, Lima, 2026.]';
+  body+=wBox(titleTxt,'D6EAF8',isPh(d.titulo));
+
+  // Program + line
+  body+=pcLabelVal('Programa de Estudios: ','Diseño de Interiores','2E86C1',22);
+  var lineStr=lineaCod+(lineaNom?' — '+lineaNom:'');
+  body+=pcLabelVal('Línea de investigación: ',lineStr||'[DI-L# — Nombre de la línea]',null,22);
+  if(linTrans||!linTrans){
+    body+=pcLabelVal('Línea transversal: ',linTrans||'[Nombre de la línea transversal institucional]',null,22);
+  }
+
+  body+=pEmpty(160,0);
+
+  // Authors table on cover (Autor(es) / Correo)
+  body+='<w:p><w:pPr><w:spacing w:before="0" w:after="60"/><w:jc w:val="center"/>'
+    +'<w:ind w:firstLine="0"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr>'
+    +'<w:t>Autor(es)</w:t></w:r></w:p>';
+  var autRows=d.integrantes.map(function(i){return[i.nom||'[Apellidos y nombres completos del autor]',i.mail||'[correo@idc.edu.pe]'];});
+  if(autRows.length===0) autRows=[['[Apellidos y nombres completos del autor 1]','[correo1@idc.edu.pe]'],['[Apellidos y nombres completos del autor 2]','[correo2@idc.edu.pe]']];
+  body+=wTable(['Autor(es)','Correo electrónico institucional'],autRows,'1A5276','D6EAF8',[]);
+
+  // Asesor & location
+  body+=pEmpty(60,0);
+  body+=pcLabelVal('Asesor: ',asesor,null,22);
+  body+=pEmpty(120,0);
+  body+='<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="360" w:lineRule="auto"/>'
+    +'<w:jc w:val="center"/><w:ind w:firstLine="0"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr>'
+    +'<w:t xml:space="preserve">Lima, Perú — '+escXML(anio)+'</w:t></w:r></w:p>';
+
+  /* ══ INICIO DE CUERPO (nueva página) ════════════════════════════════════════ */
+  body+='<w:p><w:pPr><w:pageBreakBefore/><w:ind w:firstLine="0"/>'
+    +'<w:spacing w:before="0" w:after="0"/></w:pPr></w:p>';
+
+  // Repeated plan title on page 2
+  body+='<w:p><w:pPr><w:spacing w:before="0" w:after="160" w:line="360" w:lineRule="auto"/>'
+    +'<w:jc w:val="center"/><w:ind w:firstLine="0"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="1A5276"/>'
+    +'<w:sz w:val="28"/><w:szCs w:val="28"/></w:rPr>'
+    +'<w:t>PLAN DEL PROYECTO DE APLICACIÓN PROFESIONAL</w:t></w:r></w:p>';
+
+  // Nota institucional (shaded box)
+  body+=wBox('Nota institucional:  El Plan del PAP (también denominado perfil) es el documento '
+    +'previo a la ejecución del Proyecto de Aplicación Profesional. Debe ser aprobado por la '
+    +'Jefatura de Investigación antes del inicio del trabajo de campo o diseño. '
+    +'Máximo 12 páginas (sin contar apéndices).','D6EAF8',false);
+
+  body+=pEmpty(120,0);
+  body+=pEmpty(0,0);
+
+  /* ── SECCIÓN 1 ─────────────────────────────────────────────────── */
+  body+=sec('1','Título del trabajo');
+  body+=pPara(d.titulo,
+    '[Redacte el título del trabajo con un máximo de 25 palabras. Incluya: tema, especificidad, lugar y temporalidad. Estructura: verbo de acción + objeto + línea temática + lugar + año. Ejemplo: Diseño de un espacio interior con criterios sostenibles para una microempresa comercial en el distrito de Miraflores, Lima, 2026.]',
+    'both',0,120,709);
+  body+=pNota('Nota:','El título no excede las 25 palabras e incluye tema, especificidad, lugar y temporalidad.');
+
+  /* ── SECCIÓN 2 ─────────────────────────────────────────────────── */
+  body+=sec('2','Programa de estudios');
+  var semParsed=semestre||'[VI Semestre — '+anio+']';
+  body+=wTable(
+    ['Carrera / Programa de estudios','Semestre / Año de egreso'],
+    [['Diseño de Interiores',semParsed],
+     ['Línea de investigación: '+(lineStr||''),
+      (linTrans||'[Línea transversal institucional]')]
+    ],'1A5276','D6EAF8',[]);
+
+  /* ── SECCIÓN 3 ─────────────────────────────────────────────────── */
+  body+=sec('3','Integrantes');
+  var integRows=d.integrantes.map(function(g,i){
+    return[String(i+1),g.mat||'[N.° matrícula]',g.nom||'[Apellidos y nombres completos]',g.tel||'[N.° celular]',g.mail||'[correo@idc.edu.pe]'];
+  });
+  if(integRows.length===0) integRows=[
+    ['1','[N.° matrícula]','[Apellidos y nombres completos]','[N.° celular]','[correo@idc.edu.pe]'],
+    ['2','[N.° matrícula]','[Apellidos y nombres completos]','[N.° celular]','[correo@idc.edu.pe]']
+  ];
+  body+=wTable(['N.°','N.° de matrícula','Apellidos y nombres','Teléfono','Correo electrónico'],
+    integRows,'1A5276','D6EAF8',[0,1,3]);
+  body+=pInline('Asesor / Tutor responsable:',asesor,null,60);
+
+  /* ── SECCIÓN 4 ─────────────────────────────────────────────────── */
+  body+=sec('4','Formulación del problema');
+  body+=sub('4.1','Problema general');
+  body+=pPara(d.probGeneral,
+    '[Redacte la pregunta central del proyecto en términos concretos, explícitos y claros, estableciendo los límites del trabajo. Ejemplo: ¿De qué manera el diseño de un espacio interior con criterios sostenibles puede mejorar la calidad de vida de los usuarios de una microempresa comercial en el distrito de Miraflores, Lima, durante el año 2026?]',
+    'both',0,120,709);
+  body+=sub('4.2','Problemas específicos');
+  body+=pBulletBlock(d.probEspec,'PE',[
+    '[Redacte el problema específico 1, desagregado del problema general. Cada problema específico debe orientar un objetivo específico.]',
+    '[Redacte el problema específico 2, desagregado del problema general. Cada problema específico debe orientar un objetivo específico.]',
+    '[Redacte el problema específico 3, desagregado del problema general. Cada problema específico debe orientar un objetivo específico.]'
+  ]);
+
+  /* ── SECCIÓN 5 ─────────────────────────────────────────────────── */
+  body+=sec('5','Objetivos');
+  // Verb reference table
+  body+=wTable(
+    ['Nivel cognitivo','Verbos sugeridos (Guía PAP 2026)'],
+    [['Conocimiento','Identificar, Describir, Enumerar, Registrar, Reconocer'],
+     ['Comprensión','Explicar, Interpretar, Relacionar, Comparar, Organizar'],
+     ['Aplicación','Diseñar, Ejecutar, Construir, Programar, Desarrollar'],
+     ['Análisis','Analizar, Clasificar, Diferenciar, Descomponer, Desglosar'],
+     ['Síntesis','Proponer, Formular, Integrar, Planear, Sintetizar']
+    ],'1A5276','D6EAF8',[0]);
+  body+=sub('5.1','Objetivo general');
+  body+=pPara(d.objGeneral,
+    '[Redacte el objetivo general usando un verbo en infinitivo. Debe enunciar brevemente qué se espera lograr, en qué área, dónde y cuándo. Ejemplo: Diseñar una propuesta de interior sostenible para una microempresa comercial en el distrito de Miraflores, Lima, durante el año 2026.]',
+    'both',0,120,709);
+  body+=sub('5.2','Objetivos específicos');
+  body+=pBulletBlock(d.objEspec,'OE',[
+    '[Redacte el objetivo específico 1 usando un verbo en infinitivo. Debe incluir acción, objeto, contexto y criterio de éxito medible.]',
+    '[Redacte el objetivo específico 2 usando un verbo en infinitivo. Debe incluir acción, objeto, contexto y criterio de éxito medible.]',
+    '[Redacte el objetivo específico 3 usando un verbo en infinitivo. Debe incluir acción, objeto, contexto y criterio de éxito medible.]'
+  ]);
+
+  /* ── SECCIÓN 6 ─────────────────────────────────────────────────── */
+  body+=sec('6','Justificación');
+  body+=pInline('Trascendencia:',d.justTrasc,
+    '[Explique el impacto a largo plazo del proyecto. ¿Por qué es importante para la comunidad, el sector creativo-cultural o la economía naranja peruana?]');
+  body+=pInline('Magnitud:',d.justMagn,
+    '[Describa la dimensión del problema con datos estadísticos o evidencia empírica. ¿Cuántas personas o espacios se ven afectados?]');
+  body+=pInline('Vulnerabilidad:',d.justVuln,
+    '[Señale por qué el problema requiere atención inmediata. ¿Qué ocurriría si no se interviene a tiempo?]');
+  body+=pInline('Factibilidad:',d.justFact,
+    '[Justifique la viabilidad del proyecto: recursos humanos, materiales, tecnológicos, financieros y temporales disponibles para su ejecución.]');
+
+  /* ── SECCIÓN 7 ─────────────────────────────────────────────────── */
+  body+=sec('7','Descripción técnica');
+  body+=pPara(d.descripTec,
+    '[Redacte aquí la descripción técnica del proyecto en un máximo de 300 palabras. Incluya: (a) tipo de proyecto o investigación, (b) metodología o proceso de diseño, (c) fases de trabajo, (d) herramientas o técnicas utilizadas, y (e) entregables esperados: planos, renders, maqueta, manual de implementación, etc.]',
+    'both',0,120,709);
+  body+=pNota('Nota:','Máximo 300 palabras. Se recomienda especificar las fases del proceso y los entregables concretos.');
+
+  /* ── SECCIÓN 8 ─────────────────────────────────────────────────── */
+  body+=sec('8','Cronograma de actividades');
+  body+='<w:p><w:pPr><w:spacing w:before="60" w:after="80" w:line="360" w:lineRule="auto"/>'
+    +'<w:jc w:val="both"/><w:ind w:firstLine="709"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:i/><w:color w:val="646464"/>'
+    +'<w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr>'
+    +'<w:t>Diagrama de Gantt por semestre. Marque con ■ los meses en que se ejecuta cada actividad.</w:t></w:r></w:p>';
+
+  var cronoLines=(d.cronograma||'').split('\n').filter(function(l){return l.trim();});
+  var cronoRows=[];
+  if(cronoLines.length>0){
+    cronoRows=cronoLines.map(function(l,i){
+      return[String(i+1),l.replace(/^\[?(?:Fase\s*\d+[.)\-–]?\s*|[-–•\[\]]\s*)/i,'').trim(),'','','','',''];
+    });
+  } else {
+    var defActs=['Revisión bibliográfica y estado del arte',
+      'Diagnóstico y levantamiento técnico del espacio',
+      'Elaboración del marco teórico y conceptual',
+      'Desarrollo de la propuesta conceptual',
+      'Planimetía técnica y renders 3D',
+      'Validación con usuarios y especialistas',
+      'Redacción y revisión del Informe Final',
+      'Sustentación del Proyecto'];
+    cronoRows=defActs.map(function(a,i){return[String(i+1),a,'','','','',''];});
+  }
+  body+=wTable(['N.°','Actividad / Fase','Mes 1','Mes 2','Mes 3','Mes 4','Mes 5'],
+    cronoRows,'1A5276','D6EAF8',[0,2,3,4,5,6]);
+  body+=pNota('Nota:','Marque con ■ los meses en que se ejecuta cada actividad. Adjuntar Gantt completo como apéndice si es extenso.');
+
+  /* ── SECCIÓN 9 ─────────────────────────────────────────────────── */
+  body+=sec('9','Presupuesto, medios y materiales');
+  var presLines=(d.presupuesto||'').split('\n').filter(function(l){return l.trim();});
+  var presRows=[];
+  if(presLines.length>0){
+    presRows=presLines.map(function(l){
+      var m=l.match(/^(.+?)\s*[–\-]\s*S\/\s*(.+)$/);
+      if(m) return[m[1].trim(),'[Especifique]','1','S/ '+m[2].trim()];
+      return[l.trim(),'[Especifique]','[n]','S/ [Monto]'];
+    });
+  } else {
+    var defCats=['Recursos humanos','Materiales de diseño y maquetación',
+      'Equipos y licencias de software','Impresión de planos y renders',
+      'Transporte y visitas de campo','Contingencias (10 %)'];
+    presRows=defCats.map(function(c){
+      return[c,'[Describa el recurso o material específico]','[Cantidad]','S/ ___________'];
+    });
+  }
+  body+=wTable(['Categoría','Descripción del recurso','Cantidad / Unidad','Costo estimado (S/)'],
+    presRows,'1A5276','D6EAF8',[2,3]);
+
+  // TOTAL row
+  body+=wTable(['','','TOTAL','S/ ___________'],
+    [],'1A5276','FFFFFF',[2,3]);
+
+  /* ── SECCIÓN 10 ────────────────────────────────────────────────── */
+  body+=sec('10','Referencias bibliográficas');
+  body+=pPara('En orden alfabético según Normas APA 7.ª edición. Antigüedad máxima de cinco (5) años salvo clásicos de la disciplina.',
+    '','both',0,120,0);
+
+  if(d.referencias&&d.referencias.trim()){
+    d.referencias.trim().split('\n').filter(function(l){return l.trim();}).forEach(function(r){
+      body+='<w:p><w:pPr><w:ind w:left="708" w:hanging="708"/><w:jc w:val="both"/>'
+        +'<w:spacing w:line="360" w:lineRule="auto" w:after="80"/></w:pPr>'
+        +'<w:r><w:rPr>'+RFonts+'<w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>'
+        +'<w:t xml:space="preserve">'+escXML(r)+'</w:t></w:r></w:p>';
+    });
+  } else {
+    var refPhs=[
+      '[Apellido, A. A. (Año). Título de la obra en cursiva. Editorial.]',
+      '[Apellido, A. A., & Apellido, B. B. (Año). Título del artículo. Nombre de la Revista en Cursiva, vol(núm), pp–pp. https://doi.org/xxxxx]',
+      '[Apellido, A. A. (Año). Título de la tesis [Tesis de grado, Nombre de la institución]. Repositorio institucional.]'
+    ];
+    refPhs.forEach(function(r){
+      body+='<w:p><w:pPr><w:ind w:left="708" w:hanging="708"/><w:jc w:val="both"/>'
+        +'<w:spacing w:line="360" w:lineRule="auto" w:after="80"/></w:pPr>'
+        +'<w:r><w:rPr>'+RFonts+'<w:i/><w:color w:val="646464"/>'
+        +'<w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>'
+        +'<w:t xml:space="preserve">'+escXML(r)+'</w:t></w:r></w:p>';
+    });
+  }
+
+  /* ── FIRMAS ─────────────────────────────────────────────────────── */
+  body+=pEmpty(720,0);
+  body+='<w:p><w:pPr><w:spacing w:before="0" w:after="120" w:line="360" w:lineRule="auto"/>'
+    +'<w:jc w:val="center"/><w:ind w:firstLine="0"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="1A5276"/>'
+    +'<w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr>'
+    +'<w:t>FIRMAS DE LOS INTEGRANTES Y DEL ASESOR</w:t></w:r></w:p>';
+
+  var nom1=d.integrantes.length>0?(d.integrantes[0].nom||'[Apellidos y nombres]'):'[Apellidos y nombres]';
+  var nom2=d.integrantes.length>1?(d.integrantes[1].nom||'[Apellidos y nombres]'):'[Apellidos y nombres]';
+  body+=wTable(
+    ['Integrante 1','Integrante 2','Asesor / Tutor'],
+    [['','',''],
+     [nom1+' DNI: ___________',nom2+' DNI: ___________',asesor+' DNI: ___________']
+    ],'1A5276','D6EAF8',[0,1,2]);
+
+  /* ══ HEADER XML ═════════════════════════════════════════════════════════════ */
+  var headerXML='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+    +'<w:hdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
+    +'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">\n'
+    // Line 1: Institution (centered, bold, purple 4A235A, sz=18)
+    +'<w:p><w:pPr><w:jc w:val="center"/><w:ind w:firstLine="0"/>'
+    +'<w:spacing w:after="0" w:line="360" w:lineRule="auto"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="4A235A"/>'
+    +'<w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr>'
+    +'<w:t>INSTITUTO DE EDUCACIÓN SUPERIOR PÚBLICO “DISEÑO Y COMUNICACIÓN”</w:t></w:r></w:p>\n'
+    // Line 2: "PLAN DEL PROYECTO..." subtitle (centered, bold gray 808080, sz=16)
+    +'<w:p><w:pPr><w:jc w:val="center"/><w:ind w:firstLine="0"/>'
+    +'<w:spacing w:before="0" w:after="0" w:line="360" w:lineRule="auto"/>'
+    +'<w:pBdr><w:bottom w:val="single" w:sz="4" w:space="1" w:color="1A5276"/></w:pBdr></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="808080"/>'
+    +'<w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr>'
+    +'<w:t>PLAN DEL PROYECTO DE APLICACIÓN PROFESIONAL</w:t></w:r></w:p>\n'
+    +'</w:hdr>';
+
+  /* ══ FOOTER XML ═════════════════════════════════════════════════════════════ */
+  var PAGE_FIELD=
+    '<w:r><w:rPr>'+RFonts+'<w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr><w:fldChar w:fldCharType="begin"/></w:r>'
+    +'<w:r><w:rPr>'+RFonts+'<w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr><w:instrText xml:space="preserve"> PAGE </w:instrText></w:r>'
+    +'<w:r><w:rPr>'+RFonts+'<w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr><w:fldChar w:fldCharType="separate"/></w:r>'
+    +'<w:r><w:rPr>'+RFonts+'<w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr><w:t>1</w:t></w:r>'
+    +'<w:r><w:rPr>'+RFonts+'<w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr><w:fldChar w:fldCharType="end"/></w:r>';
+
+  var footerXML='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+    +'<w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">\n'
+    // Line 1: "Página [PAGE]" centered, black, sz=16
+    +'<w:p><w:pPr><w:jc w:val="center"/><w:ind w:firstLine="0"/>'
+    +'<w:spacing w:after="40" w:line="360" w:lineRule="auto"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr>'
+    +'<w:t xml:space="preserve">Página </w:t></w:r>'
+    +PAGE_FIELD
+    +'</w:p>\n'
+    // Line 2: "PROGRAMA DE ESTUDIOS DE DISEÑO DE INTERIORES" 1A5276, sz=16
+    +'<w:p><w:pPr><w:jc w:val="center"/><w:ind w:firstLine="0"/>'
+    +'<w:spacing w:after="0" w:line="240" w:lineRule="auto"/></w:pPr>'
+    +'<w:r><w:rPr>'+RFonts+'<w:color w:val="1A5276"/>'
+    +'<w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr>'
+    +'<w:t>PROGRAMA DE ESTUDIOS DE DISEÑO DE INTERIORES</w:t></w:r></w:p>\n'
+    +'</w:ftr>';
+
+  /* ══ STYLES XML ═════════════════════════════════════════════════════════════ */
+  var stylesXML='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+    +'<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">\n'
+    +'<w:docDefaults><w:rPrDefault><w:rPr>'
+    +'<w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:eastAsia="Times New Roman" w:cs="Times New Roman"/>'
+    +'<w:sz w:val="24"/><w:szCs w:val="24"/><w:lang w:val="es-PE"/>'
+    +'</w:rPr></w:rPrDefault>'
+    +'<w:pPrDefault><w:pPr><w:spacing w:line="360" w:lineRule="auto"/></w:pPr></w:pPrDefault>'
+    +'</w:docDefaults>\n'
+    +'<w:style w:type="paragraph" w:default="1" w:styleId="Normal">'
+    +'<w:name w:val="Normal"/>'
+    +'<w:pPr><w:spacing w:after="120" w:line="360" w:lineRule="auto"/><w:jc w:val="both"/><w:ind w:firstLine="709"/></w:pPr>'
+    +'<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>'
+    +'</w:style>\n'
+    +'</w:styles>';
+
+  /* ══ DOCUMENT XML ══════════════════════════════════════════════════════════ */
+  var documentXML='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+    +'<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
+    +'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">\n'
+    +'<w:body>\n'+body+'\n'
+    +'<w:sectPr>\n'
+    +'<w:pgSz w:w="11906" w:h="16838"/>\n'
+    +'<w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1985" w:header="567" w:footer="567" w:gutter="0"/>\n'
+    +'<w:headerReference r:id="rIdHeader" w:type="default"/>\n'
+    +'<w:headerReference r:id="rIdHeaderFirst" w:type="first"/>\n'
+    +'<w:footerReference r:id="rIdFooter" w:type="default"/>\n'
+    +'<w:footerReference r:id="rIdFooterFirst" w:type="first"/>\n'
+    +'<w:pgNumType w:start="0"/>\n'
+    +'<w:titlePg/>\n'
+    +'<w:cols w:space="720"/>\n'
+    +'</w:sectPr>\n'
+    +'</w:body>\n</w:document>';
+
+  var docRels='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+    +'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">\n'
+    +'<Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>\n'
+    +'<Relationship Id="rIdHeader" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header1.xml"/>\n'
+    +'<Relationship Id="rIdFooter" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/>\n'
+    +'<Relationship Id="rIdHeaderFirst" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header2.xml"/>\n'
+    +'<Relationship Id="rIdFooterFirst" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer2.xml"/>\n'
+    +'</Relationships>';
+
+  var ctXML='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+    +'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">\n'
+    +'<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>\n'
+    +'<Default Extension="xml" ContentType="application/xml"/>\n'
+    +'<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>\n'
+    +'<Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>\n'
+    +'<Override PartName="/word/header1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"/>\n'
+    +'<Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/>\n'
+    +'<Override PartName="/word/header2.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"/>\n'
+    +'<Override PartName="/word/footer2.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/>\n'
+    +'</Types>';
+
+  var relsXML='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+    +'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">\n'
+    +'<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>\n'
+    +'</Relationships>';
+
+  return makeZip([
+    {name:'[Content_Types].xml',content:ctXML},
+    {name:'_rels/.rels',content:relsXML},
+    {name:'word/document.xml',content:documentXML},
+    {name:'word/_rels/document.xml.rels',content:docRels},
+    {name:'word/styles.xml',content:stylesXML},
+    {name:'word/header1.xml',content:headerXML},
+    {name:'word/footer1.xml',content:footerXML},
+    {name:'word/header2.xml',content:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+'<w:hdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><w:p><w:pPr><w:ind w:firstLine="0"/></w:pPr></w:p></w:hdr>'},
+    {name:'word/footer2.xml',content:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+'<w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:p><w:pPr><w:ind w:firstLine="0"/></w:pPr></w:p></w:ftr>'}
+  ]);
+}
+
+/* ---------- DEMO: CARGAR DATOS DE EJEMPLO ---------- */
+function cargarDemo(){
+  document.querySelector('.int-mat').value = '2026001';
+  document.querySelector('.int-nom').value = 'Felipe Ochoa Guerrero';
+  document.querySelector('.int-tel').value = '999-123-456';
+  document.querySelector('.int-mail').value = 'felipea@ucuenca.edu.ec';
+  document.getElementById('asesorNombre').value = 'Mg. Mario Quiroz';
+  document.getElementById('titulo').value = 'Diseñar una propuesta de interiorismo para espacios comerciales integrando fundamentos de marca, contexto y procesos de diseño.';
+  document.getElementById('semestre').value = '2026-I';
+  document.getElementById('anio').value = '2026';
+  document.getElementById('lineaDI').value = 'DI-L5|Bienestar y ergonomía en espacios comerciales';
+  document.getElementById('lineaTrans').value = 'Emprendimiento y gestión de proyectos creativos';
+  document.getElementById('probGeneral').value = '¿Cómo integrar el diseño interior en espacios comerciales considerando la marca, el contexto y los procesos de diseño?';
+  document.getElementById('probEspecificos').value = '- ¿Cómo vincular la identidad de marca con el diseño de interiores para generar experiencias coherentes?\n- ¿Cuáles son los procesos de diseño aplicables a espacios comerciales según su contexto geográfico y cultural?\n- ¿Qué estrategias de diseño interior fortalecen la percepción de marca en el consumidor?';
+  document.getElementById('objGeneral').value = 'Se diseñará un modelo de interiorismo para espacios comerciales que integre fundamentos de marca, contexto y procesos de diseño.';
+  document.getElementById('objEspecificos').value = '- Diseñar un sistema de interiorismo que refleje los valores y la identidad visual de la marca.\n- Identificar los procesos de diseño aplicables según el contexto geográfico y cultural del espacio comercial.\n- Proponer estrategias de diseño interior que potencien la experiencia del usuario y la percepción de marca.';
+  document.getElementById('justTrasc').value = 'El proyecto tiene trascendencia social y económica porque permite a emprendedores y marcas consolidadas fortalecer su identidad a través del diseño interior, generando experiencias memorables para los usuarios y diferenciándose competitivamente en el mercado.';
+  document.getElementById('justMagn').value = 'La magnitud del problema es considerable, dado que el sector retail y de servicios en el Perú está en crecimiento y cada vez más empresas buscan diferenciarse a través de experiencias de marca integrales, donde el diseño interior juega un rol fundamental en la percepción del consumidor.';
+  document.getElementById('justVuln').value = 'Existe vulnerabilidad en el sector porque muchos emprendedores carecen de acceso a asesoría especializada en diseño interior, lo que resulta en espacios comerciales que no comunican efectivamente la identidad de marca ni generan experiencias positivas para el cliente.';
+  document.getElementById('justFact').value = 'El proyecto es factible porque se cuenta con las herramientas metodológicas del diseño de interiores, acceso a casos de estudio locales e internacionales, y el apoyo académico del programa de estudios para desarrollar propuestas aplicables a contextos reales.';
+  document.getElementById('descripTec').value = 'El proyecto parte de una revisión documental de casos de diseño interior comercial y branding espacial a nivel local e internacional. Se aplicará la metodología de diseño centrado en el usuario (UCD) combinada con herramientas de diagnóstico de marca (brand audit) y análisis de contexto (site analysis). Los entregables incluyen: (a) diagnóstico de marca y contexto, (b) propuesta conceptual de interiorismo, (c) desarrollo técnico de mobiliario, iluminación y materialidad, (d) renders o maqueta digital del espacio propuesto, y (e) manual de implementación del diseño interior.';
+  document.getElementById('cronograma').value = 'Fase 1 – Diagnóstico y recopilación de información (semanas 1–4)\nFase 2 – Análisis de marca y contexto (semanas 5–8)\nFase 3 – Diseño conceptual y propuesta (semanas 9–14)\nFase 4 – Desarrollo técnico y entregables (semanas 15–20)';
+  document.getElementById('presupuesto').value = 'Software de diseño y renderizado (SketchUp, V-Ray, Adobe Illustrator) – S/ 450.00\nMateriales de maqueta y prototipado (cartulina, MDF, acetato) – S/ 280.00\nTransporte y visitas de campo a locales comerciales – S/ 200.00\nImpresión de planos, láminas y manual de implementación – S/ 170.00\nTOTAL APROXIMADO – S/ 1,100.00';
+  document.getElementById('referencias').value = 'Hernández, R., Fernández, C., & Baptista, P. (2014). Metodología de la investigación (6ª ed.). McGraw-Hill Interamericana.\nPallasmaa, J. (2012). La mano que piensa: Existencia e imagen en arquitectura. Gustavo Gili.\nNorma APA. (2020). Publication Manual of the American Psychological Association (7th ed.). American Psychological Association.';
+  const btn = document.getElementById('btnDemo');
+  const origText = btn.innerHTML;
+  btn.innerHTML = '<span class="btn-generar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> ¡Datos DEMO cargados!';
+  btn.style.background = 'var(--turquesa)';
+  setTimeout(() => { btn.innerHTML = origText; btn.style.background = 'var(--azul-dark)'; }, 2500);
+}
+
+function buildPlantilla(){
+  return buildDocument({
+    titulo:'',
+    semestre:'[VI Semestre — 2026]',
+    anio:'[2026]',
+    asesor:'[Nombres y apellidos completos del asesor/tutor — DNI: ___________]',
+    lineaDI:['[DI-L#]','[Nombre de la línea de investigación de Diseño de Interiores]'],
+    lineaTrans:'[Nombre de la línea transversal institucional]',
+    probGeneral:'',
+    probEspec:'',
+    objGeneral:'',
+    objEspec:'',
+    justTrasc:'',
+    justMagn:'',
+    justVuln:'',
+    justFact:'',
+    descripTec:'',
+    cronograma:'',
+    presupuesto:'',
+    referencias:'',
+    integrantes:[
+      {mat:'[N.° matrícula]',nom:'[Apellidos y nombres completos del autor 1]',tel:'[N.° celular]',mail:'[correo1@idc.edu.pe]'},
+      {mat:'[N.° matrícula]',nom:'[Apellidos y nombres completos del autor 2]',tel:'[N.° celular]',mail:'[correo2@idc.edu.pe]'}
+    ]
+  });
+}
+function generarPlantilla(){
+  try{
+    var bytes=buildPlantilla();
+    var blob=new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');
+    a.href=url; a.download='Plan_PAP_Diseño_Interiores_PLANTILLA_2026.docx';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){URL.revokeObjectURL(url);},1000);
+    showToast('Plantilla descargada: Plan_PAP_Diseño_Interiores_PLANTILLA_2026.docx','success');
+  }catch(err){
+    alert('Error al generar la plantilla: '+(err.message||err));
+    console.error(err);
+  }
+}
+
+/* ---------- FORM SUBMIT ---------- */
+document.getElementById('planForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var errorMsg = document.getElementById('errorMsg');
+  var successMsg = document.getElementById('successMsg');
+  var btnGenerar = document.getElementById('btnGenerar');
+  errorMsg.classList.remove('show');
+  successMsg.classList.remove('show');
+
+  // Limpia estados aria-invalid previos
+  document.querySelectorAll('[aria-invalid="true"]').forEach(el => el.removeAttribute('aria-invalid'));
+
+  var required = ['titulo', 'semestre', 'lineaDI', 'lineaTrans', 'probGeneral', 'objGeneral', 'descripTec'];
+  var faltantes = [];
+  required.forEach(function(id) {
+    var el = document.getElementById(id);
+    if(!el.value.trim()){
+      faltantes.push(id);
+      el.setAttribute('aria-invalid', 'true');
+    }
+  });
+  if(faltantes.length){
+    errorMsg.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Complete los campos obligatorios marcados con asterisco.';
+    errorMsg.classList.add('show');
+    document.getElementById(faltantes[0]).focus();
+    return;
+  }
+
+  var data = {
+    titulo: document.getElementById('titulo').value.trim(),
+    semestre: document.getElementById('semestre').value,
+    asesor: document.getElementById('asesorNombre').value.trim(),
+    anio: document.getElementById('anio').value,
+    lineaDI: document.getElementById('lineaDI').value.split('|'),
+    lineaTrans: document.getElementById('lineaTrans').value,
+    probGeneral: document.getElementById('probGeneral').value.trim(),
+    probEspec: document.getElementById('probEspecificos').value.trim(),
+    objGeneral: document.getElementById('objGeneral').value.trim(),
+    objEspec: document.getElementById('objEspecificos').value.trim(),
+    justTrasc: document.getElementById('justTrasc').value.trim(),
+    justMagn: document.getElementById('justMagn').value.trim(),
+    justVuln: document.getElementById('justVuln').value.trim(),
+    justFact: document.getElementById('justFact').value.trim(),
+    descripTec: document.getElementById('descripTec').value.trim(),
+    cronograma: document.getElementById('cronograma').value.trim(),
+    presupuesto: document.getElementById('presupuesto').value.trim(),
+    referencias: document.getElementById('referencias').value.trim(),
+    resumen: '',
+    introduccion: '',
+    marcoTeorico: '',
+    metodologia: '',
+    integrantes: []
+  };
+
+  document.querySelectorAll('.integrante-row').forEach(function(row) {
+    var mat = row.querySelector('.int-mat').value.trim();
+    var nom = row.querySelector('.int-nom').value.trim();
+    var tel = row.querySelector('.int-tel').value.trim();
+    var mail = row.querySelector('.int-mail').value.trim();
+    if(nom || mat){
+      data.integrantes.push({mat: mat, nom: nom, tel: tel, mail: mail});
+    }
+  });
+
+  if(data.integrantes.length === 0){
+    errorMsg.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Registre al menos un integrante con nombre completo.';
+    errorMsg.classList.add('show');
+    return;
+  }
+
+  // Spinner / loading state
+  btnGenerar.classList.add('loading');
+  btnGenerar.disabled = true;
+
+  // Diferir generación con timeout para que el browser repinte el spinner
+  setTimeout(function(){
+    try {
+      var docxBytes = buildDocument(data);
+      var blob = new Blob([docxBytes], {type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      var primerApellido = (data.integrantes[0].nom || 'Estudiante').split(/[, ]+/)[0];
+      var nombreArchivo = 'Plan_PAP_' + (data.lineaDI[0] || 'DI') + '_' + primerApellido + '.docx';
+      a.download = nombreArchivo;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+
+      successMsg.classList.add('show');
+      showToast('Documento Word generado: ' + nombreArchivo, 'success');
+      // Limpia borrador tras generación exitosa
+      try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
+      setTimeout(function() {
+        successMsg.scrollIntoView({behavior: 'smooth', block: 'center'});
+      }, 200);
+    } catch(err){
+      errorMsg.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Error al generar el documento: ' + (err.message || err);
+      errorMsg.classList.add('show');
+      console.error(err);
+    } finally {
+      btnGenerar.classList.remove('loading');
+      btnGenerar.disabled = false;
+    }
+  }, 50);
+});
+/* ---------- PWA: MANIFEST DINÁMICO ---------- */
+const manifest = {
+  name: 'Plan PAP · Diseño de Interiores · IDC',
+  short_name: 'Plan PAP DI',
+  description: 'Generador del Plan del Proyecto de Aplicación Profesional - Programa Diseño de Interiores - IDC',
+  start_url: window.location.pathname,
+  scope: window.location.pathname,
+  display: 'standalone',
+  orientation: 'portrait',
+  background_color: '#fbfaf6',
+  theme_color: '#009c9d',
+  lang: 'es',
+  icons: [
+    {
+      src: 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="32" fill="#009c9d"/><text x="96" y="125" font-family="Arial Black" font-size="84" font-weight="900" fill="white" text-anchor="middle">PAP</text></svg>`),
+      sizes: '192x192',
+      type: 'image/svg+xml',
+      purpose: 'any maskable'
+    },
+    {
+      src: 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="80" fill="#009c9d"/><text x="256" y="330" font-family="Arial Black" font-size="220" font-weight="900" fill="white" text-anchor="middle">PAP</text></svg>`),
+      sizes: '512x512',
+      type: 'image/svg+xml',
+      purpose: 'any maskable'
+    }
+  ]
+};
+const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+const manifestURL = URL.createObjectURL(manifestBlob);
+const manLink = document.createElement('link');
+manLink.rel = 'manifest';
+manLink.href = manifestURL;
+document.head.appendChild(manLink);
+
+/* ---------- PWA: SERVICE WORKER (inline blob) ---------- */
+const swCode = `
+const CACHE_VERSION = 'idc-pap-di-v1';
+const ASSETS = [
+  'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+
+  'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap'
+];
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE_VERSION).then(c => c.addAll(ASSETS).catch(() => {})));
+  self.skipWaiting();
+});
+self.addEventListener('activate', e => {
+  e.waitUntil(caches.keys().then(keys => Promise.all(keys.map(k => k !== CACHE_VERSION ? caches.delete(k) : null))));
+  self.clients.claim();
+});
+self.addEventListener('fetch', e => {
+  if(e.request.method !== 'GET') return;
+  e.respondWith(
+    caches.match(e.request).then(r => r || fetch(e.request).then(resp => {
+      const copy = resp.clone();
+      caches.open(CACHE_VERSION).then(c => c.put(e.request, copy)).catch(() => {});
+      return resp;
+    }).catch(() => caches.match('/')))
+  );
+});
+`;
+if('serviceWorker' in navigator){
+  try {
+    const swBlob = new Blob([swCode], {type: 'application/javascript'});
+    const swURL = URL.createObjectURL(swBlob);
+    navigator.serviceWorker.register(swURL, {scope: window.location.pathname.replace(/[^/]+$/, '')}).catch(err => {
+      console.log('SW no registrado:', err.message);
+    });
+  } catch(e){
+    console.log('SW omitido:', e.message);
+  }
+}
+
+/* ---------- PWA: BOTÓN INSTALAR ---------- */
+let deferredPrompt;
+const btnInstall = document.getElementById('btnInstall');
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  btnInstall.classList.add('show');
+});
+btnInstall.addEventListener('click', async () => {
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const result = await deferredPrompt.userChoice;
+  if(result.outcome === 'accepted') btnInstall.classList.remove('show');
+  deferredPrompt = null;
+});
+window.addEventListener('appinstalled', () => {
+  btnInstall.classList.remove('show');
+  deferredPrompt = null;
+});
+
+/* ---------- SCROLL SUAVE PARA ANCLAS ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  });
+});
+
+/* ================================================================
+   GRÁFICOS COMPARATIVOS (Chart.js)
+   ================================================================ */
+const chartFont = {family: 'Manrope, sans-serif', size: 11, weight: '500'};
+
+if(window.Chart && document.getElementById('chartCapitulos')){
+  // Distribución del esfuerzo por capítulo (doughnut)
+  new Chart(document.getElementById('chartCapitulos'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Cap. I — Problema', 'Cap. II — Marco teórico', 'Cap. III — Desarrollo', 'Cap. IV — Resultados', 'Cap. V — Conclusiones'],
+      datasets: [{
+        data: [5, 15, 15, 8, 7],
+        backgroundColor: [colorIDC.turquesa, colorIDC.azul, colorIDC.naranja, colorIDC.azulDark, '#555553'],
+        borderColor: '#fff',
+        borderWidth: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {position: 'bottom', labels: {font: chartFont, padding: 14, boxWidth: 14, color: colorIDC.gris}},
+        tooltip: {
+          backgroundColor: '#0a1929', padding: 12, cornerRadius: 8,
+          titleFont: {family: 'Bricolage Grotesque', weight: '700'},
+          callbacks: {label: ctx => ' ' + ctx.parsed + ' hojas aproximadas'}
+        }
+      },
+      cutout: '60%'
+    }
+  });
+}
+
+if(window.Chart && document.getElementById('chartCalidad')){
+  // PAP estándar vs PAP de excelencia (radar)
+  new Chart(document.getElementById('chartCalidad'), {
+    type: 'radar',
+    data: {
+      labels: ['Originalidad', 'Rigor metodológico', 'Innovación tecnológica', 'Sostenibilidad', 'Validación de expertos', 'Impacto sectorial'],
+      datasets: [
+        {
+          label: 'PAP estándar',
+          data: [55, 60, 45, 50, 55, 50],
+          backgroundColor: 'rgba(85,85,83,.15)',
+          borderColor: '#555553',
+          borderWidth: 2,
+          pointBackgroundColor: '#555553',
+          pointRadius: 4
+        },
+        {
+          label: 'PAP de excelencia',
+          data: [92, 95, 90, 88, 94, 89],
+          backgroundColor: 'rgba(0,156,157,.18)',
+          borderColor: colorIDC.turquesa,
+          borderWidth: 2.5,
+          pointBackgroundColor: colorIDC.naranja,
+          pointRadius: 4.5
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {position: 'bottom', labels: {font: chartFont, padding: 14, boxWidth: 14, color: colorIDC.gris}},
+        tooltip: {backgroundColor: '#0a1929', padding: 12, cornerRadius: 8}
+      },
+      scales: {
+        r: {
+          suggestedMin: 0,
+          suggestedMax: 100,
+          ticks: {display: false, stepSize: 20},
+          pointLabels: {font: chartFont, color: colorIDC.azulDark},
+          grid: {color: 'rgba(0,0,0,.08)'},
+          angleLines: {color: 'rgba(0,0,0,.06)'}
+        }
+      }
+    }
+  });
+}
+
+/* ================================================================
+   TOAST: mensajes flotantes no intrusivos
+   ================================================================ */
+function showToast(msg, variant){
+  const existing = document.getElementById('toastIDC');
+  if(existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.id = 'toastIDC';
+  toast.className = 'toast-idc' + (variant ? ' ' + variant : '');
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  toast.innerHTML = msg;
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('show'));
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }, 3800);
+}
+
+/* ================================================================
+   AUTO-GUARDADO DE BORRADOR (localStorage)
+   ================================================================ */
+const DRAFT_KEY = 'idc_pap_di_borrador_v1';
+const formEl = document.getElementById('planForm');
+
+function recolectarBorrador(){
+  if(!formEl) return null;
+  const data = {};
+  formEl.querySelectorAll('input, textarea, select').forEach(el => {
+    if(!el.id || el.type === 'file' || el.readOnly) return;
+    data[el.id] = el.value;
+  });
+  // Integrantes (estructura dinámica)
+  data._integrantes = [];
+  document.querySelectorAll('.integrante-row').forEach(row => {
+    data._integrantes.push({
+      mat: row.querySelector('.int-mat')?.value || '',
+      nom: row.querySelector('.int-nom')?.value || '',
+      tel: row.querySelector('.int-tel')?.value || '',
+      mail: row.querySelector('.int-mail')?.value || ''
+    });
+  });
+  return data;
+}
+
+function guardarBorrador(){
+  try {
+    const data = recolectarBorrador();
+    if(!data) return;
+    // Solo guarda si hay al menos un dato sustancial
+    const hayContenido = Object.values(data).some(v =>
+      typeof v === 'string' ? v.trim().length > 0 :
+      Array.isArray(v) ? v.some(o => Object.values(o).some(s => s && s.trim())) :
+      false
+    );
+    if(!hayContenido){ localStorage.removeItem(DRAFT_KEY); return; }
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({data, fecha: new Date().toISOString()}));
+  } catch(e){ /* localStorage puede no estar disponible */ }
+}
+
+function restaurarBorrador(){
+  try {
+    const raw = localStorage.getItem(DRAFT_KEY);
+    if(!raw) return;
+    const {data, fecha} = JSON.parse(raw);
+    if(!data) return;
+    // Asegurar suficientes filas de integrantes
+    if(Array.isArray(data._integrantes)){
+      while(integranteCount < data._integrantes.length && integranteCount < MAX_INTEGRANTES){
+        integranteCount++;
+        buildIntegrante(integranteCount);
+      }
+      const rows = document.querySelectorAll('.integrante-row');
+      data._integrantes.forEach((int, i) => {
+        if(!rows[i]) return;
+        rows[i].querySelector('.int-mat').value = int.mat || '';
+        rows[i].querySelector('.int-nom').value = int.nom || '';
+        rows[i].querySelector('.int-tel').value = int.tel || '';
+        rows[i].querySelector('.int-mail').value = int.mail || '';
+      });
+    }
+    // Rellenar otros campos
+    Object.keys(data).forEach(id => {
+      if(id.startsWith('_')) return;
+      const el = document.getElementById(id);
+      if(el && typeof data[id] === 'string') el.value = data[id];
+    });
+    // Disparar contadores
+    tituloEl.dispatchEvent(new Event('input'));
+    descEl.dispatchEvent(new Event('input'));
+    const fechaTxt = new Date(fecha).toLocaleString('es-PE', {dateStyle:'short', timeStyle:'short'});
+    showToast('Borrador restaurado del ' + fechaTxt, 'success');
+  } catch(e){ /* silencioso */ }
+}
+
+// Auto-guardado: debounce de 1s tras cualquier input
+let saveTimer;
+if(formEl){
+  formEl.addEventListener('input', () => {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(guardarBorrador, 1000);
+  });
+}
+
+/* ================================================================
+   BOTÓN "LIMPIAR FORMULARIO"
+   ================================================================ */
+function limpiarFormulario(){
+  if(!confirm('¿Vaciar todo el formulario? Esta acción no se puede deshacer.')) return;
+  formEl.reset();
+  // Reset integrantes a 1
+  integWrap.innerHTML = '';
+  integranteCount = 0;
+  buildIntegrante(1);
+  integranteCount = 1;
+  btnAddInt.disabled = false;
+  // Reset contadores
+  tituloEl.dispatchEvent(new Event('input'));
+  descEl.dispatchEvent(new Event('input'));
+  // Borrar borrador
+  try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
+  showToast('Formulario limpiado', 'warn');
+  formEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+/* Restaurar borrador al cargar (si existe) */
+window.addEventListener('load', () => {
+  setTimeout(restaurarBorrador, 300);
+});
+
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
