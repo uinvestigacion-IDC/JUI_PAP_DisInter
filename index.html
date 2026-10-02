@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#009c9d" />
-<meta name="description" content="Plan del Proyecto de Aplicación Profesional - Programa de Diseño de Interiores - IDC" />
-<title>Plan PAP · Diseño de Interiores · IDC</title>
+<meta name="description" content="Plan del Trabajo de Aplicación Profesional - Programa de Diseño de Interiores - IDC" />
+<title>Plan TAP · Diseño de Interiores · IDC</title>
 
 <!-- Bootstrap 5 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -559,7 +559,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
   transform: translateY(-1px);
 }
 
-/* === ESQUEMA SECCIONES PAP === */
+/* === ESQUEMA SECCIONES TAP === */
 .esquema-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -821,7 +821,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
 
 /* === GRÁFICOS === */
 
-/* === FORMULARIO PLAN PAP === */
+/* === FORMULARIO PLAN TAP === */
 .form-section{
   background: linear-gradient(160deg, var(--azul-dark) 0%, var(--turquesa-dark) 100%);
   color: white;
@@ -1403,6 +1403,75 @@ h1,h2,h3,h4,h5,h6,.display-font{
   body{background: white !important;}
   .chart-canvas-box{height: 240px;}
 }
+
+/* === VERBOS: uso en Diseño de Interiores === */
+.verbo-uso{font-size:.8rem; line-height:1.45; color:var(--gris); margin:.8rem 0 0;}
+.verbo-uso strong{color:var(--azul-dark);}
+
+/* === CHECKLIST DEL PLAN === */
+.checklist-idc{display:grid; gap:.6rem;}
+.checklist-idc label{
+  display:flex; gap:.7rem; align-items:flex-start;
+  background:var(--gris-claro); border:1px solid var(--gris-medio);
+  border-radius:var(--radius-sm); padding:.8rem 1rem;
+  font-size:.92rem; color:var(--azul-dark); cursor:pointer; line-height:1.45;
+}
+.checklist-idc input{width:18px; height:18px; margin-top:.15rem; accent-color:var(--turquesa); flex-shrink:0;}
+.checklist-idc label:has(input:checked){border-color:var(--turquesa); background:#e9f6f6;}
+
+/* === AVISO PRELIMINAR DEL FORMULARIO === */
+.form-aviso{
+  background:#fff8e8; border:1px solid var(--naranja); border-left:5px solid var(--naranja);
+  border-radius:var(--radius-sm); padding:1rem 1.2rem; margin-bottom:1.8rem;
+  font-size:.86rem; line-height:1.55; color:var(--gris);
+}
+.form-aviso p{margin:.4rem 0 0;}
+.form-aviso-head{display:flex; align-items:center; justify-content:space-between; gap:.8rem; color:var(--azul-dark);}
+.form-aviso-links a{color:var(--turquesa-dark); font-weight:600;}
+
+/* === BOTÓN DE AYUDA Y VENTANA DE DIÁLOGO === */
+.help-btn{
+  margin-left:auto; flex-shrink:0;
+  width:26px; height:26px; border-radius:50%;
+  border:2px solid var(--naranja); background:white; color:var(--naranja-dark);
+  font-family:var(--font-display); font-weight:800; font-size:.85rem; line-height:1;
+  letter-spacing:0; display:inline-flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all .2s var(--transition);
+}
+.help-btn:hover, .help-btn:focus-visible{background:var(--naranja); color:white; outline:none; box-shadow:0 0 0 4px rgba(243,161,0,.25);}
+.help-btn-lg{width:30px; height:30px; font-size:.95rem; margin-left:0;}
+.label-with-help{display:flex; align-items:center; gap:.4rem;}
+.label-with-help .help-btn{margin-left:.4rem; width:22px; height:22px; font-size:.75rem;}
+
+.help-dialog{
+  width:min(640px, calc(100vw - 32px)); max-height:calc(100vh - 48px);
+  padding:0; border:none; border-radius:var(--radius-md);
+  box-shadow:var(--shadow-lg); color:var(--gris); font-family:var(--font-body);
+  overflow:hidden;
+}
+.help-dialog[open]{display:flex; flex-direction:column;}
+.help-dialog::backdrop{background:rgba(10,25,41,.55);}
+.help-dialog-head{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:1rem;
+  padding:1.1rem 1.4rem; color:white;
+  background:linear-gradient(135deg, var(--azul-dark) 0%, var(--turquesa-dark) 100%);
+}
+.help-dialog-ref{margin:0 0 .2rem; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--naranja);}
+.help-dialog .help-dialog-title{margin:0; font-family:var(--font-display); font-weight:800; font-size:1.3rem; line-height:1.15; color:#fff !important;}
+.help-dialog-close{background:rgba(255,255,255,.15); border:none; color:white; border-radius:8px; padding:.35rem; cursor:pointer;}
+.help-dialog-close:hover, .help-dialog-close:focus-visible{background:var(--naranja); outline:none;}
+.help-dialog-body{padding:1.2rem 1.4rem; overflow-y:auto; font-size:.9rem; line-height:1.55;}
+.help-dialog-body h4{font-family:var(--font-display); font-size:.95rem; font-weight:700; color:var(--azul-dark); margin:1rem 0 .35rem;}
+.help-dialog-body h4:first-child{margin-top:0;}
+.help-dialog-body ul{padding-left:1.1rem; margin:0;}
+.help-dialog-body li{margin-bottom:.25rem;}
+.help-dialog-body .help-ej{background:var(--gris-claro); border-left:4px solid var(--turquesa); border-radius:6px; padding:.65rem .85rem; font-style:italic; color:var(--azul-dark);}
+.help-dialog-foot{padding:.8rem 1.4rem 1.1rem; display:flex; justify-content:flex-end; border-top:1px solid var(--gris-claro);}
+.help-dialog-ok{background:var(--turquesa); color:white; border:none; border-radius:var(--radius-sm); padding:.55rem 1.3rem; font-weight:700; cursor:pointer;}
+.help-dialog-ok:hover, .help-dialog-ok:focus-visible{background:var(--turquesa-dark); outline:none;}
+@media (max-width:576px){
+  .help-dialog-head, .help-dialog-body, .help-dialog-foot{padding-left:1rem; padding-right:1rem;}
+}
 </style>
 </head>
 <body>
@@ -1417,7 +1486,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
         <img src="Logo_IDC - copia.jpg" width="221" height="83" alt=""/>
         <div class="header-divider d-none d-md-block"></div>
         <div class="d-none d-md-block">
-          <p class="header-title">Plan del PAP</p>
+          <p class="header-title">Plan del TAP</p>
           <p class="header-subtitle">Diseño de Interiores · 2026</p>
         </div>
       </div>
@@ -1426,6 +1495,8 @@ h1,h2,h3,h4,h5,h6,.display-font{
         <a href="#normativa" class="nav-pill-idc">Normativa</a>
         <a href="#fichas" class="nav-pill-idc">Fichas DI</a>
         <a href="#formato" class="nav-pill-idc">Formato</a>
+        <a href="#ia" class="nav-pill-idc">IA</a>
+        <a href="#checklist" class="nav-pill-idc">Checklist</a>
         <a href="#formulario" class="nav-pill-idc" style="background:var(--naranja);color:white;">Generar Plan</a>
       </nav>
     </div>
@@ -1435,9 +1506,9 @@ h1,h2,h3,h4,h5,h6,.display-font{
 <!-- ===== HERO ===== -->
 <section class="hero-idc" id="presentacion">
   <div class="container hero-content">
-    <span class="hero-eyebrow">Memorando Múltiple Nº 05 / JUI / IDC / 2025-II</span>
-    <h1 class="hero-title">Plan del Proyecto de <span class="accent">Aplicación Profesional</span></h1>
-    <p class="hero-lead"> Guía oficial para la formulación del PAP en el Programa de Estudios de Diseño de Interiores del Instituto de Educación Superior Público "Diseño y Comunicación" (IDC). Articula la Ley Nº 30512, las Condiciones Básicas de Calidad y las cinco líneas de investigación aprobadas para la carrera. </p>
+    <span class="hero-eyebrow">Manual del TAP · Diseño de Interiores · 2026</span>
+    <h1 class="hero-title">Plan del Trabajo de <span class="accent">Aplicación Profesional</span></h1>
+    <p class="hero-lead"> Generador del Plan del Trabajo de Aplicación Profesional (TAP) del Programa de Estudios de Diseño de Interiores del Instituto de Educación Superior Público "Diseño y Comunicación" (IDC). Se rige por la Ley N.° 30512, la RVM N.° 049-2022-MINEDU (numeral 15.2), las cinco líneas de investigación de la carrera y la norma ISO 690:2021. </p>
     <div class="hero-stats">
       <div>
         <div class="hero-stat-num">5</div>
@@ -1448,7 +1519,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
         <div class="hero-stat-label">Líneas transversales</div>
       </div>
       <div>
-        <div class="hero-stat-num">10</div>
+        <div class="hero-stat-num">11</div>
         <div class="hero-stat-label">Secciones del plan</div>
       </div>
       <div>
@@ -1465,31 +1536,31 @@ h1,h2,h3,h4,h5,h6,.display-font{
     <div class="row align-items-start g-5">
       <div class="col-lg-5">
         <p class="section-eyebrow">01 · Presentación institucional</p>
-        <h2>Es el segundo instrumento para titularse.</h2>
+        <h2>Dos instrumentos para titularse.</h2>
       </div>
       <div class="col-lg-7">
         <p class="section-lead">
-          El Proyecto de Aplicación Profesional (PAP) es la modalidad de titulación establecida en la Ley Nº 30512, orientada a dar solución técnica a problemáticas reales del sector creativo-cultural peruano dentro de la economía naranja.
+          El Trabajo de Aplicación Profesional (TAP) es la sustentación de una solución técnica a una problemática del quehacer profesional vinculado con el programa de estudios. Es una de las dos modalidades de titulación del programa (RVM N.° 049-2022-MINEDU, numerales 15.2, 15.2.1 y 15.2.2); la otra, el Examen de Suficiencia Profesional, se rige por su propia guía.
         </p>
         <div class="row g-3">
           <div class="col-md-6">
             <div class="idc-card">
               <div class="idc-card-num">01</div>
-              <h3 class="idc-card-title">Plan del PAP</h3>
-              <p class="idc-card-text">Perfil o esquema previo que requiere aprobación institucional al inicio del ciclo de titulación.</p>
+              <h3 class="idc-card-title">Plan del TAP</h3>
+              <p class="idc-card-text">Primer instrumento del proceso de titulación. Se presenta al inicio del ciclo y requiere aprobación institucional antes del trabajo de campo, el levantamiento del espacio o el desarrollo de la propuesta.</p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="idc-card">
               <div class="idc-card-num">02</div>
-              <h3 class="idc-card-title">Informe del PAP</h3>
-              <p class="idc-card-text">Documento completo que se presenta para sustentación y titulación, con un mínimo de 50 hojas.</p>
+              <h3 class="idc-card-title">Informe del TAP</h3>
+              <p class="idc-card-text">Segundo instrumento. Mínimo 50 hojas sin contar preliminares ni anexos, redactado en tiempo pasado. Plazo de 90 días útiles para la realización del TAP.</p>
             </div>
           </div>
           <div class="col-12">
             <div class="idc-card" style="border-left:4px solid var(--naranja);">
               <h3 class="idc-card-title" style="font-size:.95rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:.4rem; color:var(--naranja-dark);">Modalidades de trabajo</h3>
-              <p class="idc-card-text">Individual, en grupos de hasta cuatro estudiantes en proyectos multidisciplinarios, o hasta dos estudiantes del mismo programa de estudios.</p>
+              <p class="idc-card-text">Individual o en pareja del mismo programa de estudios, hasta un máximo de dos egresados (RVM N.° 049-2022-MINEDU, numeral 15.2.1).</p>
             </div>
           </div>
         </div>
@@ -1502,33 +1573,77 @@ h1,h2,h3,h4,h5,h6,.display-font{
 <section class="section" id="normativa" style="background:var(--gris-claro);">
   <div class="container">
     <p class="section-eyebrow">02 · Marco normativo</p>
-    <h2 class="section-title">Seis instrumentos que <span class="accent">rigen</span> el proceso.</h2>
-    <p class="section-lead">Cada Plan e Informe debe responder a la totalidad del cuerpo normativo vigente del MINEDU y a las directrices internas del IDC.</p>
+    <h2 class="section-title">Base legal del <span class="accent">TAP.</span></h2>
+    <p class="section-lead">Marco normativo nacional e institucional que sustenta el Manual del TAP de Diseño de Interiores (2026).</p>
 
     <div class="norm-table-wrap">
       <div class="norm-row">
-        <div class="norm-name">Ley Nº 30512 — Ley de Institutos y Escuelas de Educación Superior</div>
-        <div class="norm-scope">Art. 21: investigación aplicada e innovación como modalidad de titulación.</div>
+        <div class="norm-name">Ley N.° 28044</div>
+        <div class="norm-scope">Ley General de Educación.</div>
       </div>
       <div class="norm-row">
-        <div class="norm-name">D.S. Nº 010-2017-MINEDU</div>
-        <div class="norm-scope">Reglamento de la Ley Nº 30512 y sus modificatorias.</div>
+        <div class="norm-name">Ley N.° 30512</div>
+        <div class="norm-scope">Ley de Institutos y Escuelas de Educación Superior y de la Carrera Pública de sus Docentes.</div>
       </div>
       <div class="norm-row">
-        <div class="norm-name">Resolución Viceministerial Nº 103-2022-MINEDU</div>
-        <div class="norm-scope">Condiciones Básicas de Calidad (CBC) para los Institutos de Educación Superior Tecnológicos.</div>
+        <div class="norm-name">Ley N.° 31653</div>
+        <div class="norm-scope">Modifica la Ley N.° 30512.</div>
       </div>
       <div class="norm-row">
-        <div class="norm-name">Lineamientos Académicos Generales para los IES</div>
-        <div class="norm-scope">Organización curricular, perfiles de egreso y titulación.</div>
+        <div class="norm-name">D.S. N.° 011-2012-ED</div>
+        <div class="norm-scope">Reglamento de la Ley N.° 28044, Ley General de Educación.</div>
       </div>
       <div class="norm-row">
-        <div class="norm-name">Normas APA, 7.ª edición</div>
-        <div class="norm-scope">Citación y referencias bibliográficas en todo el informe.</div>
+        <div class="norm-name">D.S. N.° 010-2017-MINEDU</div>
+        <div class="norm-scope">Reglamento de la Ley de Institutos y Escuelas de Educación Superior.</div>
       </div>
       <div class="norm-row">
-        <div class="norm-name">Memorando Múltiple Nº 05/JUI/IDC/2025-II</div>
-        <div class="norm-scope">Aprobación de las veinte líneas de investigación institucionales.</div>
+        <div class="norm-name">D.S. N.° 016-2021-MINEDU</div>
+        <div class="norm-scope">Modifica el Reglamento aprobado por D.S. N.° 010-2017-MINEDU.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">D.U. N.° 017-2020</div>
+        <div class="norm-scope">Medidas para el fortalecimiento de la gestión y licenciamiento de los Institutos y Escuelas de Educación Superior.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">RVM N.° 064-2019-MINEDU</div>
+        <div class="norm-scope">Proceso de optimización de la oferta educativa de la Educación Tecnológica Pública.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">RVM N.° 140-2021-MINEDU</div>
+        <div class="norm-scope">Norma técnica “Criterios de Diseño para Institutos y Escuelas de Educación Superior Tecnológica”.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">RVM N.° 049-2022-MINEDU</div>
+        <div class="norm-scope">Lineamientos académicos generales. Numeral 15.2: modalidades de titulación (TAP y Examen de Suficiencia Profesional).</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">RVM N.° 103-2022-MINEDU</div>
+        <div class="norm-scope">Condiciones Básicas de Calidad para los IES y las EEST (Anexo V).</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">RVM N.° 085-2025-MINEDU</div>
+        <div class="norm-scope">Encargatura de puestos de directores generales y otros de gestión pedagógica.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">RVM N.° 164-2025-MINEDU</div>
+        <div class="norm-scope">Licenciamiento del IESP “Diseño y Comunicación” por seis años.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">Reglamento Institucional del IESP “Diseño y Comunicación”</div>
+        <div class="norm-scope">Normativa interna vigente.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">Reglamento de uso de IA en trabajos académicos (IDC, 2026)</div>
+        <div class="norm-scope">Regula el uso y la declaración de IA generativa en el TAP (arts. 9 y 18-A).</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">Memorando Múltiple N.° 05/JUI/IDC/2025-II</div>
+        <div class="norm-scope">Aprobación de las líneas de investigación institucionales.</div>
+      </div>
+      <div class="norm-row">
+        <div class="norm-name">Norma ISO 690:2021</div>
+        <div class="norm-scope">Estándar institucional obligatorio de citación y referencias.</div>
       </div>
     </div>
   </div>
@@ -1539,7 +1654,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
   <div class="container">
     <p class="section-eyebrow">03 · Líneas transversales institucionales</p>
     <h2 class="section-title">Seis ejes <span class="accent">obligatorios</span> en cada proyecto.</h2>
-    <p class="section-lead">Cada proyecto del PAP debe indicar a cuál o cuáles de estas líneas se adscribe. Constituyen la columna ética y temática de la investigación aplicada del IDC.</p>
+    <p class="section-lead">Cada TAP se adscribe a una de las cinco líneas DI y a una o más de estas líneas transversales institucionales (IDC, 2025).</p>
 
     <div class="row g-3">
       <div class="col-md-6 col-lg-4"><div class="linea-trans"><div class="linea-num">1</div><div class="linea-text">Sostenibilidad ambiental y cambio climático</div></div></div>
@@ -1552,33 +1667,53 @@ h1,h2,h3,h4,h5,h6,.display-font{
   </div>
 </section>
 
-<!-- ===== ESTRUCTURA GENERAL DEL PAP ===== -->
+<!-- ===== ESTRUCTURA OFICIAL DEL TAP ===== -->
 <section class="section" style="background:var(--gris-claro);">
   <div class="container">
-    <p class="section-eyebrow">04 · Estructura general del PAP</p>
-    <h2 class="section-title">Cuatro secciones <span class="accent">articuladas.</span></h2>
-    <p class="section-lead">Toda ficha de esta guía responde al esquema siguiente, adaptado a cada carrera y línea de investigación.</p>
+    <p class="section-eyebrow">04 · Estructura oficial del TAP</p>
+    <h2 class="section-title">Esquema del <span class="accent">Informe Final.</span></h2>
+    <p class="section-lead">Estructura de entrega establecida en la sección 2.3 del Manual. El Informe Final tiene un mínimo de 50 hojas sin contar preliminares ni anexos y se redacta en tiempo pasado.</p>
 
     <div class="esquema-grid">
       <div class="esquema-item">
-        <div class="esquema-num">SECCIÓN I</div>
-        <div class="esquema-titulo">Información general</div>
-        <p class="esquema-desc">Título, área estratégica, actividad económica, localización y resumen ejecutivo del proyecto.</p>
+        <div class="esquema-num">RESUMEN</div>
+        <div class="esquema-titulo">Resumen ejecutivo</div>
+        <p class="esquema-desc">Un párrafo de ~300 palabras en pasado y tercera persona: problema, objetivo general, línea y enfoque, resultados cuantificados, conclusión y 3–5 palabras clave.</p>
       </div>
       <div class="esquema-item">
-        <div class="esquema-num">SECCIÓN II</div>
-        <div class="esquema-titulo">Descripción de la innovación</div>
-        <p class="esquema-desc">Objetivos, justificación y marco referencial: antecedentes, bases teóricas y metodología.</p>
+        <div class="esquema-num">INTRODUCCIÓN</div>
+        <div class="esquema-titulo">Introducción</div>
+        <p class="esquema-desc">Contexto y realidad problemática, formulación del problema, objetivos y justificación, en prosa continua (4–6 hojas).</p>
       </div>
       <div class="esquema-item">
-        <div class="esquema-num">SECCIÓN III</div>
-        <div class="esquema-titulo">Estimación del costo</div>
-        <p class="esquema-desc">Presupuesto desagregado por fases del proyecto, con valorizaciones por partidas.</p>
+        <div class="esquema-num">CAPÍTULO I</div>
+        <div class="esquema-titulo">Planteamiento del problema</div>
+        <p class="esquema-desc">Problema de investigación, problema del trabajo de aplicación, formulación, justificación, objetivos e hipótesis (8–12 hojas).</p>
       </div>
       <div class="esquema-item">
-        <div class="esquema-num">SECCIÓN IV</div>
-        <div class="esquema-titulo">Sustento del mercado</div>
-        <p class="esquema-desc">Alcance, mercado objetivo, demanda potencial (TAM/SAM/SOM) y modelo de negocio Canvas.</p>
+        <div class="esquema-num">CAPÍTULO II</div>
+        <div class="esquema-titulo">Marco teórico – Identidad de marca</div>
+        <p class="esquema-desc">Antecedentes (2 nacionales y 2 internacionales), tendencias y estilos, bases teóricas, construcción del concepto, moodboard y términos básicos (10–14 hojas).</p>
+      </div>
+      <div class="esquema-item">
+        <div class="esquema-num">CAPÍTULO III</div>
+        <div class="esquema-titulo">Planteamiento de gestión de proyecto</div>
+        <p class="esquema-desc">Estudio del entorno, memorias descriptivas (problemática y solución) y expediente técnico (12–16 hojas).</p>
+      </div>
+      <div class="esquema-item">
+        <div class="esquema-num">CAPÍTULO IV</div>
+        <div class="esquema-titulo">Diseño y ejecución de la solución</div>
+        <p class="esquema-desc">Solución principal, representación hiperrealista, recorrido virtual, costos de diseño y ejecución, y validación final (8–12 hojas).</p>
+      </div>
+      <div class="esquema-item">
+        <div class="esquema-num">CIERRE</div>
+        <div class="esquema-titulo">Conclusiones y recomendaciones</div>
+        <p class="esquema-desc">Una conclusión por objetivo; recomendaciones a nivel macro, meso, profesional y pedagógico (3–5 hojas).</p>
+      </div>
+      <div class="esquema-item">
+        <div class="esquema-num">DOCUMENTAL</div>
+        <div class="esquema-titulo">Referencias y anexos</div>
+        <p class="esquema-desc">Mínimo 15 referencias ISO 690:2021. Anexos A, B y C obligatorios; D si el proyecto fue ejecutado.</p>
       </div>
     </div>
   </div>
@@ -1587,21 +1722,22 @@ h1,h2,h3,h4,h5,h6,.display-font{
 <!-- ===== PARTE I — ESQUEMA DEL PLAN ===== -->
 <section class="section" style="background:white;">
   <div class="container">
-    <p class="section-eyebrow">05 · Parte I — Plan del PAP</p>
-    <h2 class="section-title">Diez secciones del <span class="accent">documento inicial</span> de registro.</h2>
-    <p class="section-lead">El Plan se presenta al inicio del ciclo de titulación para obtener la conformidad del asesor y la Jefatura de Unidad de Investigación. Al final deben constar las firmas con DNI de todos los integrantes y del asesor.</p>
+    <p class="section-eyebrow">05 · Parte I — Plan del TAP</p>
+    <h2 class="section-title">Once secciones del <span class="accent">documento inicial</span> de registro.</h2>
+    <p class="section-lead">El Plan se presenta al inicio del ciclo de titulación. El generador produce un informe preliminar que requiere la confirmación de la Coordinación Académica del Programa y la ampliación y aprobación del docente asesor. Al final constan las firmas con DNI de los integrantes y del asesor.</p>
 
     <div class="row g-3">
       <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 1</div><div class="esquema-titulo">Título del trabajo</div><p class="esquema-desc">Máximo 25 palabras. Estructura: verbo de acción + objeto + línea temática + lugar + año.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 2</div><div class="esquema-titulo">Programa de estudios</div><p class="esquema-desc">Nombre completo de la carrera y semestre o año de egreso.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 3</div><div class="esquema-titulo">Integrantes</div><p class="esquema-desc">Nº de matrícula, apellidos y nombres, teléfono y correo electrónico de cada integrante.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 2</div><div class="esquema-titulo">Programa de estudios</div><p class="esquema-desc">Carrera fijada en Diseño de Interiores, semestre o año de egreso y año de presentación.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 3</div><div class="esquema-titulo">Integrantes</div><p class="esquema-desc">Hasta dos egresados: N.° de matrícula, apellidos y nombres, teléfono y correo. Incluye al docente asesor.</p></div></div>
       <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 4</div><div class="esquema-titulo">Formulación del problema</div><p class="esquema-desc">Problema general (pregunta central) y problemas específicos desagregados del general.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 5</div><div class="esquema-titulo">Objetivos</div><p class="esquema-desc">Objetivo general y específicos redactados con verbo en infinitivo: qué, en qué, dónde y cuándo.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 6</div><div class="esquema-titulo">Justificación</div><p class="esquema-desc">Trascendencia, magnitud, vulnerabilidad y factibilidad del problema identificado.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 7</div><div class="esquema-titulo">Descripción técnica</div><p class="esquema-desc">Exposición breve del contenido y resultados esperados. Extensión máxima de 300 palabras.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 8</div><div class="esquema-titulo">Cronograma de actividades</div><p class="esquema-desc">Diagrama de Gantt por semestre. Se recomienda usar MS Project o Microsoft Excel.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 9</div><div class="esquema-titulo">Presupuesto y recursos</div><p class="esquema-desc">Aportes financieros, laboratorios, equipos y otros recursos materiales o humanos.</p></div></div>
-      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 10</div><div class="esquema-titulo">Referencias bibliográficas</div><p class="esquema-desc">En orden alfabético según las normas APA, versión 7.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 5</div><div class="esquema-titulo">Objetivos</div><p class="esquema-desc">Verbo en infinitivo y tiempo prospectivo. El objetivo general corresponde al problema general y cada específico a un problema específico.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 6</div><div class="esquema-titulo">Justificación</div><p class="esquema-desc">Trascendencia, magnitud, vulnerabilidad y factibilidad. Los datos de magnitud se citan en ISO 690.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 7</div><div class="esquema-titulo">Descripción técnica</div><p class="esquema-desc">Máximo 300 palabras: tipo de proyecto, metodología, fases, herramientas y entregables esperados.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 8</div><div class="esquema-titulo">Cronograma de actividades</div><p class="esquema-desc">Fases realistas para un semestre académico. El diagrama de Gantt completo va como Anexo A.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 9</div><div class="esquema-titulo">Presupuesto y recursos</div><p class="esquema-desc">Desagregado por categorías, con una partida de contingencias del 10 %.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 10</div><div class="esquema-titulo">Referencias bibliográficas</div><p class="esquema-desc">Mínimo 5 fuentes, en orden alfabético según ISO 690:2021. Antigüedad máxima de 5 años salvo clásicos.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="esquema-item"><div class="esquema-num">SECCIÓN 11</div><div class="esquema-titulo">Nivel de uso de IA (AIAS)</div><p class="esquema-desc">Nivel autorizado por el asesor y la Coordinación antes de iniciar el trabajo. Consta en el Plan y en la portada del Informe.</p></div></div>
     </div>
   </div>
 </section>
@@ -1611,7 +1747,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
   <div class="container">
     <p class="section-eyebrow">06 · Taxonomía de objetivos</p>
     <h2 class="section-title">Verbos sugeridos para <span class="accent">redactar</span> los objetivos.</h2>
-    <p class="section-lead">Cada objetivo del Plan se construye con un verbo en infinitivo que corresponde a un nivel cognitivo de Bloom. Elige el nivel adecuado a la profundidad de tu intervención.</p>
+    <p class="section-lead">Los objetivos del Plan se redactan en tiempo prospectivo, con verbos en infinitivo de un nivel cognitivo de la taxonomía de Bloom revisada (Anderson y Krathwohl, 2001). Regla de coherencia: el objetivo general corresponde al problema general y cada objetivo específico a un problema específico.</p>
 
     <button type="button" class="accordion-btn" id="btnBloom" onclick="toggleAccordion('panelBloom', 'btnBloom')">
       <span class="acc-label"><span class="acc-num">06</span>Verbos sugeridos para redactar los objetivos según Bloom</span>
@@ -1622,47 +1758,52 @@ h1,h2,h3,h4,h5,h6,.display-font{
       <div class="verbo-grupo">
         <div class="verbo-nivel">
           <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div>
-          <h3 class="verbo-titulo">Conocimiento</h3>
+          <h3 class="verbo-titulo">Recordar</h3>
         </div>
         <div class="verbo-lista">
-          <span class="verbo-tag">Identificar</span><span class="verbo-tag">Describir</span><span class="verbo-tag">Enumerar</span><span class="verbo-tag">Registrar</span><span class="verbo-tag">Reconocer</span>
+          <span class="verbo-tag">Identificar</span><span class="verbo-tag">Describir</span><span class="verbo-tag">Enumerar</span>
         </div>
+        <p class="verbo-uso"><strong>Uso en Diseño de Interiores:</strong> Levantamiento del espacio, benchmarking de referentes.</p>
       </div>
       <div class="verbo-grupo">
         <div class="verbo-nivel">
           <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <h3 class="verbo-titulo">Comprensión</h3>
+          <h3 class="verbo-titulo">Comprender</h3>
         </div>
         <div class="verbo-lista">
-          <span class="verbo-tag">Explicar</span><span class="verbo-tag">Interpretar</span><span class="verbo-tag">Relacionar</span><span class="verbo-tag">Comparar</span><span class="verbo-tag">Organizar</span>
+          <span class="verbo-tag">Explicar</span><span class="verbo-tag">Interpretar</span><span class="verbo-tag">Comparar</span>
         </div>
+        <p class="verbo-uso"><strong>Uso en Diseño de Interiores:</strong> Análisis de flujos, estudio del usuario y sus necesidades.</p>
       </div>
       <div class="verbo-grupo">
         <div class="verbo-nivel">
           <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-          <h3 class="verbo-titulo">Aplicación</h3>
+          <h3 class="verbo-titulo">Aplicar</h3>
         </div>
         <div class="verbo-lista">
-          <span class="verbo-tag">Diseñar</span><span class="verbo-tag">Ejecutar</span><span class="verbo-tag">Construir</span><span class="verbo-tag">Programar</span><span class="verbo-tag">Desarrollar</span>
+          <span class="verbo-tag">Diseñar</span><span class="verbo-tag">Desarrollar</span><span class="verbo-tag">Ejecutar</span><span class="verbo-tag">Modelar</span>
         </div>
+        <p class="verbo-uso"><strong>Uso en Diseño de Interiores:</strong> Zonificación, distribución, modelado 3D, especificación de materiales.</p>
       </div>
       <div class="verbo-grupo">
         <div class="verbo-nivel">
           <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M14 14h7v7h-7z"/><path d="M3 14h7v7H3z"/></svg></div>
-          <h3 class="verbo-titulo">Análisis</h3>
+          <h3 class="verbo-titulo">Analizar</h3>
         </div>
         <div class="verbo-lista">
-          <span class="verbo-tag">Analizar</span><span class="verbo-tag">Clasificar</span><span class="verbo-tag">Diferenciar</span><span class="verbo-tag">Descomponer</span><span class="verbo-tag">Desglosar</span>
+          <span class="verbo-tag">Analizar</span><span class="verbo-tag">Clasificar</span><span class="verbo-tag">Descomponer</span>
         </div>
+        <p class="verbo-uso"><strong>Uso en Diseño de Interiores:</strong> Análisis de confort lumínico y acústico, desglose de presupuesto.</p>
       </div>
       <div class="verbo-grupo">
         <div class="verbo-nivel">
           <div class="verbo-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L4 7l8 5 8-5-8-5z"/><path d="M4 12l8 5 8-5"/></svg></div>
-          <h3 class="verbo-titulo">Síntesis</h3>
+          <h3 class="verbo-titulo">Crear</h3>
         </div>
         <div class="verbo-lista">
-          <span class="verbo-tag">Proponer</span><span class="verbo-tag">Formular</span><span class="verbo-tag">Integrar</span><span class="verbo-tag">Planear</span><span class="verbo-tag">Sintetizar</span>
+          <span class="verbo-tag">Proponer</span><span class="verbo-tag">Formular</span><span class="verbo-tag">Integrar</span><span class="verbo-tag">Planear</span>
         </div>
+        <p class="verbo-uso"><strong>Uso en Diseño de Interiores:</strong> Propuesta proyectual integral, plan de ejecución de obra.</p>
       </div>
     </div>
     </div>
@@ -1674,21 +1815,21 @@ h1,h2,h3,h4,h5,h6,.display-font{
   <div class="container">
     <p class="section-eyebrow">07 · Justificación del proyecto</p>
     <h2 class="section-title">Cuatro criterios para <span class="accent">defender</span> tu propuesta.</h2>
-    <p class="section-lead">Toda justificación dentro del PAP debe responder a estas cuatro preguntas guía. El asesor las usará como rúbrica de evaluación durante la aprobación del Plan.</p>
+    <p class="section-lead">Los cuatro criterios funcionan como rúbrica de evaluación para el asesor y la Jefatura de Investigación (IDC, 2025).</p>
 
     <div class="row g-3">
       <div class="col-md-6 col-lg-3">
         <div class="criterio-card">
           <div class="criterio-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
           <div class="criterio-titulo">Trascendencia</div>
-          <p class="criterio-pregunta">¿A quién beneficia? ¿Qué impacto social, cultural o económico tiene en el sector?</p>
+          <p class="criterio-pregunta">¿A quién beneficia? ¿Qué impacto social, cultural, económico o ambiental tiene?</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="criterio-card">
           <div class="criterio-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
           <div class="criterio-titulo">Magnitud</div>
-          <p class="criterio-pregunta">¿Qué tan grande o urgente es la necesidad o problema identificado?</p>
+          <p class="criterio-pregunta">¿Qué tan grande o urgente es el problema? Use datos estadísticos verificables y citados.</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
@@ -1702,7 +1843,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
         <div class="criterio-card">
           <div class="criterio-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
           <div class="criterio-titulo">Factibilidad</div>
-          <p class="criterio-pregunta">¿Con qué recursos técnicos, financieros y humanos se cuenta para realizarlo?</p>
+          <p class="criterio-pregunta">¿Con qué recursos cuenta? Laboratorio de maquetas, software de modelado, proveedores, presupuesto y asesoría.</p>
         </div>
       </div>
     </div>
@@ -1714,7 +1855,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
   <div class="container">
     <p class="section-eyebrow">08 · Plan versus informe</p>
     <h2 class="section-title">Dos documentos, <span class="accent">una titulación.</span></h2>
-    <p class="section-lead">Diferencias clave entre el Plan inicial y el Informe final del Proyecto de Aplicación Profesional.</p>
+    <p class="section-lead">Diferencias clave entre el Plan inicial y el Informe final del Trabajo de Aplicación Profesional.</p>
 
     <div class="comp-table-wrap">
       <table class="comp-table">
@@ -1727,11 +1868,13 @@ h1,h2,h3,h4,h5,h6,.display-font{
         </thead>
         <tbody>
           <tr><td>Propósito</td><td>Aprobación del proyecto</td><td>Titulación profesional</td></tr>
-          <tr><td>Extensión</td><td>Variable, documento breve</td><td>Mínimo 50 hojas</td></tr>
+          <tr><td>Extensión</td><td>Documento breve; descripción técnica de hasta 300 palabras</td><td>Mínimo 50 hojas (sin preliminares ni anexos)</td></tr>
           <tr><td>Temporalidad</td><td>Prospectiva — tiempo futuro</td><td>Retrospectiva — tiempo pasado</td></tr>
-          <tr><td>Capítulo central</td><td>Descripción técnica (Sección 7)</td><td>Desarrollo completo (Capítulo III)</td></tr>
+          <tr><td>Estructura</td><td>Once secciones del formulario</td><td>Resumen ejecutivo, Introducción, Capítulos I–IV, Conclusiones y recomendaciones, Referencias y Anexos</td></tr>
+          <tr><td>Capítulo central</td><td>Descripción técnica (Sección 7)</td><td>Capítulo III: Planteamiento de gestión de proyecto (12–16 hojas)</td></tr>
+          <tr><td>Referencias</td><td>Mínimo 5, ISO 690:2021</td><td>Mínimo 15, ISO 690:2021</td></tr>
           <tr><td>Resultados</td><td>Esperados</td><td>Obtenidos y discutidos</td></tr>
-          <tr><td>Apéndices</td><td>No obligatorios</td><td>A, B y C requeridos (A–J recomendados)</td></tr>
+          <tr><td>Anexos</td><td>No obligatorios</td><td>A, B y C obligatorios; D si el proyecto fue ejecutado</td></tr>
         </tbody>
       </table>
     </div>
@@ -1739,16 +1882,16 @@ h1,h2,h3,h4,h5,h6,.display-font{
     <div class="row g-4 mt-4">
       <div class="col-lg-6">
         <div class="chart-wrap">
-          <h3 class="chart-title">Distribución del esfuerzo por capítulo</h3>
-          <p class="chart-subtitle">Aporte porcentual de cada capítulo a la extensión total del informe final (50 hojas mínimo).</p>
+          <h3 class="chart-title">Distribución de hojas por componente</h3>
+          <p class="chart-subtitle">Valor medio del rango sugerido para cada componente del cuerpo del Informe Final (Manual, sección 3.1).</p>
           <div class="chart-canvas-box"><canvas id="chartCapitulos" aria-label="Gráfico circular de distribución de capítulos"></canvas></div>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="chart-wrap">
-          <h3 class="chart-title">Indicadores de calidad de la investigación</h3>
-          <p class="chart-subtitle">Comparativa entre un PAP estándar y un PAP de excelencia que aplica investigación aplicada e innovación tecnológica.</p>
-          <div class="chart-canvas-box"><canvas id="chartCalidad" aria-label="Gráfico radar comparando PAP estándar y de excelencia"></canvas></div>
+          <h3 class="chart-title">Rango de extensión sugerido</h3>
+          <p class="chart-subtitle">Hojas mínimas y máximas por componente según el mapa de extensiones del Manual (sección 3.1).</p>
+          <div class="chart-canvas-box"><canvas id="chartCalidad" aria-label="Gráfico de barras con el rango de hojas sugerido por componente"></canvas></div>
         </div>
       </div>
     </div>
@@ -1760,7 +1903,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
   <div class="container">
     <p class="section-eyebrow">09 · Programa de estudios — Diseño de Interiores</p>
     <h2 class="section-title">Cinco líneas de <span class="accent">investigación.</span></h2>
-    <p class="section-lead">Sector de la economía naranja: creaciones funcionales — diseño de interiores y arquitectura; artes y patrimonio. Cada línea propone un producto principal, un objetivo modelo, elementos técnicos, tipologías y una metodología específica.</p>
+    <p class="section-lead">Sector de la economía naranja: creaciones funcionales — diseño de interiores y arquitectura; artes y patrimonio. Cada TAP se adscribe a una de estas cinco líneas. Cada ficha indica el producto, los entregables y la validación que establece el Manual (Partes I, II y V), un objetivo modelo, elementos técnicos y tipologías.</p>
 
     <!-- DI-L1 -->
     <article class="ficha-di">
@@ -1773,6 +1916,18 @@ h1,h2,h3,h4,h5,h6,.display-font{
         <svg class="di-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--naranja)"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="ficha-di-body collapse-panel">
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Producto, entregables y validación (Manual TAP 2026)</div>
+          <table class="elem-table">
+            <tbody>
+              <tr><td>Producto</td><td>Proyecto de interior sostenible para un espacio real o hipotético.</td></tr>
+              <tr><td>Estrategias</td><td>Materiales reciclados o de bajo impacto, iluminación natural, ventilación pasiva, eficiencia energética, economía circular en el mobiliario.</td></tr>
+              <tr><td>Entregables</td><td>Memoria descriptiva, planos, memoria de materiales con certificaciones, análisis de impacto ambiental o simulación energética, renders.</td></tr>
+              <tr><td>Validación</td><td>Juicio de expertos, comparación de consumo estimado antes/después, encuesta de percepción de confort.</td></tr>
+              <tr><td>Enfoque y técnicas</td><td>Mixto (cuantitativo + cualitativo): análisis de ciclo de vida de materiales, simulación energética, benchmarking, evaluación por expertos.</td></tr>
+            </tbody>
+          </table>
+        </div>
         <div class="ficha-di-block">
           <div class="ficha-di-block-title">Objetivo general modelo</div>
           <div class="ficha-di-objetivo">Diseñar una propuesta de interior sostenible para [espacio] en [lugar] que reduzca el impacto ambiental y mejore la calidad de vida de los usuarios, mediante el uso de materiales ecoamigables y estrategias bioclimáticas, durante el año [año].</div>
@@ -1841,6 +1996,18 @@ h1,h2,h3,h4,h5,h6,.display-font{
       </div>
       <div class="ficha-di-body collapse-panel">
         <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Producto, entregables y validación (Manual TAP 2026)</div>
+          <table class="elem-table">
+            <tbody>
+              <tr><td>Producto</td><td>Propuesta de optimización de un espacio reducido con mobiliario multifuncional.</td></tr>
+              <tr><td>Estrategias</td><td>Mobiliario transformable, soluciones verticales, zonificación flexible, dobles alturas, aprovechamiento de la luz.</td></tr>
+              <tr><td>Entregables</td><td>Planos de distribución antes/después, estudio antropométrico, diseño de mobiliario a medida, renders, maqueta.</td></tr>
+              <tr><td>Validación</td><td>Simulación de flujos, test de uso con usuarios, análisis de ganancia de superficie útil.</td></tr>
+              <tr><td>Enfoque y técnicas</td><td>Cualitativo / proyectual: estudio de flujos, análisis antropométrico, prototipado de mobiliario, validación de uso.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ficha-di-block">
           <div class="ficha-di-block-title">Objetivo general modelo</div>
           <div class="ficha-di-objetivo">Desarrollar una propuesta de diseño de interiores para [tipo de espacio reducido] en [lugar] que optimice el uso del espacio y mejore la habitabilidad mediante soluciones multifuncionales y mobiliario adaptable, durante [año].</div>
         </div>
@@ -1890,6 +2057,18 @@ h1,h2,h3,h4,h5,h6,.display-font{
         <svg class="di-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--naranja)"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="ficha-di-body collapse-panel">
+        <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Producto, entregables y validación (Manual TAP 2026)</div>
+          <table class="elem-table">
+            <tbody>
+              <tr><td>Producto</td><td>Propuesta de espacio inteligente con integración domótica.</td></tr>
+              <tr><td>Tecnologías</td><td>Control de iluminación y climatización, sensores de presencia, automatización de persianas, asistentes de voz, gestión energética, modelado BIM.</td></tr>
+              <tr><td>Entregables</td><td>Esquema de automatización, planos técnicos, especificación de dispositivos, renders, prototipo o simulación funcional.</td></tr>
+              <tr><td>Validación</td><td>Test de usabilidad (SUS), simulación de escenarios de uso, estimación de ahorro energético.</td></tr>
+              <tr><td>Enfoque y técnicas</td><td>Mixto / experimental: prototipado del sistema, test de usabilidad (SUS), simulación de escenarios, medición de consumo.</td></tr>
+            </tbody>
+          </table>
+        </div>
         <div class="ficha-di-block">
           <div class="ficha-di-block-title">Objetivo general modelo</div>
           <div class="ficha-di-objetivo">Diseñar una propuesta de interior inteligente para [espacio] en [lugar] integrando sistemas domóticos de control de iluminación, climatización y seguridad, durante [año].</div>
@@ -1941,6 +2120,18 @@ h1,h2,h3,h4,h5,h6,.display-font{
       </div>
       <div class="ficha-di-body collapse-panel">
         <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Producto, entregables y validación (Manual TAP 2026)</div>
+          <table class="elem-table">
+            <tbody>
+              <tr><td>Producto</td><td>Proyecto de interior accesible para un perfil de usuario específico (movilidad reducida, discapacidad visual, adulto mayor, neurodivergencia).</td></tr>
+              <tr><td>Estrategias</td><td>Circulaciones amplias, señalética inclusiva, contraste y texturas, mobiliario adaptado, rutas accesibles, principios de diseño universal.</td></tr>
+              <tr><td>Entregables</td><td>Estudio ergonómico, planos de accesibilidad, recorrido comentado, validación con usuarios reales, informe de cumplimiento normativo (NTP, CONADIS).</td></tr>
+              <tr><td>Validación</td><td>Recorridos de accesibilidad, test con usuarios del grupo objetivo, revisión de normativa nacional de accesibilidad.</td></tr>
+              <tr><td>Enfoque y técnicas</td><td>Cualitativo / participativo: entrevistas, observación, recorridos de accesibilidad, test con usuarios, revisión normativa.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ficha-di-block">
           <div class="ficha-di-block-title">Objetivo general modelo</div>
           <div class="ficha-di-objetivo">Diseñar una propuesta de interior accesible e inclusivo para [espacio] en [lugar], aplicando la Norma Técnica A.120 del RNE y los principios de Diseño Universal, durante [año].</div>
         </div>
@@ -1991,6 +2182,18 @@ h1,h2,h3,h4,h5,h6,.display-font{
       </div>
       <div class="ficha-di-body collapse-panel">
         <div class="ficha-di-block">
+          <div class="ficha-di-block-title">Producto, entregables y validación (Manual TAP 2026)</div>
+          <table class="elem-table">
+            <tbody>
+              <tr><td>Producto</td><td>Diseño de un espacio comercial orientado al bienestar, el confort y la experiencia del usuario.</td></tr>
+              <tr><td>Estrategias</td><td>Confort lumínico, térmico y acústico, ergonomía del mobiliario, biofilia, recorridos y flujos, diseño sensorial de marca.</td></tr>
+              <tr><td>Entregables</td><td>Planos, renders, análisis de flujo y permanencia, estudio de confort ambiental, propuesta de experiencia de marca.</td></tr>
+              <tr><td>Validación</td><td>Medición de variables de confort, encuesta de experiencia, juicio de expertos en retail.</td></tr>
+              <tr><td>Enfoque y técnicas</td><td>Mixto: medición de confort (lumínico, térmico, acústico), encuesta de experiencia, análisis de flujo comercial.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ficha-di-block">
           <div class="ficha-di-block-title">Objetivo general modelo</div>
           <div class="ficha-di-objetivo">Diseñar una propuesta de espacio comercial para [empresa] en [lugar] que optimice la experiencia del cliente y el bienestar de los trabajadores mediante criterios ergonómicos, biofílicos y de neuroarquitectura, durante [año].</div>
         </div>
@@ -2031,15 +2234,15 @@ h1,h2,h3,h4,h5,h6,.display-font{
   </div>
 </section>
 
-<!-- ===== FORMATO Y APA ===== -->
+<!-- ===== FORMATO ISO 690 ===== -->
 <section class="section" id="formato" style="background:var(--gris-claro);">
   <div class="container">
     <p class="section-eyebrow">10 · Especificaciones de formato</p>
-    <h2 class="section-title">Parámetros <span class="accent">inamovibles</span> APA 7.</h2>
-    <p class="section-lead">Pasa el cursor sobre cada parámetro para descubrir su detalle institucional. El formulario de generación los aplica automáticamente al documento WORD de salida.</p>
+    <h2 class="section-title">Parámetros <span class="accent">inamovibles</span> ISO 690.</h2>
+    <p class="section-lead">Parámetros adoptados por el IDC a partir de la norma ISO 690:2021 (Manual, sección 6.3). El generador aplica al documento Word el tipo de letra, el tamaño, el interlineado, la alineación y la sangría.</p>
 
     <button type="button" class="accordion-btn" id="btnFormato" onclick="toggleAccordion('panelFormato', 'btnFormato')">
-      <span class="acc-label"><span class="acc-num">10</span>Parámetros inamovibles APA 7</span>
+      <span class="acc-label"><span class="acc-num">10</span>Parámetros inamovibles ISO 690:2021</span>
       <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
     <div class="collapse-panel" id="panelFormato">
@@ -2049,26 +2252,28 @@ h1,h2,h3,h4,h5,h6,.display-font{
       <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Interlineado</div><div class="param-card-value">1.5 líneas</div><div class="param-card-detail">Excepto en notas al pie.</div></div></div>
       <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Alineación</div><div class="param-card-value">Justificada</div><div class="param-card-detail">En todos los párrafos.</div></div></div>
       <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Sangría</div><div class="param-card-value">Tabulador</div><div class="param-card-detail">Equivalente a 5 espacios o 35.4 puntos.</div></div></div>
-      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Papel (informe)</div><div class="param-card-value">Bond A4 · 80 g</div><div class="param-card-detail">Para entrega física empastada.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Papel (informe)</div><div class="param-card-value">Bond A4 · 80–90 g</div><div class="param-card-detail">Para el contenido teórico.</div></div></div>
       <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Margen izquierdo</div><div class="param-card-value">30–35 mm</div><div class="param-card-detail">Mayor por el empaste.</div></div></div>
       <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Margen derecho</div><div class="param-card-value">15–20 mm</div><div class="param-card-detail">Margen estándar de lectura.</div></div></div>
       <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Márgenes sup. e inf.</div><div class="param-card-value">25 mm</div><div class="param-card-detail">Para encabezados y pie de página.</div></div></div>
       <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Numeración preliminar</div><div class="param-card-value">i, ii, iii</div><div class="param-card-detail">Desde dedicatoria hasta introducción.</div></div></div>
       <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Numeración cuerpo</div><div class="param-card-value">1, 2, 3</div><div class="param-card-detail">Desde el Capítulo I hasta las referencias.</div></div></div>
-      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Citación</div><div class="param-card-value">APA 7.ª ed.</div><div class="param-card-detail">Para citas, paráfrasis y referencias.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Citación</div><div class="param-card-value">ISO 690:2021</div><div class="param-card-detail">Sistema autor-fecha: (Apellido, Año).</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Planos y gráficos</div><div class="param-card-value">Formato A3</div><div class="param-card-detail">Insertados en el documento A4.</div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="param-card"><div class="param-card-label">Ejemplares</div><div class="param-card-value">3 (tres)</div><div class="param-card-detail">Empastados o encuadernados.</div></div></div>
     </div>
 
-    <!-- Jerarquía APA -->
-    <h3 class="display-font mt-5 mb-3" style="font-size:1.6rem;">Jerarquía de encabezados APA</h3>
+    <!-- Jerarquía de encabezados -->
+    <h3 class="display-font mt-5 mb-3" style="font-size:1.6rem;">Jerarquía de encabezados</h3>
     <div class="comp-table-wrap">
       <table class="comp-table">
-        <thead><tr><th style="width:18%;">Nivel</th><th>Formato</th></tr></thead>
+        <thead><tr><th style="width:14%;">Nivel</th><th>Formato</th><th>Ejemplo en el informe</th></tr></thead>
         <tbody>
-          <tr><td>Nivel 1</td><td>Centrado, negrita, mayúsculas y minúsculas.</td></tr>
-          <tr><td>Nivel 2</td><td>Alineado a la izquierda, negrita, mayúsculas y minúsculas.</td></tr>
-          <tr><td>Nivel 3</td><td>Con sangría, negrita, mayúscula inicial y punto final.</td></tr>
-          <tr><td>Nivel 4</td><td>Con sangría, negrita, cursiva, mayúscula inicial y punto final.</td></tr>
-          <tr><td>Nivel 5</td><td>Con sangría, cursiva, mayúscula inicial y punto final.</td></tr>
+          <tr><td>Nivel 1</td><td>Centrado, negrita, mayúsculas y minúsculas.</td><td>CAPÍTULO I. Planteamiento del problema</td></tr>
+          <tr><td>Nivel 2</td><td>Alineado a la izquierda, negrita, mayúsculas y minúsculas.</td><td>1.1. Antecedentes de la investigación</td></tr>
+          <tr><td>Nivel 3</td><td>Con sangría, negrita, mayúscula inicial y punto final.</td><td>Ergonomía aplicada al espacio de trabajo.</td></tr>
+          <tr><td>Nivel 4</td><td>Con sangría, negrita, cursiva, mayúscula inicial y punto final.</td><td>Confort lumínico y percepción del espacio.</td></tr>
+          <tr><td>Nivel 5</td><td>Con sangría, cursiva, mayúscula inicial y punto final.</td><td>Iluminación natural como estrategia pasiva.</td></tr>
         </tbody>
       </table>
     </div>
@@ -2076,15 +2281,15 @@ h1,h2,h3,h4,h5,h6,.display-font{
     </div>
 </section>
 
-<!-- ===== APÉNDICES (TARJETAS FLIP 3D) ===== -->
+<!-- ===== ANEXOS (TARJETAS FLIP 3D) ===== -->
 <section class="section" style="background:white;">
   <div class="container">
-    <p class="section-eyebrow">11 · Apéndices recomendados</p>
-    <h2 class="section-title">Diez tarjetas para <span class="accent">documentar</span> el proceso.</h2>
-    <p class="section-lead">Las tarjetas se voltean al pasar el cursor o al pulsar. A, B y C son obligatorios en el Informe final; los restantes se recomiendan según el alcance del proyecto.</p>
+    <p class="section-eyebrow">11 · Anexos obligatorios y recomendados</p>
+    <h2 class="section-title">Diez anexos para <span class="accent">documentar</span> el proceso.</h2>
+    <p class="section-lead">Las tarjetas se voltean al pasar el cursor o al pulsar. A, B y C son obligatorios en el Informe Final; D es obligatorio si el proyecto fue ejecutado; los demás se incluyen según el alcance y la línea (IDC, 2025). Si se usó IA generativa, la declaración institucional y la bitácora de prompts también van en anexos.</p>
 
     <div class="apend-grid">
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice A: Cronograma">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo A: Cronograma de actividades">
         <div class="apend-face apend-face-front">
           <span class="apend-tag">Obligatorio</span>
           <div class="apend-letra">A</div>
@@ -2093,128 +2298,180 @@ h1,h2,h3,h4,h5,h6,.display-font{
         <div class="apend-face apend-face-back">
           <span class="apend-tag">A</span>
           <div class="apend-back-titulo">Diagrama de Gantt</div>
-          <p class="apend-back-desc">Cronograma detallado por semanas o meses del semestre académico.</p>
+          <p class="apend-back-desc">Cronograma de actividades del TAP por semanas o meses del semestre académico.</p>
         </div>
       </div>
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice B: Presupuesto">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo B: Presupuesto valorizado">
         <div class="apend-face apend-face-front">
           <span class="apend-tag">Obligatorio</span>
           <div class="apend-letra">B</div>
-          <div class="apend-front-titulo">Cronograma de presupuesto</div>
+          <div class="apend-front-titulo">Presupuesto valorizado</div>
         </div>
         <div class="apend-face apend-face-back">
           <span class="apend-tag">B</span>
-          <div class="apend-back-titulo">Presupuesto valorizado</div>
-          <p class="apend-back-desc">Desagregado por partidas y fases del proyecto, con valorización mensual.</p>
+          <div class="apend-back-titulo">Presupuesto por partidas</div>
+          <p class="apend-back-desc">Desagregado por categorías, con partida de contingencias del 10 %.</p>
         </div>
       </div>
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice C: Planos y técnicos">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo C: Planos y láminas técnicas">
         <div class="apend-face apend-face-front">
           <span class="apend-tag">Obligatorio</span>
           <div class="apend-letra">C</div>
-          <div class="apend-front-titulo">Planos y materiales técnicos</div>
+          <div class="apend-front-titulo">Planos y láminas técnicas</div>
         </div>
         <div class="apend-face apend-face-back">
           <span class="apend-tag">C</span>
           <div class="apend-back-titulo">Documentación técnica</div>
-          <p class="apend-back-desc">Planos, esquemas, storyboards, moodboards u otros materiales técnicos.</p>
+          <p class="apend-back-desc">Plantas, cortes, elevaciones, detalles y renders.</p>
         </div>
       </div>
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice D: Instrumentos">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo D: Contrato y acta de conformidad">
         <div class="apend-face apend-face-front">
-          <span class="apend-tag">Recomendado</span>
+          <span class="apend-tag">Si se ejecutó</span>
           <div class="apend-letra">D</div>
-          <div class="apend-front-titulo">Instrumentos de recolección</div>
+          <div class="apend-front-titulo">Contrato y acta de conformidad</div>
         </div>
         <div class="apend-face apend-face-back">
           <span class="apend-tag">D</span>
-          <div class="apend-back-titulo">Encuestas y guías</div>
-          <p class="apend-back-desc">Encuestas, guías de entrevista, fichas de observación e instrumentos aplicados.</p>
+          <div class="apend-back-titulo">Ejecución de obra</div>
+          <p class="apend-back-desc">Contrato de obra, documento de supervisión y acta de conformidad. Obligatorio si el proyecto fue ejecutado.</p>
         </div>
       </div>
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice E: Consentimientos">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo E: Instrumentos de recolección">
         <div class="apend-face apend-face-front">
           <span class="apend-tag">Recomendado</span>
           <div class="apend-letra">E</div>
-          <div class="apend-front-titulo">Consentimientos informados</div>
+          <div class="apend-front-titulo">Instrumentos de recolección</div>
         </div>
         <div class="apend-face apend-face-back">
           <span class="apend-tag">E</span>
-          <div class="apend-back-titulo">Documentos éticos</div>
-          <p class="apend-back-desc">Consentimientos informados de los participantes de la investigación.</p>
+          <div class="apend-back-titulo">Encuestas y guías</div>
+          <p class="apend-back-desc">Encuestas, guías de entrevista y fichas de observación.</p>
         </div>
       </div>
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice F: Registro">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo F: Consentimientos informados">
         <div class="apend-face apend-face-front">
           <span class="apend-tag">Recomendado</span>
           <div class="apend-letra">F</div>
-          <div class="apend-front-titulo">Registro fotográfico</div>
+          <div class="apend-front-titulo">Consentimientos informados</div>
         </div>
         <div class="apend-face apend-face-back">
           <span class="apend-tag">F</span>
-          <div class="apend-back-titulo">Evidencia visual</div>
-          <p class="apend-back-desc">Fotografías del proceso de diagnóstico, diseño y validación.</p>
+          <div class="apend-back-titulo">Documentos éticos</div>
+          <p class="apend-back-desc">Consentimientos informados de los participantes.</p>
         </div>
       </div>
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice G: Fichas">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo G: Registro fotográfico">
         <div class="apend-face apend-face-front">
           <span class="apend-tag">Recomendado</span>
           <div class="apend-letra">G</div>
-          <div class="apend-front-titulo">Fichas técnicas</div>
+          <div class="apend-front-titulo">Registro fotográfico</div>
         </div>
         <div class="apend-face apend-face-back">
           <span class="apend-tag">G</span>
-          <div class="apend-back-titulo">Materiales y equipos</div>
-          <p class="apend-back-desc">Especificaciones técnicas de materiales o equipos utilizados.</p>
+          <div class="apend-back-titulo">Evidencia visual</div>
+          <p class="apend-back-desc">Fotografías del estado actual del espacio y del proceso.</p>
         </div>
       </div>
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice H: Brief">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo H: Fichas técnicas">
         <div class="apend-face apend-face-front">
           <span class="apend-tag">Recomendado</span>
           <div class="apend-letra">H</div>
-          <div class="apend-front-titulo">Brief creativo</div>
+          <div class="apend-front-titulo">Fichas técnicas</div>
         </div>
         <div class="apend-face apend-face-back">
           <span class="apend-tag">H</span>
-          <div class="apend-back-titulo">Documento de cliente</div>
-          <p class="apend-back-desc">Brief creativo o brief del cliente cuando el proyecto sea por encargo.</p>
+          <div class="apend-back-titulo">Materiales y mobiliario</div>
+          <p class="apend-back-desc">Fichas técnicas de materiales y mobiliario especificados.</p>
         </div>
       </div>
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice I: Validación">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo I: Brief del cliente">
         <div class="apend-face apend-face-front">
-          <span class="apend-tag">Recomendado</span>
+          <span class="apend-tag">Si aplica</span>
           <div class="apend-letra">I</div>
-          <div class="apend-front-titulo">Validación de expertos</div>
+          <div class="apend-front-titulo">Brief del cliente</div>
         </div>
         <div class="apend-face apend-face-back">
           <span class="apend-tag">I</span>
-          <div class="apend-back-titulo">Juicio especializado</div>
-          <p class="apend-back-desc">Fichas de validación firmadas por especialistas del sector intervenido.</p>
+          <div class="apend-back-titulo">Programa de necesidades</div>
+          <p class="apend-back-desc">Brief del cliente o programa de necesidades cuando el proyecto sea por encargo.</p>
         </div>
       </div>
-      <div class="apend-card" tabindex="0" role="button" aria-label="Apéndice J: Otros">
+      <div class="apend-card" tabindex="0" role="button" aria-label="Anexo J: Validación y complementos">
         <div class="apend-face apend-face-front">
           <span class="apend-tag">Recomendado</span>
           <div class="apend-letra">J</div>
-          <div class="apend-front-titulo">Otros materiales</div>
+          <div class="apend-front-titulo">Validación y complementos</div>
         </div>
         <div class="apend-face apend-face-back">
           <span class="apend-tag">J</span>
-          <div class="apend-back-titulo">Complementos</div>
-          <p class="apend-back-desc">Otros materiales complementarios relevantes para la sustentación.</p>
+          <div class="apend-back-titulo">Juicio de expertos</div>
+          <p class="apend-back-desc">Fichas de validación firmadas; maqueta, recorrido virtual y simulaciones.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FORMULARIO PLAN PAP - GENERA WORD ===== -->
+<!-- ===== USO DE IA GENERATIVA (PARTE IV) ===== -->
+<section class="section" id="ia" style="background:var(--gris-claro);">
+  <div class="container">
+    <p class="section-eyebrow">12 · Uso de IA generativa</p>
+    <h2 class="section-title">Niveles de uso <span class="accent">permitidos.</span></h2>
+    <p class="section-lead">El IDC adopta la Escala de Evaluación de IA revisada (AIAS) de cinco niveles (Furze, Perkins, Roe y MacVaugh, 2024). En el TAP se permite hasta el nivel 4, con aprobación del asesor y la Coordinación, declaración en la portada y bitácora de prompts en anexo. Rige el Reglamento de uso de IA en trabajos académicos del IDC (2026).</p>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-4"><div class="idc-card"><div class="idc-card-num">01</div><h3 class="idc-card-title">Transparencia</h3><p class="idc-card-text">Declarar qué herramienta se usó, en qué fase y con qué fin.</p></div></div>
+      <div class="col-md-4"><div class="idc-card"><div class="idc-card-num">02</div><h3 class="idc-card-title">Autoría humana</h3><p class="idc-card-text">La IA no es autora ni coautora. La responsabilidad del contenido es del equipo.</p></div></div>
+      <div class="col-md-4"><div class="idc-card"><div class="idc-card-num">03</div><h3 class="idc-card-title">Verificación</h3><p class="idc-card-text">Todo producto de IA se revisa antes de incorporarlo. El uso no filtrado no se acepta en ningún nivel.</p></div></div>
+    </div>
+
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead><tr><th style="width:16%;">Nivel</th><th>Denominación</th><th>Qué habilita en el TAP de Interiores</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Sin IA</td><td>Ejercicios presenciales supervisados (p. ej., distribución en papel de una planta). No aplica al desarrollo domiciliario del proyecto.</td></tr>
+          <tr><td>2</td><td>Planificación asistida</td><td>IA solo en ideación previa: estilos, referencias, paletas o tendencias de mobiliario. El desarrollo proyectual es propio.</td></tr>
+          <tr><td>3</td><td>Finalización asistida</td><td>IA apoya redacción o análisis (memoria descriptiva base, síntesis de normativa) con criterio propio; declaración obligatoria.</td></tr>
+          <tr><td>4</td><td>IA completa</td><td>Uso en varias fases (renders conceptuales, textos, síntesis); el equipo demuestra las decisiones proyectuales propias.</td></tr>
+          <tr><td>5</td><td>Exploración de IA</td><td>Co-diseño de metodología con el asesor. Reservado a proyectos de innovación; no habilitado por defecto para titulación.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-lead mt-4" style="font-size:.95rem;">Límite proyectual: no se presentan como propias la propuesta proyectual, las plantas, los cortes ni la memoria descriptiva generados íntegramente por IA. Si se usó IA en cualquier fase, el Informe Final incluye la Declaración de uso de IA tras la portada (arts. 9 y 18-A del Reglamento IDC) y la citación ISO 690 de cada salida.</p>
+  </div>
+</section>
+
+<!-- ===== CHECKLIST DEL PLAN (PARTE VII, 7.1) ===== -->
+<section class="section" id="checklist" style="background:white;">
+  <div class="container">
+    <p class="section-eyebrow">13 · Checklist del Plan del TAP</p>
+    <h2 class="section-title">Verificación <span class="accent">antes de la entrega.</span></h2>
+    <p class="section-lead">Revise cada ítem antes de enviar el Plan a la Coordinación del Programa (Manual, sección 7.1). Las marcas se guardan solo en este navegador.</p>
+    <div class="checklist-idc" id="checklistPlan">
+      <label><input type="checkbox"> El título no excede las 25 palabras e incluye verbo, objeto (tipología del espacio), línea, lugar y año.</label>
+      <label><input type="checkbox"> Los problemas (general y específicos) están redactados como preguntas de investigación.</label>
+      <label><input type="checkbox"> Los objetivos usan verbos en infinitivo en tiempo prospectivo (futuro).</label>
+      <label><input type="checkbox"> La justificación responde a los cuatro criterios: trascendencia, magnitud, vulnerabilidad y factibilidad.</label>
+      <label><input type="checkbox"> Cada dato estadístico de la justificación está citado en ISO 690 con fuente verificable.</label>
+      <label><input type="checkbox"> La descripción técnica no supera las 300 palabras y especifica entregables concretos (planos, renders, memoria).</label>
+      <label><input type="checkbox"> El cronograma incluye fases realistas para un semestre académico.</label>
+      <label><input type="checkbox"> El presupuesto está desagregado e incluye contingencias (10 %).</label>
+      <label><input type="checkbox"> Las referencias están en orden alfabético y siguen ISO 690 (mínimo 5).</label>
+      <label><input type="checkbox"> Constan los datos completos de todos los integrantes (máximo dos egresados) y del asesor.</label>
+      <label><input type="checkbox"> Se ha seleccionado una línea DI y al menos una línea transversal.</label>
+      <label><input type="checkbox"> El Plan preliminar fue revisado por el asesor antes de presentarlo a la Coordinación.</label>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMULARIO PLAN TAP - GENERA WORD ===== -->
 <section class="section form-section" id="formulario">
   <div class="container">
     <div class="text-center mb-5" style="position:relative; z-index:2;">
-      <p class="section-eyebrow justify-content-center" style="justify-content:center;">12 · Generador del Plan</p>
-      <h2 class="section-title">Plan del PAP · <span style="color:var(--naranja);">Diseño de Interiores</span></h2>
-      <p class="section-lead mx-auto">Complete los datos y el sistema validará el formato según los parámetros institucionales. Al terminar, descargue el documento Word listo para presentar a la Coordinación del Programa.</p>
+      <p class="section-eyebrow justify-content-center" style="justify-content:center;">14 · Generador del Plan</p>
+      <h2 class="section-title">Plan del TAP · <span style="color:var(--naranja);">Diseño de Interiores</span></h2>
+      <p class="section-lead mx-auto">Complete los datos y descargue el borrador del Plan en Word. Cada sección tiene un botón <strong>?</strong> que abre una ventana con la información que debe ingresar, según el Manual del TAP 2026.</p>
     </div>
 
     <div class="row justify-content-center">
@@ -2227,42 +2484,56 @@ h1,h2,h3,h4,h5,h6,.display-font{
               <img src="Logo_IDC.png" width="2218" height="834" alt=""/>
             </div>
             <div>
-              <h3 class="form-card-title">Formulario oficial · Plan PAP</h3>
-              <p class="form-card-subtitle">Instituto de Educación Superior Público "Diseño y Comunicación" (IDC) · Programa Estudio de Diseño de Interiores</p>
+              <h3 class="form-card-title">Formulario oficial · Plan TAP</h3>
+              <p class="form-card-subtitle">Instituto de Educación Superior Público "Diseño y Comunicación" (IDC) · Programa de Estudios de Diseño de Interiores</p>
             </div>
+          </div>
+
+          <!-- Orientación preliminar (Manual) -->
+          <div class="form-aviso" role="note">
+            <div class="form-aviso-head">
+              <strong>Naturaleza del documento generado</strong>
+              <button type="button" class="help-btn help-btn-lg" data-help="general" aria-label="Ayuda: cómo llenar el formulario">?</button>
+            </div>
+            <p>El archivo descargado es un <strong>informe preliminar</strong> (borrador estructurado del Plan), no la versión definitiva del TAP. No debe presentarse como Plan final sin: (1) la confirmación de la Coordinación Académica del Programa y (2) la ampliación y aprobación del docente asesor. Los límites del generador (300 palabras, 5 referencias) son parámetros de admisibilidad, no estándares de suficiencia académica.</p>
+            <p class="form-aviso-links">Recursos de apoyo:
+              <a href="https://uinvestigacion-idc.github.io/JUI_BiblioIA/" target="_blank" rel="noopener">Bibliometría IDC ↗</a> ·
+              <a href="https://uinvestigacion-idc.github.io/JUI_Decla_IA2026/" target="_blank" rel="noopener">Guía ISO 690, IA generativa y declaración de uso ↗</a> ·
+              <a href="https://gemini.google.com/gem/1wyIeb21RSLUuvMK1C3C3ANWQqd1w4pdq?usp=sharing" target="_blank" rel="noopener">Gem de consultas sobre el documento ↗</a>
+            </p>
           </div>
 
           <!-- 1. Título del trabajo -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">1</span>Título del trabajo</div>
-            <label for="titulo" class="form-label-idc">Título completo del proyecto <span class="req">*</span></label>
+            <div class="form-step-label"><span class="step-num">1</span>Título del trabajo<button type="button" class="help-btn" data-help="titulo" aria-label="Ayuda: Título del trabajo" title="¿Qué debo escribir aquí?">?</button></div>
+            <label for="titulo" class="form-label-idc">Título completo del trabajo <span class="req">*</span></label>
             <textarea id="titulo" class="form-control-idc" rows="2" maxlength="250" required placeholder="Verbo de acción + objeto + línea temática + lugar + año (máximo 25 palabras)"></textarea>
-            <div class="form-help-tip"><span>Ejemplo: Diseñar una propuesta de interior sostenible para el comedor popular de San Juan de Lurigancho durante el 2026.</span></div>
+            <div class="form-help-tip"><span>Ejemplo (DI-L1): Diseñar el interior de una cafetería con materiales reciclados y estrategias de iluminación natural para reducir el consumo energético en Barranco, Lima, durante el 2026.</span></div>
             <div class="form-counter" id="counterTitulo">0 / 25 palabras</div>
           </div>
 
           <!-- 2. Programa y línea -->
           <div class="row mb-4 g-3">
             <div class="col-md-6">
-              <div class="form-step-label"><span class="step-num">2</span>Programa de estudios</div>
+              <div class="form-step-label"><span class="step-num">2</span>Programa de estudios<button type="button" class="help-btn" data-help="programa" aria-label="Ayuda: Programa de estudios" title="¿Qué debo escribir aquí?">?</button></div>
               <label class="form-label-idc">Carrera</label>
               <input type="text" class="form-control-idc is-locked" id="programa" value="Diseño de Interiores" readonly />
               <div class="form-help-tip">Programa fijado institucionalmente.</div>
             </div>
             <div class="col-md-3">
-              <label class="form-label-idc">Año de egreso <span class="req">*</span></label>
-              <input type="text" id="semestre" class="form-control-idc" required placeholder="Ej: 2025" />
-              <div class="form-help-tip">Ingrese el año manualmente.</div>
+              <label for="semestre" class="form-label-idc">Semestre o año de egreso <span class="req">*</span></label>
+              <input type="text" id="semestre" class="form-control-idc" required placeholder="Ej.: 2025-II" />
+              <div class="form-help-tip">Semestre o año en que egresó.</div>
             </div>
             <div class="col-md-3">
-              <label class="form-label-idc">Año de presentación</label>
+              <label for="anio" class="form-label-idc">Año de presentación</label>
               <input type="number" class="form-control-idc" id="anio" value="2026" min="2025" max="2030" required />
             </div>
           </div>
 
           <!-- Línea de investigación -->
           <div class="mb-4">
-            <label class="form-label-idc">Línea de investigación DI <span class="req">*</span></label>
+            <label for="lineaDI" class="form-label-idc label-with-help">Línea de investigación DI <span class="req">*</span><button type="button" class="help-btn" data-help="lineaDI" aria-label="Ayuda: Línea de investigación" title="¿Qué debo escribir aquí?">?</button></label>
             <select id="lineaDI" class="form-control-idc" required>
               <option value="">Seleccione la línea del proyecto</option>
               <option value="DI-L1|Sostenibilidad en el diseño de interiores">DI-L1 · Sostenibilidad en el diseño de interiores</option>
@@ -2275,9 +2546,9 @@ h1,h2,h3,h4,h5,h6,.display-font{
 
           <!-- Línea transversal -->
           <div class="mb-4">
-            <label class="form-label-idc">Línea transversal institucional <span class="req">*</span></label>
+            <label for="lineaTrans" class="form-label-idc label-with-help">Línea transversal institucional <span class="req">*</span><button type="button" class="help-btn" data-help="lineaTrans" aria-label="Ayuda: Línea transversal" title="¿Qué debo escribir aquí?">?</button></label>
             <select id="lineaTrans" class="form-control-idc" required>
-              <option value="">Seleccione una o varias líneas</option>
+              <option value="">Seleccione la línea transversal principal</option>
               <option>Sostenibilidad ambiental y cambio climático</option>
               <option>Transformación digital e innovación tecnológica</option>
               <option>Identidad cultural e interculturalidad</option>
@@ -2289,8 +2560,8 @@ h1,h2,h3,h4,h5,h6,.display-font{
 
           <!-- 3. Integrantes -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">3</span>Integrantes</div>
-            <p class="form-help-tip">Hasta 2 integrantes del mismo programa de estudios, o hasta 4 si el proyecto es multidisciplinario.</p>
+            <div class="form-step-label"><span class="step-num">3</span>Integrantes<button type="button" class="help-btn" data-help="integrantes" aria-label="Ayuda: Integrantes" title="¿Qué debo escribir aquí?">?</button></div>
+            <p class="form-help-tip">Trabajo individual o en pareja del mismo programa, hasta un máximo de dos egresados (RVM N.° 049-2022-MINEDU, numeral 15.2.1).</p>
             <div id="integrantesWrap">
               <!-- Se inyectan dinámicamente -->
             </div>
@@ -2302,89 +2573,104 @@ h1,h2,h3,h4,h5,h6,.display-font{
 
           <!-- Asesor del proyecto -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">3.5</span>Asesor del proyecto</div>
-            <label class="form-label-idc">Nombre completo del asesor <span class="req">*</span></label>
+            <div class="form-step-label"><span class="step-num">3.5</span>Docente asesor<button type="button" class="help-btn" data-help="asesor" aria-label="Ayuda: Docente asesor" title="¿Qué debo escribir aquí?">?</button></div>
+            <label for="asesorNombre" class="form-label-idc">Nombre completo del asesor <span class="req">*</span></label>
             <input type="text" id="asesorNombre" class="form-control-idc" required placeholder="Nombre y apellidos del asesor" />
-            <div class="form-help-tip">Coordinadora del Programa de Estudios: Dis. María Quintana.</div>
+            <div class="form-help-tip">Docente del programa o especialista validado por la Coordinación. Lo designa la Coordinación del Área Académica de Diseño de Interiores (Dis. María Quintana).</div>
           </div>
 
           <!-- 4. Formulación del problema -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">4</span>Formulación del problema</div>
-            <label class="form-label-idc">Problema general (pregunta central) <span class="req">*</span></label>
+            <div class="form-step-label"><span class="step-num">4</span>Formulación del problema<button type="button" class="help-btn" data-help="problema" aria-label="Ayuda: Formulación del problema" title="¿Qué debo escribir aquí?">?</button></div>
+            <label for="probGeneral" class="form-label-idc">Problema general (pregunta central) <span class="req">*</span></label>
             <textarea id="probGeneral" class="form-control-idc" rows="2" required placeholder="¿De qué manera...?"></textarea>
-            <label class="form-label-idc mt-3">Problemas específicos (uno por línea)</label>
+            <label for="probEspecificos" class="form-label-idc mt-3">Problemas específicos (uno por línea)</label>
             <textarea id="probEspecificos" class="form-control-idc" rows="4" placeholder="¿Cuál es el estado actual de...?&#10;¿Qué soluciones pueden...?&#10;¿Cómo validar que...?"></textarea>
           </div>
 
           <!-- 5. Objetivos -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">5</span>Objetivos</div>
-            <label class="form-label-idc">Objetivo general <span class="req">*</span></label>
-            <textarea id="objGeneral" class="form-control-idc" rows="2" required placeholder="Verbo en infinitivo en futuro: diseñar, desarrollar, proponer..."></textarea>
-            <div class="form-help-tip" id="tipObjFuturo">El Plan se redacta en tiempo futuro o prospectivo: usa verbos como se diseñará, se implementará, se validará.</div>
-            <label class="form-label-idc mt-3">Objetivos específicos (uno por línea)</label>
+            <div class="form-step-label"><span class="step-num">5</span>Objetivos<button type="button" class="help-btn" data-help="objetivos" aria-label="Ayuda: Objetivos" title="¿Qué debo escribir aquí?">?</button></div>
+            <label for="objGeneral" class="form-label-idc">Objetivo general <span class="req">*</span></label>
+            <textarea id="objGeneral" class="form-control-idc" rows="2" required placeholder="Verbo en infinitivo: diseñar, desarrollar, proponer..."></textarea>
+            <div class="form-help-tip" id="tipObjFuturo">Redacte en tiempo prospectivo con verbo en infinitivo (diseñar, proponer, validar). Evite verbos en pasado: el Plan anticipa lo que se ejecutará.</div>
+            <label for="objEspecificos" class="form-label-idc mt-3">Objetivos específicos (uno por línea, uno por cada problema específico)</label>
             <textarea id="objEspecificos" class="form-control-idc" rows="4" placeholder="OE1: Diagnosticar...&#10;OE2: Diseñar...&#10;OE3: Validar..."></textarea>
           </div>
 
           <!-- 6. Justificación -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">6</span>Justificación del proyecto</div>
+            <div class="form-step-label"><span class="step-num">6</span>Justificación del proyecto<button type="button" class="help-btn" data-help="justificacion" aria-label="Ayuda: Justificación" title="¿Qué debo escribir aquí?">?</button></div>
             <div class="row g-3">
               <div class="col-md-6">
-                <label class="form-label-idc">Trascendencia</label>
-                <textarea id="justTrasc" class="form-control-idc" rows="3" placeholder="¿A quién beneficia? ¿Qué impacto tiene?"></textarea>
+                <label for="justTrasc" class="form-label-idc">Trascendencia</label>
+                <textarea id="justTrasc" class="form-control-idc" rows="3" placeholder="¿A quién beneficia? ¿Qué impacto social, cultural, económico o ambiental tiene?"></textarea>
               </div>
               <div class="col-md-6">
-                <label class="form-label-idc">Magnitud</label>
-                <textarea id="justMagn" class="form-control-idc" rows="3" placeholder="¿Qué tan grande o urgente es el problema?"></textarea>
+                <label for="justMagn" class="form-label-idc">Magnitud</label>
+                <textarea id="justMagn" class="form-control-idc" rows="3" placeholder="¿Qué tan grande o urgente es el problema? Incluya datos estadísticos citados."></textarea>
               </div>
               <div class="col-md-6">
-                <label class="form-label-idc">Vulnerabilidad</label>
-                <textarea id="justVuln" class="form-control-idc" rows="3" placeholder="¿Se resuelve desde el programa de estudios?"></textarea>
+                <label for="justVuln" class="form-label-idc">Vulnerabilidad</label>
+                <textarea id="justVuln" class="form-control-idc" rows="3" placeholder="¿Es posible resolverlo desde las competencias del programa?"></textarea>
               </div>
               <div class="col-md-6">
-                <label class="form-label-idc">Factibilidad</label>
-                <textarea id="justFact" class="form-control-idc" rows="3" placeholder="¿Con qué recursos cuenta el equipo?"></textarea>
+                <label for="justFact" class="form-label-idc">Factibilidad</label>
+                <textarea id="justFact" class="form-control-idc" rows="3" placeholder="¿Con qué recursos cuenta? Laboratorio, software, proveedores, presupuesto, asesoría."></textarea>
               </div>
             </div>
           </div>
 
           <!-- 7. Descripción técnica -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">7</span>Descripción técnica</div>
-            <label class="form-label-idc">Contenido y resultados esperados <span class="req">*</span></label>
-            <textarea id="descripTec" class="form-control-idc" rows="5" maxlength="2500" required placeholder="Resuma el contenido y los resultados esperados del proyecto. Máximo 300 palabras, redactado en tiempo futuro."></textarea>
+            <div class="form-step-label"><span class="step-num">7</span>Descripción técnica<button type="button" class="help-btn" data-help="descripcion" aria-label="Ayuda: Descripción técnica" title="¿Qué debo escribir aquí?">?</button></div>
+            <label for="descripTec" class="form-label-idc">Contenido y resultados esperados <span class="req">*</span></label>
+            <textarea id="descripTec" class="form-control-idc" rows="5" maxlength="2500" required placeholder="Máximo 300 palabras, en tiempo futuro: (a) tipo de proyecto, (b) metodología o proceso de diseño, (c) fases de trabajo, (d) herramientas y técnicas, (e) entregables esperados."></textarea>
             <div class="form-counter" id="counterDescrip">0 / 300 palabras</div>
           </div>
 
           <!-- 8. Cronograma -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">8</span>Cronograma de actividades</div>
-            <label class="form-label-idc">Resumen del cronograma del proyecto</label>
-            <textarea id="cronograma" class="form-control-idc" rows="3" placeholder="Indique las fases principales y su duración estimada. Se adjuntará Diagrama de Gantt como Apéndice A."></textarea>
+            <div class="form-step-label"><span class="step-num">8</span>Cronograma de actividades<button type="button" class="help-btn" data-help="cronograma" aria-label="Ayuda: Cronograma" title="¿Qué debo escribir aquí?">?</button></div>
+            <label for="cronograma" class="form-label-idc">Fases del cronograma (una por línea)</label>
+            <textarea id="cronograma" class="form-control-idc" rows="3" placeholder="Fase 1 – Diagnóstico y levantamiento del espacio (semanas 1–3)&#10;Fase 2 – ...&#10;El diagrama de Gantt completo va como Anexo A."></textarea>
           </div>
 
           <!-- 9. Presupuesto y recursos -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">9</span>Presupuesto, medios y materiales</div>
-            <label class="form-label-idc">Recursos del proyecto</label>
-            <textarea id="presupuesto" class="form-control-idc" rows="3" placeholder="Aportes financieros, laboratorios, equipos y otros recursos."></textarea>
+            <div class="form-step-label"><span class="step-num">9</span>Presupuesto, medios y materiales<button type="button" class="help-btn" data-help="presupuesto" aria-label="Ayuda: Presupuesto" title="¿Qué debo escribir aquí?">?</button></div>
+            <label for="presupuesto" class="form-label-idc">Partidas del presupuesto (una por línea)</label>
+            <textarea id="presupuesto" class="form-control-idc" rows="3" placeholder="Categoría – S/ monto&#10;Ej.: Licencias de software de modelado – S/ 300.00&#10;Contingencias (10 %) – S/ 110.00"></textarea>
           </div>
 
           <!-- 10. Referencias -->
           <div class="mb-4">
-            <div class="form-step-label"><span class="step-num">10</span>Referencias bibliográficas</div>
-            <label class="form-label-idc">Referencias en formato APA, 7.ª edición (una por línea)</label>
-            <textarea id="referencias" class="form-control-idc" rows="5" placeholder="Apellido, A. (año). Título en cursiva. Editorial.&#10;Apellido, B., y Apellido, C. (año). Título del artículo. Revista, vol(núm), pp."></textarea>
+            <div class="form-step-label"><span class="step-num">10</span>Referencias bibliográficas<button type="button" class="help-btn" data-help="referencias" aria-label="Ayuda: Referencias bibliográficas" title="¿Qué debo escribir aquí?">?</button></div>
+            <label for="referencias" class="form-label-idc">Referencias en formato ISO 690:2021 (una por línea, en orden alfabético, mínimo 5)</label>
+            <textarea id="referencias" class="form-control-idc" rows="5" placeholder="Ching, F. D. K. (2015). Interior design illustrated (3rd ed.). Hoboken, NJ: John Wiley &amp; Sons.&#10;Panero, J., y Zelnik, M. (1996). Las dimensiones humanas en los espacios interiores: Estándares antropométricos. Barcelona: Gustavo Gili."></textarea>
+            <div class="form-counter" id="counterRefs">0 / mínimo 5 referencias</div>
             <div style="margin-top:.75rem;padding:.75rem 1rem;background:#eaf4ff;border:1px solid #aed4f5;border-radius:8px;font-size:.85rem;line-height:1.5;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0072b9" stroke-width="2" style="vertical-align:middle;margin-right:.35rem;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              <strong style="color:#005a99;">Construir citas APA 7.ª ed.:</strong>
-              <a href="https://mario55666.github.io/REGLA_IA_2026/" target="_blank" rel="noopener" style="color:#009c9d;font-weight:600;text-decoration:underline;">Generador de referencias APA ↗</a>
-              &mdash; cree cada referencia en el generador y péguela aquí, una por línea.
+              <strong style="color:#005a99;">Construir referencias ISO 690:2021:</strong>
+              <a href="https://uinvestigacion-idc.github.io/JUI_Decla_IA2026/" target="_blank" rel="noopener" style="color:#009c9d;font-weight:600;text-decoration:underline;">Guía institucional ISO 690 e IA generativa ↗</a>
+              &mdash; las fuentes tienen como máximo 5 años de antigüedad, salvo clásicos de la disciplina.
             </div>
           </div>
 
+
+          <!-- 11. Nivel AIAS -->
+          <div class="mb-4">
+            <div class="form-step-label"><span class="step-num">11</span>Nivel de uso de IA generativa (AIAS)<button type="button" class="help-btn" data-help="aias" aria-label="Ayuda: Nivel de uso de IA" title="¿Qué debo escribir aquí?">?</button></div>
+            <label for="nivelAIAS" class="form-label-idc">Nivel AIAS autorizado <span class="req">*</span></label>
+            <select id="nivelAIAS" class="form-control-idc" required>
+              <option value="">Seleccione el nivel autorizado por el asesor y la Coordinación</option>
+              <option value="Nivel 1 · Sin IA">Nivel 1 · Sin IA</option>
+              <option value="Nivel 2 · Planificación asistida">Nivel 2 · Planificación asistida</option>
+              <option value="Nivel 3 · Finalización asistida">Nivel 3 · Finalización asistida</option>
+              <option value="Nivel 4 · IA completa">Nivel 4 · IA completa</option>
+            </select>
+            <div class="form-help-tip">En el TAP se permite hasta el nivel 4. El nivel 5 no está habilitado por defecto para titulación.</div>
+          </div>
 
           <!-- Destinatario -->
           <div class="mb-4" style="background:var(--beige); border:1px solid var(--naranja); border-radius:12px; padding:1rem 1.5rem;">
@@ -2392,7 +2678,8 @@ h1,h2,h3,h4,h5,h6,.display-font{
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--naranja)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               <strong style="color:var(--azul-dark);">Destinatario del formulario</strong>
             </div>
-            <p style="margin:0; font-size:.85rem; color:var(--gris);">Este formulario será enviado a la <strong>Coordinación del Programa de Estudios de Diseño de Interiores</strong>, atención: <strong>Dis. María Quintana </strong>(<a href="interioresjefatura@idc.edu.pe" target="new">interioresjefatura@idc.edu.pe)</a></div>.</p>
+            <p style="margin:0; font-size:.85rem; color:var(--gris);">El Plan preliminar se presenta a la <strong>Coordinación del Programa de Estudios de Diseño de Interiores</strong>, atención: <strong>Dis. María Quintana</strong> (<a href="mailto:interioresjefatura@idc.edu.pe">interioresjefatura@idc.edu.pe</a>), después de la revisión del docente asesor.</p>
+          </div>
          
 
           <!-- Botón generar -->
@@ -2432,6 +2719,23 @@ h1,h2,h3,h4,h5,h6,.display-font{
   </div>
 </section>
 
+<!-- ===== VENTANA DE AYUDA DEL FORMULARIO ===== -->
+<dialog class="help-dialog" id="helpDialog" aria-labelledby="helpTitle">
+  <div class="help-dialog-head">
+    <div>
+      <p class="help-dialog-ref" id="helpRef"></p>
+      <h3 class="help-dialog-title" id="helpTitle"></h3>
+    </div>
+    <button type="button" class="help-dialog-close" id="helpClose" aria-label="Cerrar ayuda">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="help-dialog-body" id="helpBody"></div>
+  <div class="help-dialog-foot">
+    <button type="button" class="help-dialog-ok" id="helpOk">Entendido</button>
+  </div>
+</dialog>
+
 <!-- ===== FOOTER ===== -->
 <footer class="footer-idc" role="contentinfo">
   <div class="container">
@@ -2448,8 +2752,8 @@ h1,h2,h3,h4,h5,h6,.display-font{
       </div>
       <div class="firma">
         <div class="firma-rol">Marco normativo</div>
-        <div class="firma-nombre" style="font-size:.9rem;">Memorando Múltiple Nº 05/JUI/IDC/2025-II</div>
-        <p class="firma-cargo">Ley Nº 30512 · D.S. Nº 010-2017-MINEDU · APA 7</p>
+        <div class="firma-nombre" style="font-size:.9rem;">Manual del TAP · Diseño de Interiores · 2026</div>
+        <p class="firma-cargo">Ley N.° 30512 · RVM N.° 049-2022-MINEDU · ISO 690:2021</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -2475,7 +2779,7 @@ h1,h2,h3,h4,h5,h6,.display-font{
 
 <script>
 /* ================================================================
-   PLAN PAP · DISEÑO DE INTERIORES · IDC
+   PLAN TAP · DISEÑO DE INTERIORES · IDC
    Lógica completa: UX, validación, generación Word, PWA
    ================================================================ */
 
@@ -2488,7 +2792,7 @@ window.addEventListener('scroll', () => {
   scrollProgress.style.width = sc + '%';
 }, {passive: true});
 
-/* ---------- Tarjetas apéndices: soporte teclado/click ---------- */
+/* ---------- Tarjetas de anexos: soporte teclado/click ---------- */
 document.querySelectorAll('.apend-card').forEach(card => {
   card.addEventListener('click', () => card.classList.toggle('flipped'));
   card.addEventListener('keydown', (e) => {
@@ -2551,7 +2855,7 @@ const colorIDC = {
 /* ---------- INTEGRANTES (gestión dinámica) ---------- */
 const integWrap = document.getElementById('integrantesWrap');
 const btnAddInt = document.getElementById('btnAddInt');
-const MAX_INTEGRANTES = 4;
+const MAX_INTEGRANTES = 2; // RVM N.° 049-2022-MINEDU, num. 15.2.1: máximo dos egresados
 let integranteCount = 0;
 
 function buildIntegrante(idx){
@@ -2630,6 +2934,14 @@ descEl.addEventListener('input', () => {
   counterDesc.classList.toggle('warn', n > 300);
 });
 
+const refsEl = document.getElementById('referencias');
+const counterRefs = document.getElementById('counterRefs');
+refsEl.addEventListener('input', () => {
+  const n = refsEl.value.split('\n').filter(l => l.trim()).length;
+  counterRefs.textContent = `${n} / mínimo 5 referencias`;
+  counterRefs.classList.toggle('warn', n > 0 && n < 5);
+});
+
 /* ---------- VALIDACIÓN PROSPECTIVA (verbos en futuro) ---------- */
 const verbosPasado = /\b(diseñ[óé]|implement[óé]|valid[óé]|elabor[óé]|propus[oe]|desarroll[óé]|construy[óé]|analiz[óé]|identif[ii]c[óé]|evalu[óé])\b/i;
 const objGeneralEl = document.getElementById('objGeneral');
@@ -2637,10 +2949,10 @@ const tipFuturo = document.getElementById('tipObjFuturo');
 objGeneralEl.addEventListener('input', () => {
   if(verbosPasado.test(objGeneralEl.value)){
     tipFuturo.classList.add('warn');
-    tipFuturo.textContent = 'Detectamos verbos en tiempo pasado. El Plan se redacta en prospectiva: usa formas como diseñará, implementará, propondrá.';
+    tipFuturo.textContent = 'Se detectaron verbos en tiempo pasado. El Plan anticipa lo que se ejecutará: use verbos en infinitivo (diseñar, proponer, validar).';
   } else {
     tipFuturo.classList.remove('warn');
-    tipFuturo.textContent = 'El Plan se redacta en tiempo futuro o prospectivo: usa verbos como se diseñará, se implementará, se validará.';
+    tipFuturo.textContent = 'Redacte en tiempo prospectivo con verbo en infinitivo (diseñar, proponer, validar). Evite verbos en pasado: el Plan anticipa lo que se ejecutará.';
   }
 });
 
@@ -2921,6 +3233,7 @@ function buildDocument(d){
   var lineaCod=linea[0]   ||'';
   var lineaNom=linea[1]   ||'';
   var linTrans=d.lineaTrans||'';
+  var nivelAIAS=d.nivelAIAS||'';
   var body='';
 
   /* ── helpers locales ─────────────────────────────────────────────── */
@@ -3045,16 +3358,16 @@ function buildDocument(d){
     +'<w:t>“DISEÑO Y COMUNICACIÓN”</w:t></w:r></w:p>';
 
   body+=pEmpty(480,0);
-  // "PLAN DEL PROYECTO..." title (bold, 1A5276, sz=32)
+  // "PLAN DEL TRABAJO..." title (bold, 1A5276, sz=32)
   body+='<w:p><w:pPr><w:spacing w:before="0" w:after="160" w:line="360" w:lineRule="auto"/>'
     +'<w:jc w:val="center"/><w:ind w:firstLine="0"/></w:pPr>'
     +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="1A5276"/>'
     +'<w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr>'
-    +'<w:t>PLAN DEL PROYECTO DE APLICACIÓN PROFESIONAL</w:t></w:r></w:p>';
+    +'<w:t>PLAN DEL TRABAJO DE APLICACIÓN PROFESIONAL</w:t></w:r></w:p>';
 
   // Title box (shaded D6EAF8)
   var titleTxt=(d.titulo&&d.titulo.trim())?d.titulo.trim()
-    :'[Ingrese el título del trabajo. Máximo 25 palabras. Debe incluir: tema, especificidad, lugar y temporalidad. Ejemplo: Diseño de un espacio interior con criterios sostenibles para una microempresa comercial en el distrito de Miraflores, Lima, 2026.]';
+    :'[Ingrese el título del trabajo. Máximo 25 palabras. Estructura: verbo de acción + objeto + línea temática + lugar + año. Ejemplo: Diseñar el interior de una cafetería con materiales reciclados y estrategias de iluminación natural para reducir el consumo energético en Barranco, Lima, durante el 2026.]';
   body+=wBox(titleTxt,'D6EAF8',isPh(d.titulo));
 
   // Program + line
@@ -3078,7 +3391,8 @@ function buildDocument(d){
 
   // Asesor & location
   body+=pEmpty(60,0);
-  body+=pcLabelVal('Asesor: ',asesor,null,22);
+  body+=pcLabelVal('Docente asesor: ',asesor,null,22);
+  body+=pcLabelVal('Nivel de uso de IA (AIAS): ',nivelAIAS||'[Nivel 1, 2, 3 o 4]',null,22);
   body+=pEmpty(120,0);
   body+='<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="360" w:lineRule="auto"/>'
     +'<w:jc w:val="center"/><w:ind w:firstLine="0"/></w:pPr>'
@@ -3094,13 +3408,13 @@ function buildDocument(d){
     +'<w:jc w:val="center"/><w:ind w:firstLine="0"/></w:pPr>'
     +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="1A5276"/>'
     +'<w:sz w:val="28"/><w:szCs w:val="28"/></w:rPr>'
-    +'<w:t>PLAN DEL PROYECTO DE APLICACIÓN PROFESIONAL</w:t></w:r></w:p>';
+    +'<w:t>PLAN DEL TRABAJO DE APLICACIÓN PROFESIONAL</w:t></w:r></w:p>';
 
   // Nota institucional (shaded box)
-  body+=wBox('Nota institucional:  El Plan del PAP (también denominado perfil) es el documento '
-    +'previo a la ejecución del Proyecto de Aplicación Profesional. Debe ser aprobado por la '
-    +'Jefatura de Investigación antes del inicio del trabajo de campo o diseño. '
-    +'Máximo 12 páginas (sin contar apéndices).','D6EAF8',false);
+  body+=wBox('Nota institucional:  Este archivo es un informe preliminar (borrador estructurado del Plan del TAP), '
+    +'no la versión definitiva del Trabajo de Aplicación Profesional. No debe presentarse como Plan final sin: '
+    +'(1) la confirmación de la Coordinación Académica del Programa y (2) la ampliación y aprobación del docente asesor. '
+    +'El Plan aprobado habilita el trabajo de campo, el levantamiento del espacio o el desarrollo de la propuesta de diseño.','D6EAF8',false);
 
   body+=pEmpty(120,0);
   body+=pEmpty(0,0);
@@ -3108,9 +3422,9 @@ function buildDocument(d){
   /* ── SECCIÓN 1 ─────────────────────────────────────────────────── */
   body+=sec('1','Título del trabajo');
   body+=pPara(d.titulo,
-    '[Redacte el título del trabajo con un máximo de 25 palabras. Incluya: tema, especificidad, lugar y temporalidad. Estructura: verbo de acción + objeto + línea temática + lugar + año. Ejemplo: Diseño de un espacio interior con criterios sostenibles para una microempresa comercial en el distrito de Miraflores, Lima, 2026.]',
+    '[Redacte el título del trabajo con un máximo de 25 palabras. Estructura: verbo de acción + objeto + línea temática + lugar + año. Ejemplo: Proponer un sistema domótico de control de iluminación y climatización para una vivienda unifamiliar inteligente en Surco, Lima, durante el 2026.]',
     'both',0,120,709);
-  body+=pNota('Nota:','El título no excede las 25 palabras e incluye tema, especificidad, lugar y temporalidad.');
+  body+=pNota('Nota:','El título no excede las 25 palabras e incluye verbo, objeto (tipología del espacio), línea, lugar y año.');
 
   /* ── SECCIÓN 2 ─────────────────────────────────────────────────── */
   body+=sec('2','Programa de estudios');
@@ -3133,13 +3447,14 @@ function buildDocument(d){
   ];
   body+=wTable(['N.°','N.° de matrícula','Apellidos y nombres','Teléfono','Correo electrónico'],
     integRows,'1A5276','D6EAF8',[0,1,3]);
-  body+=pInline('Asesor / Tutor responsable:',asesor,null,60);
+  body+=pInline('Docente asesor:',asesor,null,60);
+  body+=pNota('Nota:','Trabajo individual o en pareja del mismo programa, hasta un máximo de dos egresados (RVM N.° 049-2022-MINEDU, numeral 15.2.1).');
 
   /* ── SECCIÓN 4 ─────────────────────────────────────────────────── */
   body+=sec('4','Formulación del problema');
   body+=sub('4.1','Problema general');
   body+=pPara(d.probGeneral,
-    '[Redacte la pregunta central del proyecto en términos concretos, explícitos y claros, estableciendo los límites del trabajo. Ejemplo: ¿De qué manera el diseño de un espacio interior con criterios sostenibles puede mejorar la calidad de vida de los usuarios de una microempresa comercial en el distrito de Miraflores, Lima, durante el año 2026?]',
+    '[Redacte la pregunta central en términos específicos, sin ambigüedades y alineada con una carencia real del sector o del espacio intervenido. Ejemplo (DI-L4): ¿De qué manera el rediseño accesible del interior de una biblioteca pública puede mejorar la autonomía de desplazamiento y el confort de personas con movilidad reducida en el distrito de Miraflores, Lima, durante el 2026?]',
     'both',0,120,709);
   body+=sub('4.2','Problemas específicos');
   body+=pBulletBlock(d.probEspec,'PE',[
@@ -3152,12 +3467,12 @@ function buildDocument(d){
   body+=sec('5','Objetivos');
   // Verb reference table
   body+=wTable(
-    ['Nivel cognitivo','Verbos sugeridos (Guía PAP 2026)'],
-    [['Conocimiento','Identificar, Describir, Enumerar, Registrar, Reconocer'],
-     ['Comprensión','Explicar, Interpretar, Relacionar, Comparar, Organizar'],
-     ['Aplicación','Diseñar, Ejecutar, Construir, Programar, Desarrollar'],
-     ['Análisis','Analizar, Clasificar, Diferenciar, Descomponer, Desglosar'],
-     ['Síntesis','Proponer, Formular, Integrar, Planear, Sintetizar']
+    ['Nivel cognitivo','Verbos sugeridos','Uso en Diseño de Interiores'],
+    [['Recordar','Identificar, describir, enumerar','Levantamiento del espacio, benchmarking de referentes'],
+     ['Comprender','Explicar, interpretar, comparar','Análisis de flujos, estudio del usuario y sus necesidades'],
+     ['Aplicar','Diseñar, desarrollar, ejecutar, modelar','Zonificación, distribución, modelado 3D, especificación de materiales'],
+     ['Analizar','Analizar, clasificar, descomponer','Análisis de confort lumínico y acústico, desglose de presupuesto'],
+     ['Crear','Proponer, formular, integrar, planear','Propuesta proyectual integral, plan de ejecución de obra']
     ],'1A5276','D6EAF8',[0]);
   body+=sub('5.1','Objetivo general');
   body+=pPara(d.objGeneral,
@@ -3169,22 +3484,23 @@ function buildDocument(d){
     '[Redacte el objetivo específico 2 usando un verbo en infinitivo. Debe incluir acción, objeto, contexto y criterio de éxito medible.]',
     '[Redacte el objetivo específico 3 usando un verbo en infinitivo. Debe incluir acción, objeto, contexto y criterio de éxito medible.]'
   ]);
+  body+=pNota('Regla de coherencia:','El objetivo general corresponde al problema general y cada objetivo específico a un problema específico.');
 
   /* ── SECCIÓN 6 ─────────────────────────────────────────────────── */
   body+=sec('6','Justificación');
   body+=pInline('Trascendencia:',d.justTrasc,
-    '[Explique el impacto a largo plazo del proyecto. ¿Por qué es importante para la comunidad, el sector creativo-cultural o la economía naranja peruana?]');
+    '[¿A quién beneficia? ¿Qué impacto social, cultural, económico o ambiental tiene? Ejemplo: el rediseño accesible amplía el derecho al uso del espacio público de personas con discapacidad.]');
   body+=pInline('Magnitud:',d.justMagn,
-    '[Describa la dimensión del problema con datos estadísticos o evidencia empírica. ¿Cuántas personas o espacios se ven afectados?]');
+    '[¿Qué tan grande o urgente es el problema? Use datos estadísticos verificables y citados en ISO 690.]');
   body+=pInline('Vulnerabilidad:',d.justVuln,
-    '[Señale por qué el problema requiere atención inmediata. ¿Qué ocurriría si no se interviene a tiempo?]');
+    '[¿Es posible resolverlo desde las competencias del programa? Ejemplo: ergonomía, distribución espacial, normativa de accesibilidad y modelado.]');
   body+=pInline('Factibilidad:',d.justFact,
-    '[Justifique la viabilidad del proyecto: recursos humanos, materiales, tecnológicos, financieros y temporales disponibles para su ejecución.]');
+    '[¿Con qué recursos cuenta? Ejemplo: laboratorio de maquetas del IDC, software de modelado, proveedores de materiales, presupuesto estimado y asesoría especializada.]');
 
   /* ── SECCIÓN 7 ─────────────────────────────────────────────────── */
   body+=sec('7','Descripción técnica');
   body+=pPara(d.descripTec,
-    '[Redacte aquí la descripción técnica del proyecto en un máximo de 300 palabras. Incluya: (a) tipo de proyecto o investigación, (b) metodología o proceso de diseño, (c) fases de trabajo, (d) herramientas o técnicas utilizadas, y (e) entregables esperados: planos, renders, maqueta, manual de implementación, etc.]',
+    '[Redacte aquí la descripción técnica en un máximo de 300 palabras. Incluya: (a) tipo de proyecto, (b) metodología o proceso de diseño, (c) fases de trabajo, (d) herramientas y técnicas (levantamiento, zonificación, modelado, renderizado) y (e) entregables esperados: planos, renders, memoria descriptiva, maqueta.]',
     'both',0,120,709);
   body+=pNota('Nota:','Máximo 300 palabras. Se recomienda especificar las fases del proceso y los entregables concretos.');
 
@@ -3207,15 +3523,15 @@ function buildDocument(d){
       'Diagnóstico y levantamiento técnico del espacio',
       'Elaboración del marco teórico y conceptual',
       'Desarrollo de la propuesta conceptual',
-      'Planimetía técnica y renders 3D',
+      'Planimetría técnica y renders 3D',
       'Validación con usuarios y especialistas',
       'Redacción y revisión del Informe Final',
-      'Sustentación del Proyecto'];
+      'Sustentación del TAP'];
     cronoRows=defActs.map(function(a,i){return[String(i+1),a,'','','','',''];});
   }
   body+=wTable(['N.°','Actividad / Fase','Mes 1','Mes 2','Mes 3','Mes 4','Mes 5'],
     cronoRows,'1A5276','D6EAF8',[0,2,3,4,5,6]);
-  body+=pNota('Nota:','Marque con ■ los meses en que se ejecuta cada actividad. Adjuntar Gantt completo como apéndice si es extenso.');
+  body+=pNota('Nota:','Marque con ■ los meses en que se ejecuta cada actividad. Fases realistas para un semestre académico; el Gantt completo se adjunta como Anexo A.');
 
   /* ── SECCIÓN 9 ─────────────────────────────────────────────────── */
   body+=sec('9','Presupuesto, medios y materiales');
@@ -3241,10 +3557,11 @@ function buildDocument(d){
   // TOTAL row
   body+=wTable(['','','TOTAL','S/ ___________'],
     [],'1A5276','FFFFFF',[2,3]);
+  body+=pNota('Nota:','Presupuesto desagregado por categorías, con una partida de contingencias del 10 %. El presupuesto valorizado se adjunta como Anexo B del Informe Final.');
 
   /* ── SECCIÓN 10 ────────────────────────────────────────────────── */
   body+=sec('10','Referencias bibliográficas');
-  body+=pPara('En orden alfabético según Normas APA 7.ª edición. Antigüedad máxima de cinco (5) años salvo clásicos de la disciplina.',
+  body+=pPara('En orden alfabético según la norma ISO 690:2021. Mínimo cinco (5) fuentes en el Plan. Antigüedad máxima de cinco (5) años salvo clásicos de la disciplina.',
     '','both',0,120,0);
 
   if(d.referencias&&d.referencias.trim()){
@@ -3256,9 +3573,9 @@ function buildDocument(d){
     });
   } else {
     var refPhs=[
-      '[Apellido, A. A. (Año). Título de la obra en cursiva. Editorial.]',
-      '[Apellido, A. A., & Apellido, B. B. (Año). Título del artículo. Nombre de la Revista en Cursiva, vol(núm), pp–pp. https://doi.org/xxxxx]',
-      '[Apellido, A. A. (Año). Título de la tesis [Tesis de grado, Nombre de la institución]. Repositorio institucional.]'
+      '[Apellido, A. A. (Año). Título de la obra en cursiva (ed.). Ciudad: Editorial.]',
+      '[Apellido, A. A., y Apellido, B. B. (Año). Título del artículo. Nombre de la Revista en Cursiva, vol(núm), pp–pp. https://doi.org/xxxxx]',
+      '[Organización. (Año). Título del documento. Ciudad: Editorial o Autor.]'
     ];
     refPhs.forEach(function(r){
       body+='<w:p><w:pPr><w:ind w:left="708" w:hanging="708"/><w:jc w:val="both"/>'
@@ -3268,6 +3585,12 @@ function buildDocument(d){
         +'<w:t xml:space="preserve">'+escXML(r)+'</w:t></w:r></w:p>';
     });
   }
+
+  /* ── SECCIÓN 11 ────────────────────────────────────────────────── */
+  body+=sec('11','Nivel de uso de IA generativa (AIAS)');
+  body+=pInline('Nivel AIAS autorizado:',nivelAIAS,
+    '[Nivel 1 Sin IA / 2 Planificación asistida / 3 Finalización asistida / 4 IA completa — autorizado por el asesor y la Coordinación del Programa]');
+  body+=pNota('Nota:','En el TAP se permite hasta el nivel 4. Si se usa IA en cualquier fase, el Informe Final incluye la Declaración de uso de IA tras la portada, la citación ISO 690 de cada salida y la bitácora de prompts en anexo.');
 
   /* ── FIRMAS ─────────────────────────────────────────────────────── */
   body+=pEmpty(720,0);
@@ -3280,7 +3603,7 @@ function buildDocument(d){
   var nom1=d.integrantes.length>0?(d.integrantes[0].nom||'[Apellidos y nombres]'):'[Apellidos y nombres]';
   var nom2=d.integrantes.length>1?(d.integrantes[1].nom||'[Apellidos y nombres]'):'[Apellidos y nombres]';
   body+=wTable(
-    ['Integrante 1','Integrante 2','Asesor / Tutor'],
+    ['Integrante 1','Integrante 2','Docente asesor'],
     [['','',''],
      [nom1+' DNI: ___________',nom2+' DNI: ___________',asesor+' DNI: ___________']
     ],'1A5276','D6EAF8',[0,1,2]);
@@ -3295,13 +3618,13 @@ function buildDocument(d){
     +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="4A235A"/>'
     +'<w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr>'
     +'<w:t>INSTITUTO DE EDUCACIÓN SUPERIOR PÚBLICO “DISEÑO Y COMUNICACIÓN”</w:t></w:r></w:p>\n'
-    // Line 2: "PLAN DEL PROYECTO..." subtitle (centered, bold gray 808080, sz=16)
+    // Line 2: "PLAN DEL TRABAJO..." subtitle (centered, bold gray 808080, sz=16)
     +'<w:p><w:pPr><w:jc w:val="center"/><w:ind w:firstLine="0"/>'
     +'<w:spacing w:before="0" w:after="0" w:line="360" w:lineRule="auto"/>'
     +'<w:pBdr><w:bottom w:val="single" w:sz="4" w:space="1" w:color="1A5276"/></w:pBdr></w:pPr>'
     +'<w:r><w:rPr>'+RFonts+'<w:b/><w:color w:val="808080"/>'
     +'<w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr>'
-    +'<w:t>PLAN DEL PROYECTO DE APLICACIÓN PROFESIONAL</w:t></w:r></w:p>\n'
+    +'<w:t>PLAN DEL TRABAJO DE APLICACIÓN PROFESIONAL</w:t></w:r></w:p>\n'
     +'</w:hdr>';
 
   /* ══ FOOTER XML ═════════════════════════════════════════════════════════════ */
@@ -3407,16 +3730,16 @@ function cargarDemo(){
   document.querySelector('.int-mat').value = '2026001';
   document.querySelector('.int-nom').value = 'Felipe Ochoa Guerrero';
   document.querySelector('.int-tel').value = '999-123-456';
-  document.querySelector('.int-mail').value = 'felipea@ucuenca.edu.ec';
+  document.querySelector('.int-mail').value = 'felipe.ochoa@idc.edu.pe';
   document.getElementById('asesorNombre').value = 'Mg. Mario Quiroz';
-  document.getElementById('titulo').value = 'Diseñar una propuesta de interiorismo para espacios comerciales integrando fundamentos de marca, contexto y procesos de diseño.';
-  document.getElementById('semestre').value = '2026-I';
+  document.getElementById('titulo').value = 'Diseñar el interior de una cafetería con criterios de ergonomía, confort lumínico y biofilia en San Isidro, Lima, durante el 2026.';
+  document.getElementById('semestre').value = '2025-II';
   document.getElementById('anio').value = '2026';
   document.getElementById('lineaDI').value = 'DI-L5|Bienestar y ergonomía en espacios comerciales';
   document.getElementById('lineaTrans').value = 'Emprendimiento y gestión de proyectos creativos';
-  document.getElementById('probGeneral').value = '¿Cómo integrar el diseño interior en espacios comerciales considerando la marca, el contexto y los procesos de diseño?';
+  document.getElementById('probGeneral').value = '¿De qué manera el rediseño interior de una cafetería con criterios de ergonomía, confort lumínico y biofilia puede mejorar la experiencia del usuario en San Isidro, Lima, durante el 2026?';
   document.getElementById('probEspecificos').value = '- ¿Cómo vincular la identidad de marca con el diseño de interiores para generar experiencias coherentes?\n- ¿Cuáles son los procesos de diseño aplicables a espacios comerciales según su contexto geográfico y cultural?\n- ¿Qué estrategias de diseño interior fortalecen la percepción de marca en el consumidor?';
-  document.getElementById('objGeneral').value = 'Se diseñará un modelo de interiorismo para espacios comerciales que integre fundamentos de marca, contexto y procesos de diseño.';
+  document.getElementById('objGeneral').value = 'Diseñar el interior de una cafetería con criterios de ergonomía, confort lumínico y biofilia para mejorar la experiencia del usuario en San Isidro, Lima, durante el 2026.';
   document.getElementById('objEspecificos').value = '- Diseñar un sistema de interiorismo que refleje los valores y la identidad visual de la marca.\n- Identificar los procesos de diseño aplicables según el contexto geográfico y cultural del espacio comercial.\n- Proponer estrategias de diseño interior que potencien la experiencia del usuario y la percepción de marca.';
   document.getElementById('justTrasc').value = 'El proyecto tiene trascendencia social y económica porque permite a emprendedores y marcas consolidadas fortalecer su identidad a través del diseño interior, generando experiencias memorables para los usuarios y diferenciándose competitivamente en el mercado.';
   document.getElementById('justMagn').value = 'La magnitud del problema es considerable, dado que el sector retail y de servicios en el Perú está en crecimiento y cada vez más empresas buscan diferenciarse a través de experiencias de marca integrales, donde el diseño interior juega un rol fundamental en la percepción del consumidor.';
@@ -3424,8 +3747,10 @@ function cargarDemo(){
   document.getElementById('justFact').value = 'El proyecto es factible porque se cuenta con las herramientas metodológicas del diseño de interiores, acceso a casos de estudio locales e internacionales, y el apoyo académico del programa de estudios para desarrollar propuestas aplicables a contextos reales.';
   document.getElementById('descripTec').value = 'El proyecto parte de una revisión documental de casos de diseño interior comercial y branding espacial a nivel local e internacional. Se aplicará la metodología de diseño centrado en el usuario (UCD) combinada con herramientas de diagnóstico de marca (brand audit) y análisis de contexto (site analysis). Los entregables incluyen: (a) diagnóstico de marca y contexto, (b) propuesta conceptual de interiorismo, (c) desarrollo técnico de mobiliario, iluminación y materialidad, (d) renders o maqueta digital del espacio propuesto, y (e) manual de implementación del diseño interior.';
   document.getElementById('cronograma').value = 'Fase 1 – Diagnóstico y recopilación de información (semanas 1–4)\nFase 2 – Análisis de marca y contexto (semanas 5–8)\nFase 3 – Diseño conceptual y propuesta (semanas 9–14)\nFase 4 – Desarrollo técnico y entregables (semanas 15–20)';
-  document.getElementById('presupuesto').value = 'Software de diseño y renderizado (SketchUp, V-Ray, Adobe Illustrator) – S/ 450.00\nMateriales de maqueta y prototipado (cartulina, MDF, acetato) – S/ 280.00\nTransporte y visitas de campo a locales comerciales – S/ 200.00\nImpresión de planos, láminas y manual de implementación – S/ 170.00\nTOTAL APROXIMADO – S/ 1,100.00';
-  document.getElementById('referencias').value = 'Hernández, R., Fernández, C., & Baptista, P. (2014). Metodología de la investigación (6ª ed.). McGraw-Hill Interamericana.\nPallasmaa, J. (2012). La mano que piensa: Existencia e imagen en arquitectura. Gustavo Gili.\nNorma APA. (2020). Publication Manual of the American Psychological Association (7th ed.). American Psychological Association.';
+  document.getElementById('presupuesto').value = 'Software de diseño y renderizado (SketchUp, V-Ray) – S/ 450.00\nMateriales de maqueta y prototipado – S/ 280.00\nTransporte y visitas de campo – S/ 200.00\nImpresión de planos y láminas A3 – S/ 170.00\nContingencias (10 %) – S/ 110.00';
+  document.getElementById('referencias').value = 'Ching, F. D. K. (2015). Interior design illustrated (3rd ed.). Hoboken, NJ: John Wiley & Sons.\nCreswell, J. W., y Creswell, J. D. (2018). Research design: Qualitative, quantitative, and mixed methods approaches (5th ed.). Thousand Oaks, CA: SAGE Publications.\nHernández-Sampieri, R., y Mendoza, C. P. (2018). Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta. México, D.F.: McGraw-Hill Interamericana.\nKotler, P., y Keller, K. L. (2016). Marketing management (15th ed.). Boston, MA: Pearson Education.\nPanero, J., y Zelnik, M. (1996). Las dimensiones humanas en los espacios interiores: Estándares antropométricos. Barcelona: Gustavo Gili.';
+  document.getElementById('nivelAIAS').value = 'Nivel 2 · Planificación asistida';
+  ['titulo','descripTec','referencias','objGeneral'].forEach(id => document.getElementById(id).dispatchEvent(new Event('input', {bubbles:true})));
   const btn = document.getElementById('btnDemo');
   const origText = btn.innerHTML;
   btn.innerHTML = '<span class="btn-generar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> ¡Datos DEMO cargados!';
@@ -3453,6 +3778,7 @@ function buildPlantilla(){
     cronograma:'',
     presupuesto:'',
     referencias:'',
+    nivelAIAS:'',
     integrantes:[
       {mat:'[N.° matrícula]',nom:'[Apellidos y nombres completos del autor 1]',tel:'[N.° celular]',mail:'[correo1@idc.edu.pe]'},
       {mat:'[N.° matrícula]',nom:'[Apellidos y nombres completos del autor 2]',tel:'[N.° celular]',mail:'[correo2@idc.edu.pe]'}
@@ -3465,10 +3791,10 @@ function generarPlantilla(){
     var blob=new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
     var url=URL.createObjectURL(blob);
     var a=document.createElement('a');
-    a.href=url; a.download='Plan_PAP_Diseño_Interiores_PLANTILLA_2026.docx';
+    a.href=url; a.download='Plan_TAP_Diseño_Interiores_PLANTILLA_2026.docx';
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     setTimeout(function(){URL.revokeObjectURL(url);},1000);
-    showToast('Plantilla descargada: Plan_PAP_Diseño_Interiores_PLANTILLA_2026.docx','success');
+    showToast('Plantilla descargada: Plan_TAP_Diseño_Interiores_PLANTILLA_2026.docx','success');
   }catch(err){
     alert('Error al generar la plantilla: '+(err.message||err));
     console.error(err);
@@ -3487,7 +3813,7 @@ document.getElementById('planForm').addEventListener('submit', function(e) {
   // Limpia estados aria-invalid previos
   document.querySelectorAll('[aria-invalid="true"]').forEach(el => el.removeAttribute('aria-invalid'));
 
-  var required = ['titulo', 'semestre', 'lineaDI', 'lineaTrans', 'probGeneral', 'objGeneral', 'descripTec'];
+  var required = ['titulo', 'semestre', 'lineaDI', 'lineaTrans', 'asesorNombre', 'probGeneral', 'objGeneral', 'descripTec', 'nivelAIAS'];
   var faltantes = [];
   required.forEach(function(id) {
     var el = document.getElementById(id);
@@ -3522,6 +3848,7 @@ document.getElementById('planForm').addEventListener('submit', function(e) {
     cronograma: document.getElementById('cronograma').value.trim(),
     presupuesto: document.getElementById('presupuesto').value.trim(),
     referencias: document.getElementById('referencias').value.trim(),
+    nivelAIAS: document.getElementById('nivelAIAS').value,
     resumen: '',
     introduccion: '',
     marcoTeorico: '',
@@ -3558,7 +3885,7 @@ document.getElementById('planForm').addEventListener('submit', function(e) {
       var a = document.createElement('a');
       a.href = url;
       var primerApellido = (data.integrantes[0].nom || 'Estudiante').split(/[, ]+/)[0];
-      var nombreArchivo = 'Plan_PAP_' + (data.lineaDI[0] || 'DI') + '_' + primerApellido + '.docx';
+      var nombreArchivo = 'Plan_TAP_' + (data.lineaDI[0] || 'DI') + '_' + primerApellido + '.docx';
       a.download = nombreArchivo;
       document.body.appendChild(a);
       a.click();
@@ -3584,9 +3911,9 @@ document.getElementById('planForm').addEventListener('submit', function(e) {
 });
 /* ---------- PWA: MANIFEST DINÁMICO ---------- */
 const manifest = {
-  name: 'Plan PAP · Diseño de Interiores · IDC',
-  short_name: 'Plan PAP DI',
-  description: 'Generador del Plan del Proyecto de Aplicación Profesional - Programa Diseño de Interiores - IDC',
+  name: 'Plan TAP · Diseño de Interiores · IDC',
+  short_name: 'Plan TAP DI',
+  description: 'Generador del Plan del Trabajo de Aplicación Profesional - Programa Diseño de Interiores - IDC',
   start_url: window.location.pathname,
   scope: window.location.pathname,
   display: 'standalone',
@@ -3596,13 +3923,13 @@ const manifest = {
   lang: 'es',
   icons: [
     {
-      src: 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="32" fill="#009c9d"/><text x="96" y="125" font-family="Arial Black" font-size="84" font-weight="900" fill="white" text-anchor="middle">PAP</text></svg>`),
+      src: 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="32" fill="#009c9d"/><text x="96" y="125" font-family="Arial Black" font-size="84" font-weight="900" fill="white" text-anchor="middle">TAP</text></svg>`),
       sizes: '192x192',
       type: 'image/svg+xml',
       purpose: 'any maskable'
     },
     {
-      src: 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="80" fill="#009c9d"/><text x="256" y="330" font-family="Arial Black" font-size="220" font-weight="900" fill="white" text-anchor="middle">PAP</text></svg>`),
+      src: 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="80" fill="#009c9d"/><text x="256" y="330" font-family="Arial Black" font-size="220" font-weight="900" fill="white" text-anchor="middle">TAP</text></svg>`),
       sizes: '512x512',
       type: 'image/svg+xml',
       purpose: 'any maskable'
@@ -3618,7 +3945,7 @@ document.head.appendChild(manLink);
 
 /* ---------- PWA: SERVICE WORKER (inline blob) ---------- */
 const swCode = `
-const CACHE_VERSION = 'idc-pap-di-v1';
+const CACHE_VERSION = 'idc-tap-di-v2';
 const ASSETS = [
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
 
@@ -3696,10 +4023,10 @@ if(window.Chart && document.getElementById('chartCapitulos')){
   new Chart(document.getElementById('chartCapitulos'), {
     type: 'doughnut',
     data: {
-      labels: ['Cap. I — Problema', 'Cap. II — Marco teórico', 'Cap. III — Desarrollo', 'Cap. IV — Resultados', 'Cap. V — Conclusiones'],
+      labels: ['Introducción', 'Cap. I — Problema', 'Cap. II — Marco teórico', 'Cap. III — Gestión de proyecto', 'Cap. IV — Diseño y ejecución', 'Conclusiones y recom.'],
       datasets: [{
-        data: [5, 15, 15, 8, 7],
-        backgroundColor: [colorIDC.turquesa, colorIDC.azul, colorIDC.naranja, colorIDC.azulDark, '#555553'],
+        data: [5, 10, 12, 14, 10, 4],
+        backgroundColor: [colorIDC.turquesa, colorIDC.azul, colorIDC.naranja, colorIDC.azulDark, '#555553', '#006b6c'],
         borderColor: '#fff',
         borderWidth: 3
       }]
@@ -3712,7 +4039,7 @@ if(window.Chart && document.getElementById('chartCapitulos')){
         tooltip: {
           backgroundColor: '#0a1929', padding: 12, cornerRadius: 8,
           titleFont: {family: 'Bricolage Grotesque', weight: '700'},
-          callbacks: {label: ctx => ' ' + ctx.parsed + ' hojas aproximadas'}
+          callbacks: {label: ctx => ' ' + ctx.parsed + ' hojas (valor medio del rango)'}
         }
       },
       cutout: '60%'
@@ -3721,52 +4048,39 @@ if(window.Chart && document.getElementById('chartCapitulos')){
 }
 
 if(window.Chart && document.getElementById('chartCalidad')){
-  // PAP estándar vs PAP de excelencia (radar)
+  // Rango mínimo–máximo de hojas por componente (Manual TAP, sección 3.1)
   new Chart(document.getElementById('chartCalidad'), {
-    type: 'radar',
+    type: 'bar',
     data: {
-      labels: ['Originalidad', 'Rigor metodológico', 'Innovación tecnológica', 'Sostenibilidad', 'Validación de expertos', 'Impacto sectorial'],
-      datasets: [
-        {
-          label: 'PAP estándar',
-          data: [55, 60, 45, 50, 55, 50],
-          backgroundColor: 'rgba(85,85,83,.15)',
-          borderColor: '#555553',
-          borderWidth: 2,
-          pointBackgroundColor: '#555553',
-          pointRadius: 4
-        },
-        {
-          label: 'PAP de excelencia',
-          data: [92, 95, 90, 88, 94, 89],
-          backgroundColor: 'rgba(0,156,157,.18)',
-          borderColor: colorIDC.turquesa,
-          borderWidth: 2.5,
-          pointBackgroundColor: colorIDC.naranja,
-          pointRadius: 4.5
-        }
-      ]
+      labels: ['Introducción', 'Cap. I', 'Cap. II', 'Cap. III', 'Cap. IV', 'Conclusiones'],
+      datasets: [{
+        label: 'Hojas sugeridas (mín.–máx.)',
+        data: [[4, 6], [8, 12], [10, 14], [12, 16], [8, 12], [3, 5]],
+        backgroundColor: [colorIDC.turquesa, colorIDC.azul, colorIDC.naranja, colorIDC.azulDark, '#555553', '#006b6c'],
+        borderRadius: 6,
+        borderSkipped: false
+      }]
     },
     options: {
+      indexAxis: 'y',
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: {position: 'bottom', labels: {font: chartFont, padding: 14, boxWidth: 14, color: colorIDC.gris}},
-        tooltip: {backgroundColor: '#0a1929', padding: 12, cornerRadius: 8}
+        legend: {display: false},
+        tooltip: {
+          backgroundColor: '#0a1929', padding: 12, cornerRadius: 8,
+          callbacks: {label: ctx => ' ' + ctx.raw[0] + '–' + ctx.raw[1] + ' hojas'}
+        }
       },
       scales: {
-        r: {
-          suggestedMin: 0,
-          suggestedMax: 100,
-          ticks: {display: false, stepSize: 20},
-          pointLabels: {font: chartFont, color: colorIDC.azulDark},
-          grid: {color: 'rgba(0,0,0,.08)'},
-          angleLines: {color: 'rgba(0,0,0,.06)'}
-        }
+        x: {min: 0, max: 18, ticks: {font: chartFont, color: colorIDC.gris, stepSize: 2}, grid: {color: 'rgba(0,0,0,.06)'},
+            title: {display: true, text: 'Hojas', font: chartFont, color: colorIDC.gris}},
+        y: {ticks: {font: chartFont, color: colorIDC.azulDark}, grid: {display: false}}
       }
     }
   });
 }
+
 
 /* ================================================================
    TOAST: mensajes flotantes no intrusivos
@@ -3859,6 +4173,8 @@ function restaurarBorrador(){
     // Disparar contadores
     tituloEl.dispatchEvent(new Event('input'));
     descEl.dispatchEvent(new Event('input'));
+    refsEl.dispatchEvent(new Event('input'));
+    btnAddInt.disabled = integranteCount >= MAX_INTEGRANTES;
     const fechaTxt = new Date(fecha).toLocaleString('es-PE', {dateStyle:'short', timeStyle:'short'});
     showToast('Borrador restaurado del ' + fechaTxt, 'success');
   } catch(e){ /* silencioso */ }
@@ -3888,11 +4204,256 @@ function limpiarFormulario(){
   // Reset contadores
   tituloEl.dispatchEvent(new Event('input'));
   descEl.dispatchEvent(new Event('input'));
+  refsEl.dispatchEvent(new Event('input'));
   // Borrar borrador
   try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
   showToast('Formulario limpiado', 'warn');
   formEl.scrollIntoView({behavior: 'smooth', block: 'start'});
 }
+
+/* ================================================================
+   VENTANAS DE AYUDA DEL FORMULARIO (contenido del Manual TAP 2026)
+   ================================================================ */
+const HELP = {
+  general: {
+    ref: 'Manual TAP · Orientación preliminar y Parte I',
+    titulo: 'Cómo llenar el formulario',
+    html: `<h4>Qué produce este generador</h4>
+      <p>Un informe preliminar del Plan del TAP en Word. Ordena la información del equipo en la estructura exigida por el IDC y sirve como base editable para la asesoría.</p>
+      <h4>Flujo de aprobación</h4>
+      <ul>
+        <li>Confirmación de la Coordinación Académica del Programa (requisitos formales de admisibilidad).</li>
+        <li>Ampliación y profundización con el docente asesor.</li>
+        <li>Levantamiento de observaciones, verificación del checklist (sección 13) y aprobación institucional.</li>
+      </ul>
+      <h4>Campos obligatorios</h4>
+      <p>Los campos marcados con <strong>*</strong> son obligatorios. Cada botón <strong>?</strong> explica qué información ingresar en esa sección.</p>`
+  },
+  titulo: {
+    ref: 'Manual TAP · 1.1',
+    titulo: 'Título del trabajo',
+    html: `<h4>Qué debe ingresar</h4>
+      <p>Un título claro y preciso que indique el ámbito (Diseño de Interiores), la tipología del espacio, la tecnología o estrategia aplicada y el contexto geográfico y temporal.</p>
+      <h4>Reglas</h4>
+      <ul>
+        <li>Máximo 25 palabras (el contador lo verifica).</li>
+        <li>Estructura: verbo de acción + objeto + línea temática + lugar + año.</li>
+      </ul>
+      <h4>Ejemplos</h4>
+      <p class="help-ej">DI-L1: Diseñar el interior de una cafetería con materiales reciclados y estrategias de iluminación natural para reducir el consumo energético en Barranco, Lima, durante el 2026.</p>
+      <p class="help-ej mt-2">DI-L3: Proponer un sistema domótico de control de iluminación y climatización para una vivienda unifamiliar inteligente en Surco, Lima, durante el 2026.</p>`
+  },
+  programa: {
+    ref: 'Manual TAP · 1.2',
+    titulo: 'Programa de estudios',
+    html: `<h4>Qué debe ingresar</h4>
+      <ul>
+        <li><strong>Carrera:</strong> bloqueada con el valor «Diseño de Interiores».</li>
+        <li><strong>Semestre o año de egreso:</strong> por ejemplo, 2025-II.</li>
+        <li><strong>Año de presentación:</strong> año en que presenta el Plan.</li>
+      </ul>`
+  },
+  lineaDI: {
+    ref: 'Manual TAP · 1.3 y Parte V',
+    titulo: 'Línea de investigación DI',
+    html: `<h4>Qué debe seleccionar</h4>
+      <p>Una de las cinco líneas DI. La línea condiciona los objetivos, la metodología y los entregables.</p>
+      <h4>Producto principal esperado</h4>
+      <ul>
+        <li><strong>DI-L1 Sostenibilidad:</strong> proyecto de interior sostenible + memoria de materiales + análisis de impacto ambiental.</li>
+        <li><strong>DI-L2 Espacios reducidos:</strong> propuesta de optimización espacial + planos + mobiliario multifuncional.</li>
+        <li><strong>DI-L3 Tecnología y domótica:</strong> propuesta de espacio inteligente + esquema de automatización + test de usabilidad.</li>
+        <li><strong>DI-L4 Inclusivo y accesible:</strong> proyecto accesible + estudio ergonómico + validación con usuarios reales.</li>
+        <li><strong>DI-L5 Bienestar y ergonomía:</strong> diseño de espacio comercial + análisis de flujo y confort + evaluación de experiencia.</li>
+      </ul>
+      <p>El detalle de cada línea está en la sección 09 · Fichas DI.</p>`
+  },
+  lineaTrans: {
+    ref: 'Manual TAP · 1.3',
+    titulo: 'Línea transversal institucional',
+    html: `<h4>Qué debe seleccionar</h4>
+      <p>La línea transversal principal a la que se adscribe el trabajo. El Manual exige al menos una (IDC, 2025).</p>
+      <p>Si el trabajo se adscribe a más de una línea transversal, agréguelas en el documento Word durante la ampliación con el asesor.</p>`
+  },
+  integrantes: {
+    ref: 'Manual TAP · 1.2 · RVM N.° 049-2022-MINEDU',
+    titulo: 'Integrantes',
+    html: `<h4>Qué debe ingresar por cada integrante</h4>
+      <ul>
+        <li>N.° de matrícula.</li>
+        <li>Nombres y apellidos completos.</li>
+        <li>Teléfono y correo electrónico institucional.</li>
+      </ul>
+      <h4>Regla</h4>
+      <p>Trabajo individual o en pareja del mismo programa, hasta un máximo de <strong>dos egresados</strong> (numeral 15.2.1). El formulario no permite agregar un tercer integrante.</p>`
+  },
+  asesor: {
+    ref: 'Manual TAP · 1.2',
+    titulo: 'Docente asesor',
+    html: `<h4>Qué debe ingresar</h4>
+      <p>Nombres y apellidos completos del docente asesor.</p>
+      <h4>Requisitos</h4>
+      <ul>
+        <li>Docente del programa o especialista validado por la Coordinación.</li>
+        <li>Se recomienda que domine la línea de investigación seleccionada.</li>
+        <li>Lo designa la Coordinación del Área Académica de Diseño de Interiores.</li>
+      </ul>`
+  },
+  problema: {
+    ref: 'Manual TAP · 1.4',
+    titulo: 'Formulación del problema',
+    html: `<h4>Qué debe ingresar</h4>
+      <ul>
+        <li><strong>Problema general:</strong> la pregunta central del trabajo.</li>
+        <li><strong>Problemas específicos:</strong> preguntas desagregadas del general, una por línea.</li>
+      </ul>
+      <h4>Reglas</h4>
+      <ul>
+        <li>Redactados como preguntas de investigación.</li>
+        <li>Específicos, sin ambigüedades y alineados con una carencia real del sector o del espacio intervenido.</li>
+      </ul>
+      <h4>Ejemplo (DI-L4)</h4>
+      <p class="help-ej">¿De qué manera el rediseño accesible del interior de una biblioteca pública puede mejorar la autonomía de desplazamiento y el confort de personas con movilidad reducida en el distrito de Miraflores, Lima, durante el 2026?</p>`
+  },
+  objetivos: {
+    ref: 'Manual TAP · 1.5',
+    titulo: 'Objetivos',
+    html: `<h4>Qué debe ingresar</h4>
+      <ul>
+        <li><strong>Objetivo general:</strong> responde al problema general.</li>
+        <li><strong>Objetivos específicos:</strong> uno por cada problema específico, uno por línea.</li>
+      </ul>
+      <h4>Reglas</h4>
+      <ul>
+        <li>Verbo en infinitivo y tiempo prospectivo (futuro). Evite verbos en pasado.</li>
+        <li>Verbos según Bloom: identificar, explicar, diseñar, modelar, analizar, proponer, planear (sección 06).</li>
+        <li>Regla de coherencia: el desajuste entre problema y objetivo es la observación más frecuente de la Coordinación.</li>
+      </ul>
+      <h4>Ejemplo</h4>
+      <p class="help-ej">Diseñar el interior accesible de una biblioteca pública para mejorar la autonomía de desplazamiento de personas con movilidad reducida en Miraflores, Lima, durante el 2026.</p>`
+  },
+  justificacion: {
+    ref: 'Manual TAP · 1.6',
+    titulo: 'Justificación del proyecto',
+    html: `<h4>Qué debe ingresar en cada criterio</h4>
+      <ul>
+        <li><strong>Trascendencia:</strong> a quién beneficia y qué impacto social, cultural, económico o ambiental tiene.</li>
+        <li><strong>Magnitud:</strong> tamaño o urgencia del problema, con datos estadísticos verificables citados en ISO 690.</li>
+        <li><strong>Vulnerabilidad:</strong> si es posible resolverlo con las competencias del programa (ergonomía, distribución espacial, normativa de accesibilidad, modelado).</li>
+        <li><strong>Factibilidad:</strong> recursos disponibles (laboratorio de maquetas del IDC, software de modelado, proveedores, presupuesto, asesoría).</li>
+      </ul>
+      <p>Los cuatro criterios son la rúbrica del asesor y de la Jefatura de Investigación.</p>`
+  },
+  descripcion: {
+    ref: 'Manual TAP · 1.7',
+    titulo: 'Descripción técnica',
+    html: `<h4>Qué debe ingresar</h4>
+      <ul>
+        <li>(a) Tipo de proyecto.</li>
+        <li>(b) Metodología o proceso de diseño.</li>
+        <li>(c) Fases de trabajo.</li>
+        <li>(d) Herramientas y técnicas: levantamiento, zonificación, modelado, renderizado.</li>
+        <li>(e) Entregables esperados: planos, renders, memoria descriptiva, maqueta.</li>
+      </ul>
+      <h4>Reglas</h4>
+      <p>Máximo 300 palabras, redactado en tiempo futuro. El contador indica el total.</p>`
+  },
+  cronograma: {
+    ref: 'Manual TAP · 1.7 y 7.1',
+    titulo: 'Cronograma de actividades',
+    html: `<h4>Qué debe ingresar</h4>
+      <p>Las fases del trabajo, una por línea, con su duración estimada. Cada línea se convierte en una fila del diagrama de Gantt del documento Word.</p>
+      <h4>Reglas</h4>
+      <ul>
+        <li>Fases realistas para un semestre académico.</li>
+        <li>El diagrama de Gantt completo se adjunta como Anexo A.</li>
+      </ul>
+      <p class="help-ej">Fase 1 – Diagnóstico y levantamiento del espacio (semanas 1–3)</p>`
+  },
+  presupuesto: {
+    ref: 'Manual TAP · 1.7 y 7.1',
+    titulo: 'Presupuesto, medios y materiales',
+    html: `<h4>Qué debe ingresar</h4>
+      <p>Una partida por línea con el formato <strong>Categoría – S/ monto</strong>. El generador separa la categoría y el monto en la tabla del documento Word.</p>
+      <h4>Reglas</h4>
+      <ul>
+        <li>Presupuesto desagregado por categorías.</li>
+        <li>Incluir una partida de contingencias del 10 %.</li>
+      </ul>
+      <p class="help-ej">Licencias de software de modelado – S/ 300.00<br>Contingencias (10 %) – S/ 110.00</p>`
+  },
+  referencias: {
+    ref: 'Manual TAP · 1.8 y Parte VI',
+    titulo: 'Referencias bibliográficas',
+    html: `<h4>Qué debe ingresar</h4>
+      <p>Una referencia por línea, en orden alfabético, según la norma ISO 690:2021.</p>
+      <h4>Reglas</h4>
+      <ul>
+        <li>Mínimo 5 fuentes en el Plan (15 en el Informe Final).</li>
+        <li>Antigüedad máxima de 5 años, salvo clásicos de la disciplina.</li>
+        <li>Toda cita en el texto tiene una entrada en la lista, y toda referencia listada se cita al menos una vez.</li>
+        <li>Toda referencia sugerida por IA se verifica en su fuente original.</li>
+      </ul>
+      <h4>Ejemplo</h4>
+      <p class="help-ej">Ching, F. D. K. (2015). Interior design illustrated (3rd ed.). Hoboken, NJ: John Wiley &amp; Sons.</p>`
+  },
+  aias: {
+    ref: 'Manual TAP · Parte IV, 4.1',
+    titulo: 'Nivel de uso de IA generativa (AIAS)',
+    html: `<h4>Qué debe seleccionar</h4>
+      <p>El nivel autorizado por el asesor y la Coordinación del Programa antes de iniciar el trabajo. Consta en el Plan y en la portada del Informe.</p>
+      <ul>
+        <li><strong>1 · Sin IA:</strong> ejercicios presenciales supervisados.</li>
+        <li><strong>2 · Planificación asistida:</strong> IA solo en ideación previa (estilos, referencias, paletas).</li>
+        <li><strong>3 · Finalización asistida:</strong> IA apoya redacción o análisis con criterio propio.</li>
+        <li><strong>4 · IA completa:</strong> uso en varias fases; el equipo demuestra las decisiones proyectuales propias.</li>
+      </ul>
+      <p>El nivel 5 no está habilitado por defecto para titulación. Si usa IA, el Informe Final incluye la Declaración de uso de IA y la bitácora de prompts.</p>`
+  }
+};
+
+const helpDialog = document.getElementById('helpDialog');
+function abrirAyuda(key){
+  const h = HELP[key];
+  if(!h || !helpDialog) return;
+  document.getElementById('helpRef').textContent = h.ref;
+  document.getElementById('helpTitle').textContent = h.titulo;
+  document.getElementById('helpBody').innerHTML = h.html;
+  document.getElementById('helpBody').scrollTop = 0;
+  if(typeof helpDialog.showModal === 'function') helpDialog.showModal();
+  else helpDialog.setAttribute('open', '');
+}
+function cerrarAyuda(){
+  if(!helpDialog) return;
+  if(typeof helpDialog.close === 'function') helpDialog.close();
+  else helpDialog.removeAttribute('open');
+}
+document.querySelectorAll('.help-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    abrirAyuda(btn.dataset.help);
+  });
+});
+document.getElementById('helpClose').addEventListener('click', cerrarAyuda);
+document.getElementById('helpOk').addEventListener('click', cerrarAyuda);
+// Clic fuera del cuadro (en el fondo) cierra la ayuda
+helpDialog.addEventListener('click', (e) => {
+  const r = helpDialog.getBoundingClientRect();
+  const fuera = e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+  if(fuera && e.target === helpDialog) cerrarAyuda();
+});
+
+/* ---------- CHECKLIST DEL PLAN: estado por navegador ---------- */
+const CHECK_KEY = 'idc_tap_di_checklist_v1';
+const checkInputs = document.querySelectorAll('#checklistPlan input[type="checkbox"]');
+try {
+  const saved = JSON.parse(localStorage.getItem(CHECK_KEY) || '[]');
+  checkInputs.forEach((cb, i) => { cb.checked = !!saved[i]; });
+} catch(e){ /* sin almacenamiento */ }
+checkInputs.forEach(cb => cb.addEventListener('change', () => {
+  try { localStorage.setItem(CHECK_KEY, JSON.stringify([...checkInputs].map(c => c.checked))); } catch(e){}
+}));
 
 /* Restaurar borrador al cargar (si existe) */
 window.addEventListener('load', () => {

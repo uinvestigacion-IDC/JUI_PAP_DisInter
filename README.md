@@ -1,57 +1,136 @@
-# 📐 Plan PAP · Diseño de Interiores · IDC
+# Generador del Plan del TAP · Diseño de Interiores · IDC
 
-![Versión](https://img.shields.io/badge/Versión-1.0.0-009c9d)
-![HTML5](https://img.shields.io/badge/HTML5-Semántico-E34F26?logo=html5)
-![CSS3](https://img.shields.io/badge/CSS3-Animaciones-1572B6?logo=css3)
-![JavaScript](https://img.shields.io/badge/JS-Vanilla-F7DF1E?logo=javascript)
+Aplicación web de un solo archivo (`index.html`) que genera en formato Word (.docx) el borrador del Plan del Trabajo de Aplicación Profesional (TAP) del Programa de Estudios de Diseño de Interiores del Instituto de Educación Superior Público "Diseño y Comunicación" (IDC), Lima, Perú.
 
-Interfaz web interactiva y accesible diseñada para la estructuración, formulación y generación del **Plan del Proyecto de Aplicación Profesional (PAP)** del programa de Diseño de Interiores del **Instituto de Diseño y Comunicación (IDC)**.
+El contenido sigue el *Manual para el desarrollo del Trabajo de Aplicación Profesional (TAP) – Diseño de Interiores* (Jefatura de la Unidad de Investigación, IDC, 2026).
 
----
+Dirección de publicación indicada en el Manual: <https://uinvestigacion-idc.github.io/JUI_PAP_DisInter/>
 
-## 🎯 Objetivo del Proyecto
+## Naturaleza del documento generado
 
-Proporcionar a los estudiantes de Diseño de Interiores una herramienta digital intuitiva y profesional que guíe paso a paso la elaboración de su proyecto final. El sistema aplica principios de diseño centrado en el usuario asegurando una experiencia fluida y fuertemente educativa.
+El archivo .docx es un informe preliminar del Plan, no la versión definitiva. Según la Orientación preliminar del Manual, no se presenta como Plan final sin:
 
----
+1. la confirmación de la Coordinación Académica del Programa, y
+2. la ampliación y aprobación del docente asesor.
 
-## ✨ Características Principales
+Los límites del generador (300 palabras en la descripción técnica, 5 referencias como mínimo) son parámetros de admisibilidad del sistema, no estándares de suficiencia académica.
 
-* **Formulario Dinámico:** Gestión dinámica de integrantes (hasta múltiples autores) y campos requeridos para la correcta formulación del plan.
-* **Autoguardado Local:** Función de guardado automático (borrador) integrada con el `localStorage` del navegador.
-* **Diseño Accesible y Responsivo:** Diseño semántico y completamente adaptable a pantallas de móviles, tablets y escritorio.
-* **Estilos Visuales Avanzados:** 
-    * Tarjetas con efectos de refracción holográfica (`.param-card`).
-    * Componentes interactivos en 3D (*Flip cards*) para las secciones de apéndices.
-    * Botón de generación con animación de líquido envolvente.
-* **Gráficos Interactivos:** Integración con **Chart.js** para la visualización de métricas y datos de los proyectos.
-* **Soporte PWA (Progressive Web App):** Capacidad de instalación nativa en el dispositivo de los usuarios.
-* **Optimizado para Impresión:** Hoja de estilos de impresión (`@media print`) específicamente diseñada para limpiar la interfaz, esconder elementos interactivos (menús, botones) y permitir exportar en formato PDF de manera limpia y tipográficamente correcta.
+## Archivos
 
----
+| Archivo | Uso |
+|---|---|
+| `index.html` | Página completa: HTML, CSS y JavaScript en línea. |
+| `Logo_IDC.png` | Logotipo del formulario y del pie de página. |
+| `Logo_IDC - copia.jpg` | Logotipo del encabezado. |
+| `README.md` | Este documento. |
 
-## 🛠️ Tecnologías y Recursos Utilizados
+Los dos logotipos se referencian por ruta relativa y deben estar en la misma carpeta que `index.html`.
 
-* **Front-end:** HTML5, CSS3 (Custom Properties, Grid/Flexbox) y Vanilla JavaScript (ES6+).
-* **Frameworks/Librerías Auxiliares:** Bootstrap 5 (Base y utilidades).
-* **Visualización de Datos:** Chart.js.
-* **Tipografía Institucional:** *Bricolage Grotesque* (Títulos), *Manrope* (Lectura) y *JetBrains Mono* (Código).
-* **Paleta de Colores:** Turquesa IDC (`#009c9d`), Azul (`#0072b9`) y Naranja de acento (`#f3a100`).
+## Dependencias externas
 
----
+Se cargan desde CDN; no requieren instalación:
 
-## 🚀 Instalación y Despliegue
+- Bootstrap 5.3.3 (CSS y JS), desde `cdn.jsdelivr.net`.
+- Chart.js 4.4.4, desde `cdn.jsdelivr.net`.
+- Google Fonts: Bricolage Grotesque, Manrope y JetBrains Mono.
 
-Este proyecto no requiere de instalaciones complejas ni dependencias de backend, dado que se ejecuta 100% en el entorno del cliente web.
+La generación del .docx no usa bibliotecas externas: el archivo ZIP y el XML de Word se construyen en JavaScript dentro de `index.html`.
 
-1.  Descarga los archivos del repositorio o realiza un `git clone`.
-2.  Abre el archivo principal `index.html` en cualquier navegador web moderno (Google Chrome, Mozilla Firefox, Safari, Microsoft Edge).
-3.  *(Opcional)* Para testear el "Botón de instalación PWA" en un entorno seguro, sirve la carpeta a través de un servidor HTTP local (por ejemplo, con la extensión *Live Server* de Visual Studio Code o usando `npx serve`).
+## Publicación
 
----
+1. Copiar `index.html` y los dos logotipos en la raíz de un repositorio.
+2. En GitHub: Settings → Pages → Source: rama `main`, carpeta `/ (root)`.
+3. Abrir la URL que asigna GitHub Pages.
 
-## 👨‍🏫 Autoría
+Para uso local, basta con abrir `index.html` en un navegador. La instalación como aplicación (PWA) requiere servir la página por HTTPS.
 
-Desarrollado y estructurado por:
-**Mario Rafael Quiroz Martínez**
-*Docente y Especialista Técnico* Instituto de Diseño y Comunicación (IDC)
+## Secciones de la página
+
+| N.° | Sección | Fuente en el Manual |
+|---|---|---|
+| 01 | Presentación institucional: Plan e Informe, máximo dos egresados | Parte II, 2.1–2.2 |
+| 02 | Marco normativo: 17 normas | Base legal |
+| 03 | Seis líneas transversales institucionales | 1.3 |
+| 04 | Estructura oficial del Informe Final | 2.3 |
+| 05 | Once secciones del Plan | Parte I |
+| 06 | Verbos de Bloom por nivel cognitivo | 1.5 |
+| 07 | Cuatro criterios de justificación | 1.6 |
+| 08 | Plan frente a Informe y gráficos de extensión | 3.1 |
+| 09 | Fichas de las líneas DI-L1 a DI-L5 | 1.3, 2.5 y Parte V |
+| 10 | Formato ISO 690:2021 y jerarquía de encabezados | 6.3–6.4 |
+| 11 | Anexos A a J | 6.5 |
+| 12 | Niveles AIAS de uso de IA generativa | Parte IV, 4.1 |
+| 13 | Checklist del Plan | Parte VII, 7.1 |
+| 14 | Formulario generador del Plan | Parte I |
+
+## Formulario
+
+| Paso | Campo | Obligatorio | Regla aplicada |
+|---|---|---|---|
+| 1 | Título del trabajo | Sí | Contador de 25 palabras |
+| 2 | Programa, semestre o año de egreso, año de presentación | Semestre o año | Carrera bloqueada en "Diseño de Interiores" |
+| 2 | Línea de investigación DI | Sí | DI-L1 a DI-L5 |
+| 2 | Línea transversal | Sí | Una opción |
+| 3 | Integrantes | Al menos uno | Máximo 2 (RVM N.° 049-2022-MINEDU, num. 15.2.1) |
+| 3.5 | Docente asesor | Sí | — |
+| 4 | Problema general y problemas específicos | General | Uno por línea |
+| 5 | Objetivo general y objetivos específicos | General | Aviso si detecta verbos en pasado |
+| 6 | Trascendencia, magnitud, vulnerabilidad, factibilidad | No | — |
+| 7 | Descripción técnica | Sí | Contador de 300 palabras |
+| 8 | Cronograma | No | Cada línea se convierte en una fila del Gantt |
+| 9 | Presupuesto | No | Formato `Categoría – S/ monto`, una partida por línea |
+| 10 | Referencias ISO 690:2021 | No | Contador con mínimo de 5 |
+| 11 | Nivel AIAS de uso de IA | Sí | Niveles 1 a 4 |
+
+Cada paso tiene un botón `?` que abre una ventana de diálogo (`<dialog>`) con la sección del Manual, la información que se debe ingresar, las reglas y un ejemplo. La ventana se cierra con el botón "Entendido", con la ×, con la tecla Esc o con un clic fuera del cuadro.
+
+Botones del formulario:
+
+- Cargar datos de DEMO: rellena el formulario con un ejemplo de la línea DI-L5.
+- Generar documento en Word: valida los campos obligatorios y descarga `Plan_TAP_<línea>_<apellido>.docx`.
+- Solo la Plantilla (en blanco): descarga `Plan_TAP_Diseño_Interiores_PLANTILLA_2026.docx` con textos guía en gris.
+- Limpiar formulario: vacía los campos y borra el borrador guardado.
+
+## Documento Word generado
+
+- Portada: institución, título, programa, línea DI, línea transversal, autores, docente asesor, nivel AIAS, lugar y año.
+- Nota institucional sobre el carácter preliminar del documento.
+- Secciones 1 a 11 del Plan y tabla de firmas con DNI.
+- Formato: Times New Roman 12 pt, interlineado 1,5, texto justificado, sangría de primera línea de 1,25 cm.
+- Encabezado con el nombre de la institución y "PLAN DEL TRABAJO DE APLICACIÓN PROFESIONAL"; pie con número de página y nombre del programa.
+
+## Almacenamiento en el navegador
+
+| Clave de `localStorage` | Contenido |
+|---|---|
+| `idc_pap_di_borrador_v1` | Borrador del formulario, guardado 1 s después de cada cambio y borrado tras generar el Word. La clave conserva el prefijo `pap` para recuperar borradores de la versión anterior. |
+| `idc_tap_di_checklist_v1` | Estado de las casillas del checklist de la sección 13. |
+
+Los datos quedan solo en el navegador del usuario; la página no envía información a ningún servidor.
+
+## Mantenimiento
+
+Ubicación de los elementos editables dentro de `index.html`:
+
+| Elemento | Ubicación |
+|---|---|
+| Textos de las ventanas de ayuda | Objeto `HELP` en el bloque "VENTANAS DE AYUDA DEL FORMULARIO" |
+| Número máximo de integrantes | Constante `MAX_INTEGRANTES` |
+| Campos obligatorios | Arreglo `required` en el manejador `submit` del formulario |
+| Contenido del Word | Función `buildDocument(d)` |
+| Datos de demostración | Función `cargarDemo()` |
+| Datos de los gráficos | Bloques `chartCapitulos` y `chartCalidad` |
+| Versión de caché de la PWA | Constante `CACHE_VERSION` dentro de `swCode`; se incrementa en cada publicación para que los dispositivos instalados descarguen la versión nueva |
+
+## Recursos enlazados desde el formulario
+
+- Bibliometría IDC: <https://uinvestigacion-idc.github.io/JUI_BiblioIA/>
+- Guía institucional ISO 690, IA generativa y declaración de uso: <https://uinvestigacion-idc.github.io/JUI_Decla_IA2026/>
+- Gem de consultas sobre el documento: <https://gemini.google.com/gem/1wyIeb21RSLUuvMK1C3C3ANWQqd1w4pdq?usp=sharing>
+
+## Créditos
+
+- Coordinación del Programa de Estudios de Diseño de Interiores: Dis. María Quintana Vera Tudela.
+- Jefatura de la Unidad de Investigación: Mg. Mario Quiroz Martinez.
+
+Instituto de Educación Superior Público "Diseño y Comunicación", Lima, Perú, 2026.
